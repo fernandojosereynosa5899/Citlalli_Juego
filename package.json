@@ -1,0 +1,16 @@
+{
+  "name": "citlalli-perfume-arcade",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Sitio Web Oficial e Interactivo de CITLALLI ('El Aroma de los Dioses') con Salón Arcade Pixel Art Modular, Multijugador Simultáneo y Tabla de Récords",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "generate:assets": "python scripts/generate_pixel_assets.py"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  }
+}

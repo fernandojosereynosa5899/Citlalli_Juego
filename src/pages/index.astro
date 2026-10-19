@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import StorytellingSection from '../components/StorytellingSection.astro';
+import ProductAndOlfactory from '../components/ProductAndOlfactory.astro';
+import CampaignSection from '../components/CampaignSection.astro';
+import ArcadeSection from '../components/ArcadeSection.astro';
+---
+
+<Layout
+  title="CITLALLI — El Aroma de los Dioses | Eau de Parfum 50 ml & Salón Arcade Pixel Art"
+  description="Sitio Web Oficial e Interactivo de CITLALLI ('El Aroma de los Dioses' — 'El límite son las estrellas'). Descubre el storytelling de David en Hidalgo, las notas olfativas, la campaña del Jaguar Dorado y compite en el Salón Arcade Pixel Art de 4 Juegos con Multijugador Simultáneo y Certificados PNG."
+>
+  <!-- 1. Hero Imperial con Frasco Facetado y Atomizador Sensorial Interactivo -->
+  <HeroSection />
+
+  <!-- 2. Storytelling Oficial: David en Hidalgo y la Estrella llamada Citlalli -->
+  <StorytellingSection />
+
+  <!-- 3. Showcase del Producto (Envase, Terciopelo, Etiqueta, Pulso) + Pirámide Olfativa y Alquimia -->
+  <ProductAndOlfactory />
+
+  <!-- 4. Campaña Publicitaria: El Hombre Citlalli, Jaguar Dorado, GIF y Comerciales en Video -->
+  <CampaignSection />
+
+  <!-- 5. Salón Arcade Pixel Art (4 Juegos Modulares + Copa Citlalli + Multijugador + Récords PNG) -->
+  <ArcadeSection />
+
+  <!-- Coordinador Cliente del Gabinete Arcade, Audio Chiptune y Sistema Multijugador -->
+  <script src="../scripts/arcade-controller.js"></script>
+</Layout>

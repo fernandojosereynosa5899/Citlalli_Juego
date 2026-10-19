@@ -1,0 +1,725 @@
+---
+/**
+ * CITLALLI — HeroSection.astro
+ * Presentación Imperial de CITLALLI ("El Aroma de los Dioses") con Atomizador Sensorial Interactivo.
+ */
+---
+
+<section id="hero" class="hero-section">
+  <div class="hero-ambient-glow glow-gold"></div>
+  <div class="hero-ambient-glow glow-rosegold"></div>
+
+  <div class="section-container hero-grid">
+    <!-- Columna Izquierda: Narrativa de Alta Perfumería y Acciones -->
+    <div class="hero-copy">
+      <div class="hero-kicker-row">
+        <span class="section-kicker">
+          <span>✦</span> EAU DE PARFUM • ALTA PERFUMERÍA MEXICANA <span>✦</span>
+        </span>
+        <span class="hero-edition-pill">50 ML / 1.7 FL. OZ.</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-brand-main">CITLALLI</span>
+        <span class="hero-brand-sub">“El Aroma de los Dioses”</span>
+      </h1>
+
+      <p class="hero-slogan">
+        <span>★</span> “El límite son las estrellas” <span>★</span>
+      </p>
+
+      <p class="hero-description">
+        Nacido bajo el cielo nocturno de <strong>Hidalgo</strong>, donde las nubes susurran el
+        recuerdo de <em>Citlalli</em> y el misticismo del <strong>Jaguar Dorado</strong> despierta.
+        Una sinfonía olfativa de <strong>mandarina fresca, rosas rosadas, jazmín blanco, vainas de
+        vainilla pura y resina de ámbar dorado</strong> resguardada en cristal facetado con tapón
+        geométrico en oro rosa y dije <strong>QM</strong>.
+      </p>
+
+      <!-- Tarjeta Sensorial Dinámica que reacciona al Atomizador -->
+      <div class="sensory-note-banner" id="hero-sensory-banner">
+        <div class="sensory-icon" id="hero-sensory-icon">🧴</div>
+        <div class="sensory-text">
+          <span class="sensory-label">EXPERIENCIA OLFATIVA INTERACTIVA</span>
+          <p id="hero-sensory-quote">
+            Pulsa <strong>“Atomizar Citlalli”</strong> para liberar una bruma de oro rosa y descubrir
+            las notas sagradas del perfume.
+          </p>
+        </div>
+        <div class="sensory-counter">
+          <span id="hero-spray-count">0</span>
+          <small>rocíos</small>
+        </div>
+      </div>
+
+      <!-- Botones Principales de Acción -->
+      <div class="hero-cta-group">
+        <button type="button" id="hero-atomizer-btn" class="btn-luxury-primary">
+          <span class="btn-sparkle">✨</span>
+          <span>Atomizar Citlalli (Probar Esencia)</span>
+        </button>
+
+        <a href="#arcade-salon" class="btn-luxury-arcade">
+          <span>🎮</span>
+          <span>Entrar al Salón Arcade Pixel Art (4 Juegos + Multijugador)</span>
+        </a>
+      </div>
+
+      <!-- Píldoras de Atributos Clave -->
+      <div class="hero-pillars">
+        <div class="pillar-item">
+          <span class="pillar-icon">🍊</span>
+          <div>
+            <strong>Salida Vibrante</strong>
+            <small>Mandarina & Bergamota</small>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <span class="pillar-icon">🌹</span>
+          <div>
+            <strong>Corazón Floral</strong>
+            <small>Rosa Rosada & Jazmín</small>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <span class="pillar-icon">✨</span>
+          <div>
+            <strong>Fondo Místico</strong>
+            <small>Vainilla & Resina de Ámbar</small>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <span class="pillar-icon">🏆</span>
+          <div>
+            <strong>Copa Citlalli</strong>
+            <small>4 Juegos Encadenados</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Showcase Monumental del Frasco Facetado y Emblema Cósmico -->
+    <div class="hero-visual">
+      <div class="cosmic-pedestal" id="hero-bottle-pedestal">
+        <!-- Halo giratorio con el emblema cósmico de fondo -->
+        <div class="cosmic-halo-ring">
+          <img
+            src="/assets/brand/emblem_cosmic.png"
+            alt="Emblema Cósmico de 8 puntas Citlalli"
+            class="cosmic-emblem-backdrop"
+          />
+        </div>
+
+        <!-- Marco de Terciopelo y Oro con el Frasco Oficial -->
+        <div class="bottle-showcase-card" id="hero-bottle-card">
+          <div class="bottle-badge-top">
+            <span>✦ CRISTAL FACETADO</span>
+            <span>DIJE “QM” ORO ROSA ✦</span>
+          </div>
+
+          <div class="bottle-image-wrapper">
+            <img
+              src="/assets/brand/bottle.png"
+              alt="Frasco Oficial CITLALLI Eau de Parfum con tapón geométrico en oro rosa y dije QM"
+              class="hero-bottle-img"
+            />
+            <!-- Boquilla emisora de partículas para el atomizador -->
+            <div id="hero-nozzle-point" class="nozzle-point" title="Boquilla del Atomizador"></div>
+          </div>
+
+          <div class="bottle-caption-bar">
+            <div>
+              <span class="caption-title">CITLALLI EAU DE PARFUM</span>
+              <span class="caption-sub">Líquido Ámbar Melocotón • Terciopelo Azul Marino</span>
+            </div>
+            <button
+              type="button"
+              id="hero-bottle-spray-trigger"
+              class="bottle-mini-spray"
+              aria-label="Rocía desde el frasco"
+            >
+              💨 Rociar
+            </button>
+          </div>
+        </div>
+
+        <!-- Insignias Flotantes -->
+        <div class="floating-chip chip-top-left">
+          <span>🌌</span>
+          <div>
+            <strong>Origen: Hidalgo</strong>
+            <small>Destilación Artesanal</small>
+          </div>
+        </div>
+
+        <div class="floating-chip chip-bottom-right">
+          <span>🐆</span>
+          <div>
+            <strong>El Hombre Citlalli</strong>
+            <small>Fuerza & Elegancia Nocturna</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const atomizerBtn = document.getElementById('hero-atomizer-btn');
+    const miniSprayBtn = document.getElementById('hero-bottle-spray-trigger');
+    const bottleCard = document.getElementById('hero-bottle-card');
+    const nozzle = document.getElementById('hero-nozzle-point');
+    const quoteEl = document.getElementById('hero-sensory-quote');
+    const iconEl = document.getElementById('hero-sensory-icon');
+    const countEl = document.getElementById('hero-spray-count');
+    const bannerEl = document.getElementById('hero-sensory-banner');
+
+    let sprayCount = 0;
+    const notesCycle = [
+      {
+        icon: '🍊',
+        text: 'Salida Luminosa: La mandarina fresca y la bergamota abren una estela cítrica electrizante como el amanecer en Hidalgo.'
+      },
+      {
+        icon: '🌹',
+        text: 'Corazón de Terciopelo: Pétalos de rosas rosadas y jazmín blanco nocturno envuelven los sentidos con magnetismo puro.'
+      },
+      {
+        icon: '✨',
+        text: 'Fondo de los Dioses: Vainas de vainilla cálida y resina de ámbar dorado fijan la fragancia en tus puntos de pulso.'
+      },
+      {
+        icon: '🐆',
+        text: 'Espíritu Jaguar: Seguridad absoluta y elegancia nocturna. “El límite son las estrellas — El aroma de los dioses”.'
+      }
+    ];
+
+    function triggerHeroSpray() {
+      sprayCount += 1;
+      if (countEl) countEl.textContent = String(sprayCount);
+
+      let originX = window.innerWidth * 0.68;
+      let originY = window.innerHeight * 0.38;
+      if (nozzle) {
+        const rect = nozzle.getBoundingClientRect();
+        originX = rect.left + rect.width / 2;
+        originY = rect.top + rect.height / 2;
+      }
+
+      if (typeof window.triggerCitlalliAtomizer === 'function') {
+        window.triggerCitlalliAtomizer(originX, originY, true);
+      }
+
+      const note = notesCycle[(sprayCount - 1) % notesCycle.length];
+      if (quoteEl) quoteEl.textContent = note.text;
+      if (iconEl) iconEl.textContent = note.icon;
+
+      if (bannerEl) {
+        bannerEl.classList.remove('pulse-active');
+        void bannerEl.offsetWidth;
+        bannerEl.classList.add('pulse-active');
+      }
+
+      if (bottleCard) {
+        bottleCard.classList.add('spraying');
+        setTimeout(() => bottleCard.classList.remove('spraying'), 550);
+      }
+    }
+
+    if (atomizerBtn) atomizerBtn.addEventListener('click', triggerHeroSpray);
+    if (miniSprayBtn) miniSprayBtn.addEventListener('click', triggerHeroSpray);
+
+    // Efecto 3D sutil al mover el cursor sobre el pedestal del frasco
+    if (bottleCard) {
+      bottleCard.addEventListener('pointermove', (e) => {
+        const rect = bottleCard.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        bottleCard.style.transform = `perspective(900px) rotateY(${x * 9}deg) rotateX(${-y * 9}deg)`;
+      });
+      bottleCard.addEventListener('pointerleave', () => {
+        bottleCard.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)';
+      });
+    }
+  });
+</script>
+
+<style>
+  .hero-section {
+    position: relative;
+    padding: 4.5rem 0 5.5rem;
+    overflow: hidden;
+  }
+
+  .hero-ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-gold {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.22), transparent 70%);
+    top: -80px;
+    left: -120px;
+  }
+
+  .glow-rosegold {
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(224, 169, 139, 0.2), transparent 70%);
+    bottom: -100px;
+    right: -100px;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero-kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .hero-kicker-row .section-kicker {
+    margin-bottom: 0;
+  }
+
+  .hero-edition-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--gold-bright);
+    border: 1px solid rgba(255, 229, 127, 0.45);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 229, 127, 0.08);
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-brand-main {
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 6.2vw, 5.1rem);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    line-height: 1.02;
+    background: linear-gradient(
+      135deg,
+      #fff7d6 0%,
+      var(--gold-metallic) 45%,
+      var(--rose-gold) 85%,
+      #fff3b0 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 28px rgba(212, 175, 55, 0.28));
+  }
+
+  .hero-brand-sub {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--rose-gold);
+    margin-top: 0.25rem;
+  }
+
+  .hero-slogan {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 1.35rem;
+  }
+
+  .hero-description {
+    font-size: 1.04rem;
+    color: var(--cream-silk);
+    opacity: 0.92;
+    margin-bottom: 1.6rem;
+    max-width: 640px;
+  }
+
+  .sensory-note-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(16, 27, 56, 0.82);
+    border: 1px solid rgba(224, 169, 139, 0.45);
+    border-left: 4px solid var(--gold-metallic);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .sensory-note-banner.pulse-active {
+    box-shadow: 0 0 28px rgba(224, 169, 139, 0.45);
+    transform: scale(1.015);
+  }
+
+  .sensory-icon {
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.14);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .sensory-text {
+    flex: 1;
+  }
+
+  .sensory-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--rose-gold);
+    margin-bottom: 0.2rem;
+  }
+
+  .sensory-text p {
+    font-size: 0.9rem;
+    color: var(--cream-silk);
+    line-height: 1.45;
+  }
+
+  .sensory-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.9rem;
+    border-left: 1px solid rgba(212, 175, 55, 0.25);
+    min-width: 62px;
+  }
+
+  .sensory-counter span {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    line-height: 1;
+  }
+
+  .sensory-counter small {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-luxury-primary {
+    background: linear-gradient(135deg, var(--rose-gold) 0%, var(--gold-metallic) 100%);
+    color: var(--navy-deep);
+    border: none;
+    padding: 0.95rem 1.5rem;
+    border-radius: 14px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 10px 28px rgba(224, 169, 139, 0.35);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .btn-luxury-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(255, 229, 127, 0.55);
+  }
+
+  .btn-luxury-arcade {
+    background: rgba(16, 27, 56, 0.9);
+    color: var(--gold-bright);
+    border: 1.5px solid var(--gold-metallic);
+    text-decoration: none;
+    padding: 0.95rem 1.4rem;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.22s ease;
+  }
+
+  .btn-luxury-arcade:hover {
+    background: rgba(212, 175, 55, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.28);
+  }
+
+  .hero-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(10, 17, 36, 0.68);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    padding: 0.65rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .pillar-icon {
+    font-size: 1.35rem;
+  }
+
+  .pillar-item strong {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--cream-silk);
+  }
+
+  .pillar-item small {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  /* Visual del Frasco */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cosmic-pedestal {
+    position: relative;
+    width: 100%;
+    max-width: 470px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cosmic-halo-ring {
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.26;
+    animation: slowOrbit 36s linear infinite;
+  }
+
+  .cosmic-emblem-backdrop {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  @keyframes slowOrbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .bottle-showcase-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background: linear-gradient(160deg, rgba(16, 27, 56, 0.92), rgba(7, 12, 28, 0.96));
+    border: 2px solid var(--gold-metallic);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.75),
+      0 0 40px rgba(212, 175, 55, 0.22),
+      inset 0 0 25px rgba(224, 169, 139, 0.12);
+    border-radius: 26px;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .bottle-showcase-card.spraying {
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.8),
+      0 0 65px rgba(224, 169, 139, 0.75);
+  }
+
+  .bottle-badge-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--rose-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .bottle-image-wrapper {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(224, 169, 139, 0.2), rgba(6, 10, 22, 0.95));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    aspect-ratio: 4 / 4.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-bottle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .bottle-showcase-card:hover .hero-bottle-img {
+    transform: scale(1.04);
+  }
+
+  .nozzle-point {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .bottle-caption-bar {
+    margin-top: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .caption-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+  }
+
+  .caption-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .bottle-mini-spray {
+    background: rgba(212, 175, 55, 0.18);
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-metallic);
+    padding: 0.45rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .bottle-mini-spray:hover {
+    background: var(--gold-metallic);
+    color: var(--navy-deep);
+  }
+
+  .floating-chip {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(10, 17, 36, 0.94);
+    border: 1.5px solid var(--gold-metallic);
+    padding: 0.6rem 0.95rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+  }
+
+  .floating-chip span {
+    font-size: 1.4rem;
+  }
+
+  .floating-chip strong {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--gold-bright);
+  }
+
+  .floating-chip small {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--cream-silk);
+  }
+
+  .chip-top-left {
+    top: -14px;
+    left: -20px;
+  }
+
+  .chip-bottom-right {
+    bottom: -14px;
+    right: -18px;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-pillars {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .chip-top-left,
+    .chip-bottom-right {
+      position: static;
+      margin-top: 0.75rem;
+    }
+    .cosmic-pedestal {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-pillars {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,1061 @@
+---
+/**
+ * CITLALLI — ProductAndOlfactory.astro
+ * Galería Interactiva del Producto (Envase, Empaque de Terciopelo, Logotipo, Moodboard,
+ * Etiqueta Trasera e Instructivo de Puntos de Pulso) + Pirámide Olfativa y Laboratorio Alquímico.
+ */
+---
+
+<section id="producto" class="product-section">
+  <div class="section-container">
+    <!-- Encabezado de Diseño de Producto -->
+    <div class="section-header">
+      <span class="section-kicker">
+        <span>💎</span> BOCETO Y ANATOMÍA DE ALTA PERFUMERÍA
+      </span>
+      <h2 class="section-title">
+        Ingeniería del Lujo: <span class="gold-accent">Frasco, Terciopelo & Identidad</span>
+      </h2>
+      <p class="section-subtitle">
+        Cada ángulo del cristal facetado, el medallón “QM” en oro rosa y la caja en terciopelo azul
+        marino han sido concebidos para custodiar “El Aroma de los Dioses”.
+      </p>
+    </div>
+
+    <!-- Selector de Pestañas del Producto -->
+    <div class="product-tabs-bar" role="tablist" aria-label="Componentes del Producto Citlalli">
+      <button
+        type="button"
+        class="prod-tab-btn active"
+        data-prod-tab="envase"
+        role="tab"
+        aria-selected="true"
+      >
+        <span>🧴</span> 1. El Envase & Dije QM
+      </button>
+      <button
+        type="button"
+        class="prod-tab-btn"
+        data-prod-tab="empaque"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>🎁</span> 2. Empaque Terciopelo
+      </button>
+      <button
+        type="button"
+        class="prod-tab-btn"
+        data-prod-tab="identidad"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>⭐</span> 3. Logotipo & Moodboard
+      </button>
+      <button
+        type="button"
+        class="prod-tab-btn"
+        data-prod-tab="etiqueta"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>📜</span> 4. Etiqueta & Ritual de Pulso
+      </button>
+    </div>
+
+    <!-- Paneles del Showcase de Producto -->
+    <div class="product-showcase-stage">
+      <!-- TAB 1: EL ENVASE -->
+      <div class="prod-tab-panel active" data-prod-panel="envase">
+        <div class="prod-panel-grid">
+          <div class="prod-image-frame">
+            <img
+              src="/assets/brand/bottle.png"
+              alt="Frasco CITLALLI de cristal grueso facetado con tapa oro rosa y dije QM"
+              class="prod-featured-img"
+              loading="lazy"
+            />
+            <span class="prod-frame-badge">CRISTAL FACETADO • 50 ML (1.7 FL. OZ.)</span>
+          </div>
+          <div class="prod-specs-content">
+            <span class="spec-kicker">DISEÑO INDUSTRIAL & JOYERÍA OLFATIVA</span>
+            <h3>El Frasco Facetado CITLALLI</h3>
+            <p>
+              Tallado como un prisma estelar en <strong>cristal grueso de alta pureza</strong>, el
+              envase permite admirar la calidez del líquido color <strong>melocotón / ámbar
+              dorado</strong> que refleja la luz como una estrella al amanecer.
+            </p>
+            <div class="spec-feature-list">
+              <div class="spec-item">
+                <span class="spec-icon">👑</span>
+                <div>
+                  <strong>Tapón Geométrico en Oro Rosa</strong>
+                  <p>Acabado metálico espejado con facetas octogonales inspiradas en la estrella de 8 puntas.</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <span class="spec-icon">🪙</span>
+                <div>
+                  <strong>Colgante Redondo “QM”</strong>
+                  <p>Medallón exclusivo en oro rosa suspendido del cuello del atomizador, sello de autenticidad y distinción.</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <span class="spec-icon">✨</span>
+                <div>
+                  <strong>Placa Frontal Grabada</strong>
+                  <p>Tipografía serif imperial <em>CITLALLI Eau de Parfum</em> enmarcada en baño dorado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: EL EMPAQUE -->
+      <div class="prod-tab-panel" data-prod-panel="empaque">
+        <div class="prod-panel-grid">
+          <div class="prod-image-frame">
+            <img
+              src="/assets/brand/box.png"
+              alt="Caja de terciopelo azul marino CITLALLI con letras doradas y cinta superior"
+              class="prod-featured-img"
+              loading="lazy"
+            />
+            <span class="prod-frame-badge">TERCIOPELO AZUL MARINO • HOT STAMPING ORO</span>
+          </div>
+          <div class="prod-specs-content">
+            <span class="spec-kicker">EXPERIENCIA DE UNBOXING SENSORIAL</span>
+            <h3>Empaque en Terciopelo Azul Marino Nocturno</h3>
+            <p>
+              El estuche exterior evoca la profundidad del cielo nocturno de Hidalgo mediante un
+              recubrimiento de <strong>terciopelo azul marino (`#0A1124`)</strong> suave al tacto,
+              contrastado con relieves geométricos en <strong>oro metálico (`#D4AF37`)</strong>.
+            </p>
+            <div class="spec-feature-list">
+              <div class="spec-item">
+                <span class="spec-icon">🌌</span>
+                <div>
+                  <strong>Textura Velvet Midnight</strong>
+                  <p>Protege la fragancia de la luz directa mientras brinda una sensación táctil de alta joyería.</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <span class="spec-icon">🎀</span>
+                <div>
+                  <strong>Cinta Superior y Patrones Astrales</strong>
+                  <p>Lazo de seda azul marino en la corona del estuche y grecas estelares doradas en cada arista.</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <span class="spec-icon">🛡️</span>
+                <div>
+                  <strong>Cuna Interior Acolchada</strong>
+                  <p>Diseñada a medida para mantener inmóvil el cristal facetado de 50 ml.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: LOGOTIPO Y MOODBOARD -->
+      <div class="prod-tab-panel" data-prod-panel="identidad">
+        <div class="prod-dual-grid">
+          <div class="prod-card-half">
+            <div class="prod-image-frame compact">
+              <img
+                src="/assets/brand/logo.png"
+                alt="Logotipo Oficial CITLALLI El Aroma de los Dioses"
+                class="prod-featured-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card-body">
+              <span class="spec-kicker">IDENTIDAD VISUAL</span>
+              <h4>Logotipo Imperial & Estrella de 8 Puntas</h4>
+              <p>
+                Fusiona la estrella cósmica de ocho puntas con la silueta del frasco real y el
+                lema <em>“CITLALLI — El Aroma de los Dioses”</em> en oro sobre azul profundo.
+              </p>
+            </div>
+          </div>
+
+          <div class="prod-card-half">
+            <div class="prod-image-frame compact">
+              <img
+                src="/assets/brand/moodboard.png"
+                alt="Moodboard Oficial CITLALLI"
+                class="prod-featured-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card-body">
+              <span class="spec-kicker">DIRECCIÓN DE ARTE</span>
+              <h4>Moodboard Conceptual de Marca</h4>
+              <p>
+                Inspiración estética que une la bóveda celeste, el oro rosa, las flores bañadas en
+                rocío, la arquitectura nocturna y el magnetismo contemporáneo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: ETIQUETA E INSTRUCTIVO DE PUNTOS DE PULSO -->
+      <div class="prod-tab-panel" data-prod-panel="etiqueta">
+        <div class="prod-dual-grid">
+          <div class="prod-card-half">
+            <div class="prod-image-frame compact">
+              <img
+                src="/assets/brand/label_back.png"
+                alt="Etiqueta trasera oficial CITLALLI 50 ML Hecho en México"
+                class="prod-featured-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card-body">
+              <span class="spec-kicker">NORMATIVA Y ORIGEN</span>
+              <h4>Etiqueta Oficial (50 ML / 1.7 FL. OZ.)</h4>
+              <p>
+                Certificación de <strong>Eau de Parfum Hecho en México</strong>, ingredientes
+                selectos, lote de destilación artesanal, código de barras y sellos de calidad.
+              </p>
+            </div>
+          </div>
+
+          <div class="prod-card-half">
+            <div class="prod-image-frame compact">
+              <img
+                src="/assets/brand/instructions_card.png"
+                alt="Instructivo de uso de CITLALLI en puntos de pulso"
+                class="prod-featured-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card-body">
+              <span class="spec-kicker">RITUAL DE APLICACIÓN</span>
+              <h4>Instructivo Oficial: Puntos de Pulso</h4>
+              <p>
+                Aplicar a 15 cm sobre la <strong>piel limpia e hidratada</strong> en las zonas de
+                mayor calor corporal: <strong>muñecas, detrás de las orejas y base del cuello</strong>
+                sin frotar, para preservar las notas de salida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PIRÁMIDE OLFATIVA INTERACTIVA & LABORATORIO ALQUÍMICO (#alquimia)   -->
+    <!-- =================================================================== -->
+    <div id="alquimia" class="olfactory-subsection">
+      <div class="section-header">
+        <span class="section-kicker">
+          <span>🏺</span> COMPOSICIÓN AROMÁTICA & ALQUIMIA INTERACTIVA
+        </span>
+        <h2 class="section-title">
+          Pirámide Olfativa y <span class="gold-accent">Laboratorio de Esencias</span>
+        </h2>
+        <p class="section-subtitle">
+          Explora las tres capas aromáticas de CITLALLI y mezcla tu propia proporción en la vasija
+          de David para desbloquear tu Arquetipo Estelar y +100 PTS en el Arcade.
+        </p>
+      </div>
+
+      <!-- Tarjetas Visuales de las Notas en Terciopelo -->
+      <div class="velvet-notes-gallery">
+        <div class="velvet-photo-card">
+          <img
+            src="/assets/brand/notes_velvet_1.png"
+            alt="Composición de notas olfativas Citlalli sobre terciopelo azul marino 1"
+            loading="lazy"
+          />
+          <div class="velvet-photo-caption">
+            <strong>Bodegón Olfativo I</strong>
+            <span>Mandarina, Rosas Rosadas, Jazmín y Vainilla junto al Frasco QM</span>
+          </div>
+        </div>
+
+        <div class="velvet-photo-card">
+          <img
+            src="/assets/brand/notes_velvet_2.png"
+            alt="Composición de notas olfativas Citlalli sobre terciopelo azul marino 2"
+            loading="lazy"
+          />
+          <div class="velvet-photo-caption">
+            <strong>Bodegón Olfativo II</strong>
+            <span>Resina de Ámbar Dorado, Pétalos Frescos y Textura de Terciopelo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="alchemy-grid">
+        <!-- Columna Izquierda: Pirámide Olfativa de 3 Niveles -->
+        <div class="pyramid-column">
+          <h3 class="pyramid-heading">✦ La Pirámide Olfativa de CITLALLI</h3>
+
+          <div class="pyramid-tier tier-top" data-tier="top">
+            <div class="tier-badge">1. NOTAS DE SALIDA (PRIMER IMPACTO • 0–15 MIN)</div>
+            <div class="tier-content">
+              <div class="tier-sprites">
+                <img src="/assets/pixel-art/sprites/mandarin.png" alt="Mandarina" width="42" height="42" />
+              </div>
+              <div>
+                <h4>Mandarina Fresca & Bergamota Cítrica</h4>
+                <p>
+                  Una apertura luminosa, jugosa y chispeante que despierta los sentidos al instante
+                  como el rocío matutino sobre los huertos de Hidalgo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pyramid-tier tier-heart" data-tier="heart">
+            <div class="tier-badge">2. NOTAS DE CORAZÓN (ALMA DEL PERFUME • 15 MIN–4 HRS)</div>
+            <div class="tier-content">
+              <div class="tier-sprites">
+                <img src="/assets/pixel-art/sprites/rose_pink.png" alt="Rosa Rosada" width="42" height="42" />
+                <img src="/assets/pixel-art/sprites/jasmine_white.png" alt="Jazmín Blanco" width="42" height="42" />
+              </div>
+              <div>
+                <h4>Rosas Rosadas & Jazmín Blanco Nocturno</h4>
+                <p>
+                  El corazón floral aterciopelado que equilibra sofisticación, magnetismo romántico
+                  y elegancia de gala.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pyramid-tier tier-base" data-tier="base">
+            <div class="tier-badge">3. NOTAS DE FONDO (ESTELA ETERNA • 4–12+ HRS)</div>
+            <div class="tier-content">
+              <div class="tier-sprites">
+                <img src="/assets/pixel-art/sprites/vanilla_pod.png" alt="Vainilla" width="42" height="42" />
+                <img src="/assets/pixel-art/sprites/amber_crystal.png" alt="Ámbar Dorado" width="42" height="42" />
+              </div>
+              <div>
+                <h4>Vainas de Vainilla Pura & Resina de Ámbar Dorado</h4>
+                <p>
+                  El sello místico y seductor que se funde con la piel, dejando una huella cálida,
+                  poderosa e inolvidable digna de los dioses.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Laboratorio Alquímico Interactivo ("Destila tu Esencia") -->
+        <div class="alchemist-lab-card">
+          <div class="lab-header">
+            <img
+              src="/assets/pixel-art/sprites/clay_vessel.png"
+              alt="Vasija de Barro de David"
+              class="lab-vessel-icon"
+              width="48"
+              height="48"
+            />
+            <div>
+              <span class="spec-kicker">INTERACTIVO • GANA +100 PTS ARCADE</span>
+              <h3>Laboratorio Alquímico: “Destila tu Esencia”</h3>
+            </div>
+          </div>
+
+          <p class="lab-intro">
+            Ajusta la proporción de cada nota en la vasija de David para descubrir tu
+            <strong>Arquetipo Citlalli</strong> y desbloquear el <strong>Bono Alquímico (+100 PTS)</strong>
+            para el Torneo Copa Citlalli.
+          </p>
+
+          <div class="sliders-container">
+            <div class="alchemy-slider-row">
+              <div class="slider-label-row">
+                <span>🍊 Salida (Mandarina & Bergamota)</span>
+                <strong id="val-top-note">35%</strong>
+              </div>
+              <input
+                type="range"
+                id="slider-top-note"
+                min="10"
+                max="80"
+                value="35"
+                class="lux-range range-mandarin"
+              />
+            </div>
+
+            <div class="alchemy-slider-row">
+              <div class="slider-label-row">
+                <span>🌹 Corazón (Rosa Rosada & Jazmín)</span>
+                <strong id="val-heart-note">35%</strong>
+              </div>
+              <input
+                type="range"
+                id="slider-heart-note"
+                min="10"
+                max="80"
+                value="35"
+                class="lux-range range-rose"
+              />
+            </div>
+
+            <div class="alchemy-slider-row">
+              <div class="slider-label-row">
+                <span>✨ Fondo (Vainilla & Resina de Ámbar)</span>
+                <strong id="val-base-note">30%</strong>
+              </div>
+              <input
+                type="range"
+                id="slider-base-note"
+                min="10"
+                max="80"
+                value="30"
+                class="lux-range range-amber"
+              />
+            </div>
+          </div>
+
+          <!-- Resultado de la Destilación -->
+          <div class="alchemy-result-box" id="alchemy-result-box">
+            <div class="result-header">
+              <span class="result-kicker">ARQUETIPO DESTILADO</span>
+              <span class="bonus-pill" id="alchemy-bonus-status">Bono +100 PTS Listo</span>
+            </div>
+            <h4 id="alchemy-archetype-title">Equilibrio Imperial Citlalli</h4>
+            <p id="alchemy-archetype-desc">
+              Armonía perfecta entre la frescura cítrica de Hidalgo, el corazón floral de terciopelo
+              y el fondo místico del Jaguar Dorado.
+            </p>
+          </div>
+
+          <div class="lab-actions">
+            <button type="button" id="btn-distill-essence" class="btn-distill">
+              <span>⚗️</span>
+              <span>Destilar Esencia & Reclamar +100 PTS</span>
+            </button>
+            <button type="button" id="btn-toggle-gold-theme" class="btn-gold-theme">
+              <span>👑</span>
+              <span>Alternar Tema Alquímico</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Pestañas del Producto
+    const prodTabs = document.querySelectorAll('.prod-tab-btn');
+    const prodPanels = document.querySelectorAll('.prod-tab-panel');
+
+    prodTabs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-prod-tab');
+        prodTabs.forEach((b) => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        prodPanels.forEach((p) => {
+          p.classList.toggle('active', p.getAttribute('data-prod-panel') === target);
+        });
+      });
+    });
+
+    // 2. Laboratorio Alquímico Interactivo
+    const sTop = document.getElementById('slider-top-note');
+    const sHeart = document.getElementById('slider-heart-note');
+    const sBase = document.getElementById('slider-base-note');
+    const vTop = document.getElementById('val-top-note');
+    const vHeart = document.getElementById('val-heart-note');
+    const vBase = document.getElementById('val-base-note');
+    const titleEl = document.getElementById('alchemy-archetype-title');
+    const descEl = document.getElementById('alchemy-archetype-desc');
+    const bonusEl = document.getElementById('alchemy-bonus-status');
+    const distillBtn = document.getElementById('btn-distill-essence');
+    const themeBtn = document.getElementById('btn-toggle-gold-theme');
+
+    function computeArchetype() {
+      const top = Number(sTop?.value || 35);
+      const heart = Number(sHeart?.value || 35);
+      const base = Number(sBase?.value || 30);
+      const sum = Math.max(1, top + heart + base);
+
+      const pTop = Math.round((top / sum) * 100);
+      const pHeart = Math.round((heart / sum) * 100);
+      const pBase = Math.max(0, 100 - pTop - pHeart);
+
+      if (vTop) vTop.textContent = `${pTop}%`;
+      if (vHeart) vHeart.textContent = `${pHeart}%`;
+      if (vBase) vBase.textContent = `${pBase}%`;
+
+      let archetype = 'Equilibrio Imperial Citlalli';
+      let desc =
+        'Armonía exacta entre el rocío cítrico de Hidalgo, el terciopelo floral y la fuerza dorada del ámbar.';
+
+      if (pTop >= 44) {
+        archetype = 'Estrella Cítrica de Hidalgo';
+        desc =
+          'Dominado por la mandarina fresca y la bergamota: energía solar, dinamismo juvenil y frescura luminosa.';
+      } else if (pHeart >= 44) {
+        archetype = 'Alquimista de Terciopelo Rosa';
+        desc =
+          'Dominado por rosas rosadas y jazmín blanco: magnetismo romántico, sofisticación de gala y elegancia pura.';
+      } else if (pBase >= 42) {
+        archetype = 'Caballero del Jaguar de Ámbar';
+        desc =
+          'Dominado por vainilla pura y resina de ámbar dorado: presencia nocturna imponente, misterio y fijación legendaria.';
+      }
+
+      if (titleEl) titleEl.textContent = archetype;
+      if (descEl) descEl.textContent = desc;
+      return { archetype, desc, pTop, pHeart, pBase };
+    }
+
+    [sTop, sHeart, sBase].forEach((slider) => {
+      if (slider) slider.addEventListener('input', computeArchetype);
+    });
+
+    if (distillBtn) {
+      distillBtn.addEventListener('click', (e) => {
+        const { archetype } = computeArchetype();
+        const rect = distillBtn.getBoundingClientRect();
+        if (typeof window.triggerCitlalliAtomizer === 'function') {
+          window.triggerCitlalliAtomizer(rect.left + rect.width / 2, rect.top, false);
+        }
+
+        if (window.CitlalliMultiplayer) {
+          window.CitlalliMultiplayer.setAlchemyBonus(100, archetype);
+        }
+
+        if (bonusEl) {
+          bonusEl.textContent = '✓ +100 PTS ACTIVADOS';
+          bonusEl.classList.add('claimed');
+        }
+
+        if (typeof window.showCitlalliToast === 'function') {
+          window.showCitlalliToast({
+            title: `ESENCIA DESTILADA: ${archetype.toUpperCase()}`,
+            message:
+              '¡Has desbloqueado la estrella "Alquimista de Hidalgo" y +100 puntos de bono para la Copa Citlalli!',
+            icon: '🏺',
+            type: 'gold',
+            duration: 5000
+          });
+        }
+      });
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('gold-alchemist-theme');
+        const active = document.body.classList.contains('gold-alchemist-theme');
+        if (typeof window.showCitlalliToast === 'function') {
+          window.showCitlalliToast({
+            title: active ? 'TEMA ALQUÍMICO DORADO ACTIVADO' : 'TEMA TERCIOPELO NOCTURNO ACTIVADO',
+            message: active
+              ? 'El resplandor del oro imperial ilumina la interfaz de CITLALLI.'
+              : 'Has vuelto al azul marino terciopelo original de CITLALLI.',
+            icon: '👑',
+            type: 'gold',
+            duration: 3200
+          });
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .product-section {
+    padding: 5.5rem 0;
+  }
+
+  .product-tabs-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .prod-tab-btn {
+    background: rgba(14, 23, 48, 0.85);
+    color: var(--cream-silk);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    padding: 0.8rem 1.35rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+  }
+
+  .prod-tab-btn:hover {
+    border-color: var(--rose-gold);
+    transform: translateY(-2px);
+  }
+
+  .prod-tab-btn.active {
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    color: var(--navy-deep);
+    border-color: var(--gold-bright);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+  }
+
+  .product-showcase-stage {
+    margin-bottom: 5.5rem;
+  }
+
+  .prod-tab-panel {
+    display: none;
+    animation: fadeProd 0.35s ease;
+  }
+
+  .prod-tab-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeProd {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .prod-panel-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 2.5rem;
+    align-items: center;
+    background: rgba(14, 23, 48, 0.84);
+    border: 1.5px solid rgba(212, 175, 55, 0.42);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.6);
+  }
+
+  .prod-image-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #060B18;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    aspect-ratio: 4 / 3.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .prod-image-frame.compact {
+    aspect-ratio: 16 / 11;
+  }
+
+  .prod-featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.12), rgba(6, 11, 24, 0.98));
+    transition: transform 0.45s ease;
+  }
+
+  .prod-image-frame:hover .prod-featured-img {
+    transform: scale(1.04);
+  }
+
+  .prod-frame-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(6, 11, 24, 0.9);
+    border: 1px solid var(--gold-metallic);
+    color: var(--gold-bright);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .spec-kicker {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--rose-gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .prod-specs-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.9rem;
+  }
+
+  .prod-specs-content > p {
+    color: var(--cream-silk);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .spec-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .spec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: rgba(8, 14, 30, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 0.9rem 1.1rem;
+    border-radius: 14px;
+  }
+
+  .spec-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .spec-item strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.2rem;
+  }
+
+  .spec-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .prod-dual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .prod-card-half {
+    background: rgba(14, 23, 48, 0.84);
+    border: 1.5px solid rgba(212, 175, 55, 0.38);
+    border-radius: 22px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .prod-card-body h4 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.5rem;
+  }
+
+  .prod-card-body p {
+    font-size: 0.94rem;
+    color: var(--cream-silk);
+  }
+
+  /* Bodegón en Terciopelo */
+  .velvet-notes-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .velvet-photo-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid rgba(212, 175, 55, 0.42);
+    aspect-ratio: 16 / 10;
+    background: #070C1B;
+  }
+
+  .velvet-photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .velvet-photo-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .velvet-photo-caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    background: linear-gradient(0deg, rgba(5, 9, 20, 0.95), transparent);
+    padding: 1.8rem 1.25rem 1rem;
+  }
+
+  .velvet-photo-caption strong {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--gold-bright);
+    font-size: 1rem;
+  }
+
+  .velvet-photo-caption span {
+    font-size: 0.84rem;
+    color: var(--cream-silk);
+  }
+
+  /* Pirámide y Laboratorio Alquímico */
+  .alchemy-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.25rem;
+    align-items: stretch;
+  }
+
+  .pyramid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pyramid-heading {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.25rem;
+  }
+
+  .pyramid-tier {
+    background: rgba(14, 23, 48, 0.86);
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 18px;
+    padding: 1.15rem 1.35rem;
+    transition: transform 0.22s ease, border-color 0.22s ease;
+  }
+
+  .pyramid-tier:hover {
+    transform: translateX(4px);
+    border-color: var(--gold-bright);
+  }
+
+  .tier-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--rose-gold);
+    margin-bottom: 0.65rem;
+  }
+
+  .tier-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tier-sprites {
+    display: flex;
+    gap: 0.35rem;
+    background: rgba(6, 11, 24, 0.85);
+    padding: 0.55rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    flex-shrink: 0;
+  }
+
+  .tier-sprites img {
+    image-rendering: pixelated;
+  }
+
+  .tier-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.25rem;
+  }
+
+  .tier-content p {
+    font-size: 0.88rem;
+    color: var(--cream-silk);
+  }
+
+  /* Laboratorio Alquímico */
+  .alchemist-lab-card {
+    background: linear-gradient(160deg, rgba(16, 27, 56, 0.94), rgba(8, 14, 30, 0.96));
+    border: 2px solid var(--gold-metallic);
+    border-radius: 22px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .lab-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .lab-vessel-icon {
+    image-rendering: pixelated;
+    background: rgba(212, 175, 55, 0.14);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid var(--gold-metallic);
+  }
+
+  .lab-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--gold-bright);
+  }
+
+  .lab-intro {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .sliders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .slider-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .slider-label-row strong {
+    color: var(--gold-bright);
+    font-family: var(--font-display);
+  }
+
+  .lux-range {
+    width: 100%;
+    accent-color: var(--gold-metallic);
+    cursor: pointer;
+    height: 8px;
+    border-radius: 999px;
+  }
+
+  .alchemy-result-box {
+    background: rgba(6, 11, 24, 0.88);
+    border: 1px solid rgba(224, 169, 139, 0.45);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .result-kicker {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--rose-gold);
+  }
+
+  .bonus-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.16);
+    color: var(--gold-bright);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+  }
+
+  .bonus-pill.claimed {
+    background: rgba(80, 200, 120, 0.2);
+    color: #98fb98;
+    border-color: #50c878;
+  }
+
+  .alchemy-result-box h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.3rem;
+  }
+
+  .alchemy-result-box p {
+    font-size: 0.86rem;
+    color: var(--cream-silk);
+  }
+
+  .lab-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-distill {
+    flex: 1;
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    color: var(--navy-deep);
+    border: none;
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.86rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-distill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45);
+  }
+
+  .btn-gold-theme {
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-metallic);
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 1024px) {
+    .prod-panel-grid,
+    .prod-dual-grid,
+    .velvet-notes-gallery,
+    .alchemy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
