@@ -106,7 +106,11 @@ class CitlalliArcadeController {
       flappy: FlappyGame
     };
 
-    this._bindGameTabs();
+    this._bindGallerySelection();
+    this._bindSidebarTabs();
+    this._bindTouchControlsToggle();
+    this._bindProfileModal();
+    this._refreshSidebarProfile();
     this._bindScenarioButtons();
     this._bindCabinetControls();
     this._bindTouchDPad();
@@ -174,7 +178,7 @@ class CitlalliArcadeController {
     this.activeGameId = gameId;
     const gameMeta = GAME_CATALOG[gameId];
 
-    // 2. Actualizar UI de pestañas, marquesina y leyenda de controles
+    // 2. Actualizar UI de pestañas, galería maestra, marquesina y leyenda de controles
     document.querySelectorAll('.game-tab-card').forEach((btn) => {
       const sel = btn.getAttribute('data-game-select');
       const isTourneyBtn = sel === 'tournament';
@@ -185,8 +189,32 @@ class CitlalliArcadeController {
       btn.setAttribute('aria-selected', active ? 'true' : 'false');
     });
 
+    // Actualizar Galería Maestra de Selección CITLALLI Arcade (5 Tarjetas)
+    document.querySelectorAll('.game-quad-card').forEach((card) => {
+      const cardGameId = card.getAttribute('data-game-id');
+      const isTourneyCard = cardGameId === 'tournament';
+      const isCardActive = isTourneyCard
+        ? citlalliMultiplayer.tournament.active
+        : cardGameId === gameId && !citlalliMultiplayer.tournament.active;
+      card.classList.toggle('active', isCardActive);
+      card.setAttribute('aria-selected', isCardActive ? 'true' : 'false');
+
+      const statusTextEl = card.querySelector('.status-text');
+      if (statusTextEl) {
+        if (isTourneyCard) {
+          statusTextEl.textContent = citlalliMultiplayer.tournament.active
+            ? 'COPA CITLALLI EN CURSO'
+            : 'SELECCIONAR';
+        } else {
+          statusTextEl.textContent = isCardActive ? 'JUGANDO EN CABINA' : 'SELECCIONAR';
+        }
+      }
+    });
+
     const titleEl = document.getElementById('cabinet-active-game-title');
     if (titleEl) titleEl.textContent = gameMeta.title;
+    const altTitleEl = document.getElementById('cabinet-game-title');
+    if (altTitleEl) altTitleEl.textContent = gameMeta.title;
 
     const legendEl = document.getElementById('arcade-controls-legend');
     if (legendEl) legendEl.innerHTML = gameMeta.controlsText;
@@ -399,7 +427,112 @@ class CitlalliArcadeController {
    * CONTROLES DEL GABINETE, ESCENARIOS Y D-PAD TÁCTIL
    * ========================================================================== */
 
-  _bindGameTabs() {
+  _bindGallerySelection() {
+    // 1. Clic en las tarjetas maestras de la galería
+    document.querySelectorAll('.game-quad-card').forEach((card) => {
+      const handleSelect = (e) => {
+        // Evitar disparar si el clic provino de un botón de acción interna
+        if (e.target.closest('.btn-card-action')) return;
+
+        const gameId = card.getAttribute('data-game-id');
+        if (!gameId) return;
+
+        if (gameId === 'tournament') {
+          this.startCopaCitlalli();
+          const viewport = document.getElementById('arcade-screen-viewport');
+          if (viewport) {
+            viewport.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
+
+        if (citlalliMultiplayer.tournament.active) {
+          citlalliMultiplayer.cancelTournament();
+          this._updateTournamentUI(citlalliMultiplayer.getTournamentState());
+        }
+
+        this.mountGame(gameId, { autoStart: false });
+        const viewport = document.getElementById('arcade-screen-viewport');
+        if (viewport) {
+          viewport.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      };
+
+      card.addEventListener('click', handleSelect);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleSelect(e);
+        }
+      });
+    });
+
+    // 2. Botón "Jugar en Cabina"
+    document.querySelectorAll('.btn-play-cabina').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.game-quad-card');
+        const gameId = card?.getAttribute('data-game-id');
+        if (!gameId) return;
+
+        if (gameId === 'tournament') {
+          this.startCopaCitlalli();
+        } else {
+          if (citlalliMultiplayer.tournament.active) {
+            citlalliMultiplayer.cancelTournament();
+            this._updateTournamentUI(citlalliMultiplayer.getTournamentState());
+          }
+          this.mountGame(gameId, { autoStart: true });
+        }
+
+        const viewport = document.getElementById('arcade-screen-viewport');
+        if (viewport) {
+          viewport.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+
+    // 3. Botón "Pantalla Completa"
+    document.querySelectorAll('.btn-play-fullscreen').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.game-quad-card');
+        const gameId = card?.getAttribute('data-game-id');
+        if (!gameId) return;
+
+        if (gameId === 'tournament') {
+          this.startCopaCitlalli();
+        } else {
+          if (citlalliMultiplayer.tournament.active) {
+            citlalliMultiplayer.cancelTournament();
+            this._updateTournamentUI(citlalliMultiplayer.getTournamentState());
+          }
+          this.mountGame(gameId, { autoStart: true });
+        }
+
+        const viewport = document.getElementById('arcade-screen-viewport');
+        if (viewport) {
+          viewport.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            if (!document.fullscreenElement) {
+              viewport.requestFullscreen?.() || viewport.webkitRequestFullscreen?.();
+            }
+          }, 350);
+        }
+
+        if (typeof window.showCitlalliToast === 'function') {
+          window.showCitlalliToast({
+            title: `🎮 ${gameId.toUpperCase()} EN PANTALLA COMPLETA`,
+            message: 'Presiona ESC o la tecla F para salir del modo pantalla completa cuando desees.',
+            icon: '⛶',
+            type: 'gold',
+            duration: 4000
+          });
+        }
+      });
+    });
+
+    // Compatibilidad con tarjetas de pestañas si existieran en el DOM
     document.querySelectorAll('.game-tab-card').forEach((btn) => {
       btn.addEventListener('click', () => {
         const selected = btn.getAttribute('data-game-select');
@@ -414,6 +547,225 @@ class CitlalliArcadeController {
         this.mountGame(selected, { autoStart: false });
       });
     });
+  }
+
+  _bindGameTabs() {
+    this._bindGallerySelection();
+  }
+
+  _bindSidebarTabs() {
+    const tabButtons = document.querySelectorAll('.sidebar-tab-btn');
+    const panels = {
+      room: document.getElementById('sidebar-panel-room'),
+      audio: document.getElementById('sidebar-panel-audio'),
+      lore: document.getElementById('sidebar-panel-lore')
+    };
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tabKey = btn.getAttribute('data-sidebar-tab');
+        if (!panels[tabKey]) return;
+
+        tabButtons.forEach((b) => {
+          const isCurrent = b === btn;
+          b.classList.toggle('active', isCurrent);
+          b.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+        });
+
+        Object.entries(panels).forEach(([key, panel]) => {
+          if (!panel) return;
+          const isCurrent = key === tabKey;
+          panel.classList.toggle('active', isCurrent);
+          panel.style.display = isCurrent ? 'flex' : 'none';
+        });
+      });
+    });
+  }
+
+  _bindTouchControlsToggle() {
+    const toggleBtn = document.getElementById('btn-toggle-touch-controls');
+    const deck = document.getElementById('touch-dpad-deck');
+    const labelEl = document.getElementById('toggle-touch-label');
+
+    if (toggleBtn && deck) {
+      toggleBtn.addEventListener('click', () => {
+        const isCollapsed = deck.classList.toggle('collapsed');
+        toggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        if (labelEl) {
+          labelEl.textContent = isCollapsed
+            ? 'Mostrar Mandos Táctiles'
+            : 'Ocultar Mandos Táctiles';
+        }
+      });
+    }
+  }
+
+  _bindProfileModal() {
+    const modal = document.getElementById('arcade-profile-modal');
+    if (!modal) return;
+
+    const openCabBtn = document.getElementById('btn-open-profile-modal-cab');
+    const openSidebarBtn = document.getElementById('btn-open-profile-modal-sidebar');
+    const closeBtn = document.getElementById('btn-close-profile-modal');
+    const cancelBtn = document.getElementById('btn-cancel-profile-modal');
+    const saveBtn = document.getElementById('btn-save-profile-modal');
+
+    const nameInput = document.getElementById('modal-input-player-name');
+    const previewImg = document.getElementById('modal-preview-avatar-img');
+    const previewGlow = document.getElementById('modal-preview-glow');
+    const previewName = document.getElementById('modal-preview-name');
+    const previewRank = document.getElementById('modal-preview-rank');
+    const previewQuote = document.getElementById('modal-preview-quote');
+    const avatarButtons = modal.querySelectorAll('.avatar-choice-card');
+
+    let currentSelectedAvatar = citlalliMultiplayer.profile.avatar || 'bottle';
+
+    const updateLivePreview = (avatarId, customName) => {
+      const av = citlalliMultiplayer.getAvatarObject(avatarId);
+      const name = customName !== undefined ? customName : (nameInput ? nameInput.value : '');
+
+      if (previewImg && av.sprite) {
+        previewImg.src = av.sprite;
+        previewImg.alt = av.name;
+      }
+      if (previewGlow && av.auraColor) {
+        previewGlow.style.borderColor = av.auraColor;
+        previewGlow.style.boxShadow = `0 0 24px ${av.auraColor}88`;
+      }
+      if (previewName) {
+        previewName.textContent = name.trim() || 'Viajero Estelar';
+      }
+      if (previewQuote && av.quote) {
+        previewQuote.textContent = `"${av.quote}"`;
+      }
+      if (previewRank) {
+        const rank = citlalliMultiplayer.getMysticRank(this.lastScoreState.score || 0, this.activeGameId);
+        previewRank.textContent = `${rank.badge} ${rank.title}`;
+      }
+    };
+
+    const openModal = () => {
+      currentSelectedAvatar = citlalliMultiplayer.profile.avatar || 'bottle';
+      const profName = citlalliMultiplayer.profile.name || 'Viajero Estelar';
+
+      if (nameInput) {
+        nameInput.value = profName;
+      }
+
+      avatarButtons.forEach((btn) => {
+        const choice = btn.getAttribute('data-avatar-choice');
+        const isSelected = choice === currentSelectedAvatar;
+        btn.classList.toggle('active', isSelected);
+      });
+
+      updateLivePreview(currentSelectedAvatar, profName);
+
+      modal.style.display = 'flex';
+      setTimeout(() => {
+        if (nameInput) nameInput.focus();
+      }, 100);
+    };
+
+    const closeModal = () => {
+      modal.style.display = 'none';
+    };
+
+    if (openCabBtn) openCabBtn.addEventListener('click', openModal);
+    if (openSidebarBtn) openSidebarBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
+      }
+    });
+
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        updateLivePreview(currentSelectedAvatar, nameInput.value);
+      });
+    }
+
+    avatarButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-avatar-choice');
+        if (!choice) return;
+
+        currentSelectedAvatar = choice;
+
+        avatarButtons.forEach((b) => b.classList.toggle('active', b === btn));
+        updateLivePreview(currentSelectedAvatar, nameInput ? nameInput.value : '');
+
+        if (citlalliAudio) {
+          citlalliAudio.playSFX('select');
+        }
+      });
+    });
+
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        const rawName = nameInput ? nameInput.value : '';
+        const cleanName = rawName.trim().slice(0, 22) || 'Viajero Estelar';
+
+        citlalliMultiplayer.saveProfile({
+          name: cleanName,
+          avatar: currentSelectedAvatar
+        });
+
+        this._refreshSidebarProfile();
+        this._refreshTrophyPreview();
+
+        closeModal();
+
+        if (citlalliAudio) {
+          citlalliAudio.playSFX('powerup');
+        }
+
+        if (typeof window.showCitlalliToast === 'function') {
+          const av = citlalliMultiplayer.getAvatarObject(currentSelectedAvatar);
+          window.showCitlalliToast({
+            title: '✦ PERFIL DE ALQUIMISTA GUARDADO ✦',
+            message: `${av.emoji} ¡Bienvenido a CITLALLI Arcade, ${cleanName}! Perfil sincronizado en cabina y salas multijugador.`,
+            icon: '💾',
+            type: 'gold',
+            duration: 4000
+          });
+        }
+      });
+    }
+  }
+
+  _refreshSidebarProfile() {
+    const prof = citlalliMultiplayer.profile;
+    const av = citlalliMultiplayer.getAvatarObject(prof.avatar);
+
+    const nameEl = document.getElementById('sidebar-profile-name');
+    if (nameEl) nameEl.textContent = prof.name || 'Viajero Estelar';
+
+    const avatarImg = document.getElementById('sidebar-profile-avatar-img');
+    if (avatarImg && av.sprite) {
+      avatarImg.src = av.sprite;
+      avatarImg.alt = av.name;
+    }
+
+    const auraEl = document.getElementById('sidebar-profile-avatar-aura');
+    if (auraEl && av.auraColor) {
+      auraEl.style.borderColor = av.auraColor;
+      auraEl.style.boxShadow = `0 0 16px ${av.auraColor}66`;
+    }
+
+    const rankEl = document.getElementById('sidebar-profile-rank');
+    if (rankEl) {
+      const currentRank = citlalliMultiplayer.getMysticRank(this.lastScoreState.score || 0, this.activeGameId);
+      rankEl.textContent = `${currentRank.badge} ${currentRank.title}`;
+    }
   }
 
   setScenario(scenarioId) {
@@ -565,6 +917,25 @@ class CitlalliArcadeController {
         }
       });
     }
+
+    // Alternar visibilidad de cruceta D-Pad táctil
+    const toggleTouchBtn = document.getElementById('btn-toggle-touch-controls');
+    const dpadDeck = document.getElementById('touch-dpad-deck');
+    if (toggleTouchBtn && dpadDeck) {
+      toggleTouchBtn.addEventListener('click', () => {
+        const isCollapsed = dpadDeck.classList.toggle('dpad-collapsed');
+        dpadDeck.classList.toggle('collapsed', isCollapsed);
+        toggleTouchBtn.setAttribute('aria-expanded', !isCollapsed);
+        const label = document.getElementById('toggle-touch-label');
+        if (label) {
+          label.textContent = isCollapsed ? 'Mostrar Mandos Táctiles' : 'Ocultar Mandos Táctiles';
+        }
+        const chevron = toggleTouchBtn.querySelector('.toggle-chevron');
+        if (chevron) {
+          chevron.textContent = isCollapsed ? '▾' : '▴';
+        }
+      });
+    }
   }
 
   /* ==========================================================================
@@ -691,11 +1062,24 @@ class CitlalliArcadeController {
     const bars = Array.from(container.querySelectorAll('.eq-bar'));
 
     const updateEq = () => {
-      const spectrum = citlalliAudio.getSpectrumData();
-      for (let i = 0; i < bars.length; i++) {
-        const val = spectrum[i] || 0;
-        const pct = Math.max(12, Math.min(100, Math.round(val * 100)));
-        bars[i].style.height = `${pct}%`;
+      const isPlaying = Boolean(citlalliAudio && citlalliAudio.isPlaying && !citlalliAudio.isMuted);
+      container.classList.toggle('is-idle', !isPlaying);
+      container.classList.toggle('is-playing', isPlaying);
+
+      if (isPlaying) {
+        const spectrum = citlalliAudio.getSpectrumData();
+        for (let i = 0; i < bars.length; i++) {
+          const val = spectrum[i] || 0;
+          const pct = Math.max(14, Math.min(100, Math.round(val * 100)));
+          bars[i].style.height = `${pct}%`;
+        }
+      } else {
+        // En reposo o pausa, quitamos el style.height en línea para que la animación CSS 'eqIdlePulse' fluya suavemente
+        for (let i = 0; i < bars.length; i++) {
+          if (bars[i].style.height) {
+            bars[i].style.height = '';
+          }
+        }
       }
       requestAnimationFrame(updateEq);
     };
@@ -997,6 +1381,20 @@ class CitlalliArcadeController {
     document.querySelectorAll('[data-tourney-step]').forEach((pill) => {
       const stepId = pill.getAttribute('data-tourney-step');
       pill.classList.toggle('active', state.currentStage?.id === stepId && state.active);
+    });
+
+    // Actualizar tarjeta de Copa Citlalli en la galería maestra
+    document.querySelectorAll('.game-quad-card').forEach((card) => {
+      const cardGameId = card.getAttribute('data-game-id');
+      if (cardGameId === 'tournament') {
+        const isTourneyActive = Boolean(state.active);
+        card.classList.toggle('active', isTourneyActive);
+        card.setAttribute('aria-selected', isTourneyActive ? 'true' : 'false');
+        const statusTextEl = card.querySelector('.status-text');
+        if (statusTextEl) {
+          statusTextEl.textContent = isTourneyActive ? 'COPA CITLALLI EN CURSO' : 'SELECCIONAR';
+        }
+      }
     });
   }
 

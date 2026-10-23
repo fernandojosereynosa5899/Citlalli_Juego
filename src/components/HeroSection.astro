@@ -59,7 +59,7 @@
           <span>Atomizar Citlalli (Probar Esencia)</span>
         </button>
 
-        <a href="#arcade-salon" class="btn-luxury-arcade">
+        <a href="/juegos" class="btn-luxury-arcade">
           <span>🎮</span>
           <span>Entrar al Salón Arcade Pixel Art (4 Juegos + Multijugador)</span>
         </a>
@@ -143,20 +143,22 @@
           </div>
         </div>
 
-        <!-- Insignias Flotantes -->
-        <div class="floating-chip chip-top-left">
-          <span>🌌</span>
-          <div>
-            <strong>Origen: Hidalgo</strong>
-            <small>Destilación Artesanal</small>
+        <!-- Insignias de Pedestal (Ubicadas debajo del frasco para evitar sobreposiciones) -->
+        <div class="bottle-footer-chips">
+          <div class="meta-chip">
+            <span class="meta-chip-icon">🌌</span>
+            <div>
+              <strong>Origen: Hidalgo</strong>
+              <small>Destilación Artesanal</small>
+            </div>
           </div>
-        </div>
 
-        <div class="floating-chip chip-bottom-right">
-          <span>🐆</span>
-          <div>
-            <strong>El Hombre Citlalli</strong>
-            <small>Fuerza & Elegancia Nocturna</small>
+          <div class="meta-chip">
+            <span class="meta-chip-icon">🐆</span>
+            <div>
+              <strong>El Hombre Citlalli</strong>
+              <small>Fuerza & Elegancia Nocturna</small>
+            </div>
           </div>
         </div>
       </div>
@@ -528,8 +530,10 @@
     width: 100%;
     max-width: 470px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1.1rem;
   }
 
   .cosmic-halo-ring {
@@ -661,43 +665,52 @@
     color: var(--navy-deep);
   }
 
-  .floating-chip {
-    position: absolute;
-    z-index: 3;
+  .bottle-footer-chips {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .meta-chip {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    background: rgba(10, 17, 36, 0.94);
-    border: 1.5px solid var(--gold-metallic);
-    padding: 0.6rem 0.95rem;
+    gap: 0.65rem;
+    background: rgba(10, 17, 36, 0.92);
+    border: 1.5px solid rgba(212, 175, 55, 0.45);
+    padding: 0.65rem 0.95rem;
     border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .floating-chip span {
+  .meta-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold-metallic);
+    box-shadow: 0 10px 26px rgba(212, 175, 55, 0.25);
+  }
+
+  .meta-chip-icon {
     font-size: 1.4rem;
+    line-height: 1;
   }
 
-  .floating-chip strong {
+  .meta-chip strong {
     display: block;
     font-size: 0.78rem;
     color: var(--gold-bright);
+    white-space: nowrap;
   }
 
-  .floating-chip small {
+  .meta-chip small {
     display: block;
     font-size: 0.68rem;
     color: var(--cream-silk);
-  }
-
-  .chip-top-left {
-    top: -14px;
-    left: -20px;
-  }
-
-  .chip-bottom-right {
-    bottom: -14px;
-    right: -18px;
+    white-space: nowrap;
   }
 
   @media (max-width: 1024px) {
@@ -707,19 +720,15 @@
     .hero-pillars {
       grid-template-columns: repeat(2, 1fr);
     }
-    .chip-top-left,
-    .chip-bottom-right {
-      position: static;
-      margin-top: 0.75rem;
-    }
-    .cosmic-pedestal {
-      flex-direction: column;
-    }
   }
 
   @media (max-width: 600px) {
     .hero-pillars {
       grid-template-columns: 1fr;
+    }
+    .bottle-footer-chips {
+      flex-direction: column;
+      gap: 0.65rem;
     }
   }
 </style>

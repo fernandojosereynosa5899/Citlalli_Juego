@@ -4,12 +4,20 @@
  * Galería Interactiva del Producto (Envase, Empaque de Terciopelo, Logotipo, Moodboard,
  * Etiqueta Trasera e Instructivo de Puntos de Pulso) + Pirámide Olfativa y Laboratorio Alquímico.
  */
+export interface Props {
+  showProductOnly?: boolean;
+  showOlfactoryOnly?: boolean;
+}
+
+const { showProductOnly = false, showOlfactoryOnly = false } = Astro.props;
 ---
 
-<section id="producto" class="product-section">
-  <div class="section-container">
-    <!-- Encabezado de Diseño de Producto -->
-    <div class="section-header">
+{
+  !showOlfactoryOnly && (
+    <section id="producto" class={`product-section ${showProductOnly ? 'product-only' : ''}`}>
+      <div class="section-container">
+        <!-- Encabezado de Diseño de Producto -->
+        <div class="section-header">
       <span class="section-kicker">
         <span>💎</span> BOCETO Y ANATOMÍA DE ALTA PERFUMERÍA
       </span>
@@ -245,12 +253,19 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+  )
+}
 
-    <!-- =================================================================== -->
-    <!-- PIRÁMIDE OLFATIVA INTERACTIVA & LABORATORIO ALQUÍMICO (#alquimia)   -->
-    <!-- =================================================================== -->
-    <div id="alquimia" class="olfactory-subsection">
-      <div class="section-header">
+{
+  !showProductOnly && (
+    <section id="alquimia" class={`product-section olfactory-section ${showOlfactoryOnly ? 'olfactory-only' : ''}`}>
+      <div class="section-container">
+        <!-- =================================================================== -->
+        <!-- PIRÁMIDE OLFATIVA INTERACTIVA & LABORATORIO ALQUÍMICO (#alquimia)   -->
+        <!-- =================================================================== -->
+        <div class="section-header">
         <span class="section-kicker">
           <span>🏺</span> COMPOSICIÓN AROMÁTICA & ALQUIMIA INTERACTIVA
         </span>
@@ -441,8 +456,9 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+)
+}
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
@@ -610,6 +626,10 @@
 
   .product-showcase-stage {
     margin-bottom: 5.5rem;
+  }
+
+  .product-section.product-only .product-showcase-stage {
+    margin-bottom: 0;
   }
 
   .prod-tab-panel {
@@ -1056,6 +1076,26 @@
     .velvet-notes-gallery,
     .alchemy-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-section {
+      padding: 3.5rem 0;
+    }
+    .prod-panel-grid {
+      padding: 1.25rem;
+      gap: 1.5rem;
+    }
+    .product-tabs-bar {
+      gap: 0.45rem;
+    }
+    .prod-tab-btn {
+      padding: 0.6rem 0.95rem;
+      font-size: 0.76rem;
+    }
+    .lab-actions {
+      flex-direction: column;
     }
   }
 </style>

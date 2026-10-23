@@ -100,82 +100,201 @@
     </div>
 
     <!-- =================================================================== -->
-    <!-- SELECTOR DE LOS 4 JUEGOS MODULARES + MODO TORNEO                    -->
+    <!-- GALERÍA MAESTRA DE SELECCIÓN CITLALLI ARCADE (4 JUEGOS + COPA CITLALLI) -->
     <!-- =================================================================== -->
-    <div class="games-selector-bar" role="tablist" aria-label="Selector de Juegos Citlalli">
-      <button
-        type="button"
-        class="game-tab-card active"
-        data-game-select="snake"
-        role="tab"
-        aria-selected="true"
-      >
-        <span class="game-tab-icon">🐍</span>
-        <div class="game-tab-info">
-          <span class="game-tab-num">JUEGO 01</span>
-          <strong>La Víborita: Estela de los Dioses</strong>
-          <small>Recolecta las 5 notas olfativas y el Frasco QM</small>
-        </div>
-      </button>
+    <div class="games-preview-gallery-container">
+      <div class="preview-gallery-title">
+        <span class="mini-gold-pill">✦ SALÓN DE SELECCIÓN OFICIAL • CABINA & PANTALLA COMPLETA ✦</span>
+        <h3>Galería Maestra de Videojuegos Citlalli</h3>
+        <p>Selecciona tu disciplina alquímica para cargarla de inmediato en la cabina o lanzarla en pantalla completa.</p>
+      </div>
 
-      <button
-        type="button"
-        class="game-tab-card"
-        data-game-select="memory"
-        role="tab"
-        aria-selected="false"
-      >
-        <span class="game-tab-icon">🃏</span>
-        <div class="game-tab-info">
-          <span class="game-tab-num">JUEGO 02</span>
-          <strong>Memorama: Memoria Olfativa</strong>
-          <small>10 pares de lujo + Poder Brisa de Hidalgo</small>
+      <div class="games-quad-grid games-master-gallery-grid">
+        <!-- 1. La Víborita -->
+        <div class="game-quad-card active" data-game-card="snake" role="button" tabindex="0">
+          <div class="quad-media-wrap">
+            <img src="/assets/pixel-art/scenarios/scenario_hidalgo.png" alt="La Víborita Estela de los Dioses" class="quad-bg-img" loading="lazy" />
+            <div class="quad-sprite-showcase">
+              <img src="/assets/pixel-art/sprites/snake_head_gold.png" alt="Serpiente Dorada" class="quad-hero-sprite" />
+              <img src="/assets/pixel-art/sprites/mandarin.png" alt="Mandarina" class="quad-floating-note note-1" />
+              <img src="/assets/pixel-art/sprites/rose_pink.png" alt="Rosa" class="quad-floating-note note-2" />
+            </div>
+            <div class="quad-num-badge">JUEGO 01</div>
+            <div class="master-status-indicator" data-status-indicator="snake">
+              <span class="status-indicator-dot">●</span>
+              <strong class="status-indicator-text">✦ JUGANDO EN CABINA ✦</strong>
+            </div>
+          </div>
+          <div class="quad-details">
+            <div class="quad-title-row">
+              <span class="quad-emoji">🐍</span>
+              <h4>La Víborita: Estela de los Dioses</h4>
+            </div>
+            <p>Guía al Quetzal dorado mientras destila notas olfativas y alcanza la Fiebre de los Dioses.</p>
+            <div class="quad-tags">
+              <span>✦ 1P / 2P Duelo</span>
+              <span>✦ Notas Olfativas</span>
+              <span>✦ Fiebre Astral</span>
+            </div>
+            <div class="quad-actions-row">
+              <button type="button" class="btn-card-action btn-play-cabina" data-launch-action="cabina" data-game-target="snake">
+                ▶ Jugar en Cabina
+              </button>
+              <button type="button" class="btn-card-action btn-play-fullscreen" data-launch-action="fullscreen" data-game-target="snake" title="Lanzar en Pantalla Completa (F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
 
-      <button
-        type="button"
-        class="game-tab-card"
-        data-game-select="reflex"
-        role="tab"
-        aria-selected="false"
-      >
-        <span class="game-tab-icon">⚡</span>
-        <div class="game-tab-info">
-          <span class="game-tab-num">JUEGO 03</span>
-          <strong>Reflejos: Destilación & Duelo ms</strong>
-          <small>Atrapa esencias o compite en reacción pura</small>
+        <!-- 2. Memorama -->
+        <div class="game-quad-card" data-game-card="memory" role="button" tabindex="0">
+          <div class="quad-media-wrap">
+            <img src="/assets/pixel-art/scenarios/scenario_velvet.png" alt="Memorama Olfativo" class="quad-bg-img" loading="lazy" />
+            <div class="quad-sprite-showcase">
+              <img src="/assets/pixel-art/sprites/card_back_velvet.png" alt="Caja Terciopelo" class="quad-hero-sprite" />
+              <img src="/assets/pixel-art/sprites/bottle_citlalli.png" alt="Frasco Citlalli" class="quad-floating-note note-1" />
+              <img src="/assets/pixel-art/sprites/charm_qm.png" alt="Dije QM" class="quad-floating-note note-2" />
+            </div>
+            <div class="quad-num-badge">JUEGO 02</div>
+            <div class="master-status-indicator" data-status-indicator="memory">
+              <span class="status-indicator-dot">●</span>
+              <strong class="status-indicator-text">✦ SELECCIONAR ✦</strong>
+            </div>
+          </div>
+          <div class="quad-details">
+            <div class="quad-title-row">
+              <span class="quad-emoji">🃏</span>
+              <h4>Memorama: Memoria Olfativa</h4>
+            </div>
+            <p>Encuentra los 10 pares sagrados de terciopelo y despierta el poder Brisa de Hidalgo.</p>
+            <div class="quad-tags">
+              <span>✦ 10 Pares Reales</span>
+              <span>✦ Poder Especial</span>
+              <span>✦ Códice Lore</span>
+            </div>
+            <div class="quad-actions-row">
+              <button type="button" class="btn-card-action btn-play-cabina" data-launch-action="cabina" data-game-target="memory">
+                ▶ Jugar en Cabina
+              </button>
+              <button type="button" class="btn-card-action btn-play-fullscreen" data-launch-action="fullscreen" data-game-target="memory" title="Lanzar en Pantalla Completa (F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
 
-      <button
-        type="button"
-        class="game-tab-card"
-        data-game-select="flappy"
-        role="tab"
-        aria-selected="false"
-      >
-        <span class="game-tab-icon">🦅</span>
-        <div class="game-tab-info">
-          <span class="game-tab-num">JUEGO 04</span>
-          <strong>Flappy Citlalli: El Límite son las Estrellas</strong>
-          <small>Vuela con el Frasco Alado entre columnas de jaguar</small>
+        <!-- 3. Reflejos -->
+        <div class="game-quad-card" data-game-card="reflex" role="button" tabindex="0">
+          <div class="quad-media-wrap">
+            <img src="/assets/pixel-art/scenarios/scenario_jaguar.png" alt="Reflejos del Alquimista" class="quad-bg-img" loading="lazy" />
+            <div class="quad-sprite-showcase">
+              <img src="/assets/pixel-art/sprites/star_citlalli.png" alt="Estrella Citlalli" class="quad-hero-sprite star-pulse" />
+              <img src="/assets/pixel-art/sprites/jaguar_gold.png" alt="Jaguar Dorado" class="quad-floating-note note-1" />
+              <img src="/assets/pixel-art/sprites/amber_crystal.png" alt="Ámbar" class="quad-floating-note note-2" />
+            </div>
+            <div class="quad-num-badge">JUEGO 03</div>
+            <div class="master-status-indicator" data-status-indicator="reflex">
+              <span class="status-indicator-dot">●</span>
+              <strong class="status-indicator-text">✦ SELECCIONAR ✦</strong>
+            </div>
+          </div>
+          <div class="quad-details">
+            <div class="quad-title-row">
+              <span class="quad-emoji">⚡</span>
+              <h4>Reflejos: Destilación & Duelo ms</h4>
+            </div>
+            <p>Atrapa orbes alquímicos a toda velocidad o compite en el Duelo de Reacción en milisegundos.</p>
+            <div class="quad-tags">
+              <span>✦ Medición en ms</span>
+              <span>✦ Duelo 1v1</span>
+              <span>✦ Modo Relámpago</span>
+            </div>
+            <div class="quad-actions-row">
+              <button type="button" class="btn-card-action btn-play-cabina" data-launch-action="cabina" data-game-target="reflex">
+                ▶ Jugar en Cabina
+              </button>
+              <button type="button" class="btn-card-action btn-play-fullscreen" data-launch-action="fullscreen" data-game-target="reflex" title="Lanzar en Pantalla Completa (F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
 
-      <button
-        type="button"
-        class="game-tab-card tourney-card"
-        id="btn-start-copa-citlalli"
-        data-game-select="tournament"
-      >
-        <span class="game-tab-icon">🏆</span>
-        <div class="game-tab-info">
-          <span class="game-tab-num">MODO CAMPEONATO</span>
-          <strong>Copa Citlalli (4 Juegos)</strong>
-          <small>Encadena los 4 juegos y gana el Gran Trofeo</small>
+        <!-- 4. Flappy Citlalli -->
+        <div class="game-quad-card" data-game-card="flappy" role="button" tabindex="0">
+          <div class="quad-media-wrap">
+            <img src="/assets/pixel-art/scenarios/scenario_penthouse.png" alt="Flappy Citlalli" class="quad-bg-img" loading="lazy" />
+            <div class="quad-sprite-showcase">
+              <img src="/assets/pixel-art/sprites/bottle_winged.png" alt="Frasco Alado" class="quad-hero-sprite flappy-float" />
+              <img src="/assets/pixel-art/sprites/jasmine_white.png" alt="Jazmín" class="quad-floating-note note-1" />
+              <img src="/assets/pixel-art/sprites/vanilla_pod.png" alt="Vainilla" class="quad-floating-note note-2" />
+            </div>
+            <div class="quad-num-badge">JUEGO 04</div>
+            <div class="master-status-indicator" data-status-indicator="flappy">
+              <span class="status-indicator-dot">●</span>
+              <strong class="status-indicator-text">✦ SELECCIONAR ✦</strong>
+            </div>
+          </div>
+          <div class="quad-details">
+            <div class="quad-title-row">
+              <span class="quad-emoji">🦅</span>
+              <h4>Flappy Citlalli: El Límite son las Estrellas</h4>
+            </div>
+            <p>Vuela con el Frasco Alado esquivando columnas prehispánicas y desbloquea el Escudo QM.</p>
+            <div class="quad-tags">
+              <span>✦ Escudo QM</span>
+              <span>✦ 2P Vuelo Libre</span>
+              <span>✦ Rival Fantasma</span>
+            </div>
+            <div class="quad-actions-row">
+              <button type="button" class="btn-card-action btn-play-cabina" data-launch-action="cabina" data-game-target="flappy">
+                ▶ Jugar en Cabina
+              </button>
+              <button type="button" class="btn-card-action btn-play-fullscreen" data-launch-action="fullscreen" data-game-target="flappy" title="Lanzar en Pantalla Completa (F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
+
+        <!-- 5. Copa Citlalli: Modo Campeonato (Tarjeta Destacada Integrada) -->
+        <div class="game-quad-card master-tourney-card" data-game-card="tournament" role="button" tabindex="0">
+          <div class="quad-media-wrap tourney-media-wrap">
+            <img src="/assets/pixel-art/citlalli_arcade_marquee.png" alt="Copa Citlalli Campeonato" class="quad-bg-img" loading="lazy" />
+            <div class="quad-sprite-showcase tourney-showcase">
+              <img src="/assets/pixel-art/citlalli_trophy_emblem.png" alt="Trofeo Citlalli" class="quad-hero-sprite tourney-trophy-pulse" />
+              <img src="/assets/pixel-art/sprites/snake_head_gold.png" alt="Snake" class="quad-floating-note note-1" />
+              <img src="/assets/pixel-art/sprites/bottle_winged.png" alt="Flappy" class="quad-floating-note note-2" />
+            </div>
+            <div class="quad-num-badge tourney-badge">🏆 MODO CAMPEONATO</div>
+            <div class="master-status-indicator" data-status-indicator="tournament">
+              <span class="status-indicator-dot">●</span>
+              <strong class="status-indicator-text">✦ MODO TORNEO ✦</strong>
+            </div>
+          </div>
+          <div class="quad-details">
+            <div class="quad-title-row">
+              <span class="quad-emoji">🏆</span>
+              <h4>Copa Citlalli: 4 Desafíos de los Dioses</h4>
+            </div>
+            <p>Encadena los 4 juegos consecutivos (Víborita, Memorama, Reflejos y Flappy) para conquistar el Gran Trofeo 1ZMEADMLSA.</p>
+            <div class="quad-tags">
+              <span>✦ 4 Etapas</span>
+              <span>✦ Récord Acumulado</span>
+              <span>✦ Gran Certificado PNG</span>
+            </div>
+            <div class="quad-actions-row">
+              <button type="button" class="btn-card-action btn-play-cabina btn-tourney-gold-cta" data-launch-action="cabina" data-game-target="tournament">
+                🏆 Iniciar Campeonato
+              </button>
+              <button type="button" class="btn-card-action btn-play-fullscreen" data-launch-action="fullscreen" data-game-target="tournament" title="Lanzar Torneo en Pantalla Completa (F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- =================================================================== -->
@@ -183,9 +302,9 @@
     <!-- =================================================================== -->
     <div class="arcade-workspace-grid">
       <!-- COLUMNA CENTRAL / IZQUIERDA: EL GABINETE ARCADE PIXEL ART -->
-      <div class="arcade-cabinet-shell">
-        <!-- Marquesina Iluminada Superior -->
-        <div class="cabinet-marquee">
+      <div class="arcade-cabinet-shell arcade-cabinet-frame">
+        <!-- Marquesina Iluminada Superior / Cabecera de Cabina -->
+        <div class="cabinet-marquee cabinet-header">
           <img
             src="/assets/pixel-art/citlalli_arcade_marquee.png"
             alt="CITLALLI Arcade Marquee Oficial"
@@ -194,7 +313,7 @@
           <div class="marquee-overlay">
             <div class="marquee-title-wrap">
               <span class="marquee-kicker">CITLALLI PARFUMS • OFFICIAL 8-BIT CABINET</span>
-              <h3 id="cabinet-active-game-title">🐍 La Víborita: Estela de los Dioses</h3>
+              <h3 id="cabinet-active-game-title" class="cabinet-game-title">🐍 La Víborita: Estela de los Dioses</h3>
             </div>
             <div class="marquee-badges">
               <span id="cabinet-active-scenario-pill" class="marquee-pill">
@@ -207,8 +326,8 @@
           </div>
         </div>
 
-        <!-- Barra de Configuración Rápida: Modo Simultáneo, Dificultad y Submodo -->
-        <div class="cabinet-controls-strip">
+        <!-- Barra de Configuración Rápida: Modo Simultáneo, Dificultad y Acciones -->
+        <div class="cabinet-controls-strip cabinet-quick-controls">
           <div class="control-group">
             <label for="arcade-mode-select">MODO DE JUEGO SIMULTÁNEO</label>
             <select id="arcade-mode-select" class="arcade-select">
@@ -230,10 +349,18 @@
 
           <div class="control-group actions-inline">
             <button type="button" id="btn-arcade-start" class="btn-cab-action btn-cab-gold">
-              ▶ Iniciar / Reiniciar
+              ▶ Iniciar
             </button>
             <button type="button" id="btn-arcade-pause" class="btn-cab-action">
               ⏸ Pausa
+            </button>
+            <button
+              type="button"
+              id="btn-open-profile-modal-cab"
+              class="btn-cab-action btn-cab-profile"
+              title="Personaliza tu Nombre y Avatar Pixel Art"
+            >
+              👤 Mi Perfil
             </button>
             <button
               type="button"
@@ -294,7 +421,7 @@
           <div class="crt-scanlines" aria-hidden="true"></div>
         </div>
 
-        <!-- Barra de Controles del Jugador + Botón de Trofeo y Desafío -->
+        <!-- Barra de Controles del Jugador + Atajos y Trofeos -->
         <div class="cabinet-bottom-bar">
           <div class="controls-legend" id="arcade-controls-legend">
             <span><strong>J1:</strong> WASD / Flechas / Clic</span>
@@ -312,8 +439,23 @@
           </div>
         </div>
 
-        <!-- Cruceta Táctil (D-Pad Pixel Art) para Móvil y Ratón -->
-        <div class="touch-dpad-deck">
+        <!-- Barra de Atajos Rápidos de Teclado y Alternancia de Mandos Virtuales -->
+        <div class="arcade-quick-shortcuts-bar">
+          <div class="shortcuts-row">
+            <span class="shortcut-pill"><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> Mover</span>
+            <span class="shortcut-pill"><kbd>ESPACIO</kbd> Acción / Aleteo</span>
+            <span class="shortcut-pill"><kbd>P</kbd> Pausa</span>
+            <span class="shortcut-pill"><kbd>F</kbd> Pantalla Completa</span>
+            <span class="shortcut-pill"><kbd>1-4</kbd> Cambiar Juego</span>
+            <span class="shortcut-pill"><kbd>H/J/V</kbd> Escenarios</span>
+          </div>
+          <button type="button" id="btn-toggle-touch-controls" class="btn-toggle-touch" aria-expanded="false" title="Mostrar u ocultar mandos virtuales en pantalla">
+            <span class="toggle-touch-icon">🎮</span> <span id="toggle-touch-label">Mostrar Mandos Táctiles</span> <span class="toggle-chevron">▾</span>
+          </button>
+        </div>
+
+        <!-- Cruceta Táctil (D-Pad Pixel Art) Ergonomica para Móvil y Ratón -->
+        <div class="touch-dpad-deck collapsed dpad-collapsed" id="touch-dpad-deck">
           <div class="dpad-cross">
             <button type="button" class="dpad-btn dpad-up" data-dpad="up" aria-label="Arriba">
               ▲
@@ -333,22 +475,22 @@
           </div>
 
           <div class="dpad-action-cluster">
-            <button type="button" class="action-arcade-btn btn-act-a" data-dpad="action">
+            <button type="button" class="action-arcade-btn btn-act-a" data-dpad="action" aria-label="Botón de Acción">
               <span>★</span>
-              <small>ACCIÓN / ALETEO</small>
+              <small>★ ACCIÓN / SALTO</small>
             </button>
-            <button type="button" class="action-arcade-btn btn-act-b" id="btn-dpad-spray">
+            <button type="button" class="action-arcade-btn btn-act-b" id="btn-dpad-spray" aria-label="Botón de Brisa Aromática">
               <span>🧴</span>
-              <small>BRISA / ROCÍO</small>
+              <small>🧴 BRISA / ROCÍO</small>
             </button>
           </div>
         </div>
 
-        <!-- Selector en Vivo de los 4 Escenarios Pixel Art -->
+        <!-- Selector en Cinta Horizontal de los 4 Escenarios Pixel Art -->
         <div class="scenarios-strip-box">
           <div class="scenarios-strip-header">
-            <span>🌌 CAMBIAR ESCENARIO PIXEL ART Y PISTA CHIPTUNE EN VIVO</span>
-            <small>Se aplica al instante sin perder tu partida</small>
+            <span>🌌 CAMBIAR ESCENARIO PIXEL ART & PISTA CHIPTUNE EN VIVO</span>
+            <small>Se sincroniza al instante</small>
           </div>
           <div class="scenarios-cards-row">
             <button
@@ -361,7 +503,7 @@
                 alt="Noche Estrellada en Hidalgo"
                 loading="lazy"
               />
-              <div>
+              <div class="scenario-meta">
                 <strong>1. Hidalgo Estelar</strong>
                 <small>Árbol de David & Nubes</small>
               </div>
@@ -377,7 +519,7 @@
                 alt="Santuario del Jaguar Dorado"
                 loading="lazy"
               />
-              <div>
+              <div class="scenario-meta">
                 <strong>2. Templo Jaguar</strong>
                 <small>Pirámide & Ámbar</small>
               </div>
@@ -393,8 +535,8 @@
                 alt="Cámara Alquímica de Terciopelo"
                 loading="lazy"
               />
-              <div>
-                <strong>3. Cámara Terciopelo</strong>
+              <div class="scenario-meta">
+                <strong>3. Terciopelo</strong>
                 <small>Oro Rosa & Dije QM</small>
               </div>
             </button>
@@ -409,8 +551,8 @@
                 alt="Penthouse Nocturno"
                 loading="lazy"
               />
-              <div>
-                <strong>4. Penthouse Citlalli</strong>
+              <div class="scenario-meta">
+                <strong>4. Penthouse</strong>
                 <small>Gala Metropolitana</small>
               </div>
             </button>
@@ -418,108 +560,82 @@
         </div>
       </div>
 
-      <!-- COLUMNA DERECHA: AUDIO CHIPTUNE, SALA MULTIJUGADOR Y LORE EN VIVO -->
+      <!-- =================================================================== -->
+      <!-- COLUMNA DERECHA: CONSOLA LATERAL ERGONÓMICA EN 3 PESTAÑAS LIMPIAS   -->
+      <!-- =================================================================== -->
       <aside class="arcade-sidebar">
-        <!-- 1. Consola de Audio Chiptune 8-Bit & VFX -->
-        <div class="sidebar-card audio-console-card">
-          <div class="sidebar-card-header">
-            <span>🎵 SINTETIZADOR CHIPTUNE 8-BIT</span>
-            <span id="audio-bpm-badge" class="mini-gold-pill">112 BPM</span>
-          </div>
-
-          <div class="track-now-playing">
-            <strong id="audio-track-title">Noche Estrellada en Hidalgo</strong>
-            <small id="audio-track-subtitle">El Sueño de David bajo el Árbol Ancestral</small>
-          </div>
-
-          <!-- Ecualizador de 16 Barras en Vivo -->
-          <div class="eq-bars-container" id="arcade-eq-bars" aria-hidden="true">
-            {Array.from({ length: 16 }).map(() => (
-              <div class="eq-bar" style="height: 18%"></div>
-            ))}
-          </div>
-
-          <div class="audio-controls-grid">
-            <button type="button" id="btn-audio-toggle" class="btn-audio-ctrl active">
-              ▶ Música 8-Bit
-            </button>
-            <button type="button" id="btn-audio-mute" class="btn-audio-ctrl">
-              🔊 Sonido Activo
-            </button>
-            <button type="button" id="btn-audio-sfx-test" class="btn-audio-ctrl">
-              ✨ Spray SFX
-            </button>
-            <button type="button" id="btn-crt-toggle" class="btn-audio-ctrl active">
-              📺 Filtro CRT
-            </button>
-            <button type="button" id="btn-fullscreen-toggle" class="btn-audio-ctrl" title="Pantalla Completa (Tecla F)">
-              ⛶ Pantalla Completa
-            </button>
-          </div>
-
-          <div class="audio-volume-row" style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; color: #D4AF37; font-family: 'Cinzel', serif;">
-            <label for="arcade-volume-slider">VOLUMEN:</label>
-            <input type="range" id="arcade-volume-slider" min="0" max="100" value="80" style="flex: 1; accent-color: #D4AF37; cursor: pointer;" />
-            <span id="arcade-volume-label" style="min-width: 36px; text-align: right; font-weight: bold; color: #FFE57F;">80%</span>
-          </div>
+        <!-- Navegación de 3 Pestañas Superiores -->
+        <div class="sidebar-tab-nav" role="tablist" aria-label="Consola de Control Lateral">
+          <button
+            type="button"
+            class="sidebar-tab-btn active"
+            data-sidebar-tab="room"
+            role="tab"
+            aria-selected="true"
+            id="tab-btn-room"
+          >
+            <span class="tab-btn-icon">🎮</span>
+            <span>Sala & Perfil</span>
+          </button>
+          <button
+            type="button"
+            class="sidebar-tab-btn"
+            data-sidebar-tab="audio"
+            role="tab"
+            aria-selected="false"
+            id="tab-btn-audio"
+          >
+            <span class="tab-btn-icon">🔊</span>
+            <span>Audio & Monitor</span>
+          </button>
+          <button
+            type="button"
+            class="sidebar-tab-btn"
+            data-sidebar-tab="lore"
+            role="tab"
+            aria-selected="false"
+            id="tab-btn-lore"
+          >
+            <span class="tab-btn-icon">📜</span>
+            <span>Códice Lore</span>
+          </button>
         </div>
 
-        <!-- 2. Sala Multijugador Simultánea en Tiempo Real -->
-        <div class="sidebar-card multiplayer-room-card">
-          <div class="sidebar-card-header">
-            <span>🌐 SALA MULTIJUGADOR EN VIVO</span>
-            <span class="online-dot-badge">● SINCRONIZADO</span>
+        <!-- PANEL 1: SALA MULTIJUGADOR & PERFIL DEL JUGADOR -->
+        <div id="sidebar-panel-room" class="sidebar-tab-content active" role="tabpanel" aria-labelledby="tab-btn-room">
+          <!-- Tarjeta de Perfil Rápido -->
+          <div class="sidebar-card profile-summary-card">
+            <div class="profile-summary-header">
+              <div class="profile-avatar-aura" id="sidebar-profile-avatar-aura">
+                <img
+                  id="sidebar-profile-avatar-img"
+                  src="/assets/pixel-art/sprites/bottle_citlalli.png"
+                  alt="Avatar"
+                  width="44"
+                  height="44"
+                />
+              </div>
+              <div class="profile-summary-meta">
+                <span class="profile-mini-kicker">ALQUIMISTA ACTIVO</span>
+                <strong id="sidebar-profile-name">Viajero Estelar</strong>
+                <span class="profile-mini-rank" id="sidebar-profile-rank">🌱 Aprendiz de Hidalgo</span>
+              </div>
+              <button
+                type="button"
+                id="btn-open-profile-modal-sidebar"
+                class="btn-profile-edit"
+                title="Personaliza tu Nombre y Avatar Pixel Art"
+              >
+                👤 Editar
+              </button>
+            </div>
           </div>
 
-          <!-- Perfil del Jugador -->
-          <div class="mp-profile-form">
-            <div class="mp-field">
-              <label for="mp-player-name">TU NOMBRE DE ALQUIMISTA</label>
-              <input
-                type="text"
-                id="mp-player-name"
-                maxlength="20"
-                placeholder="Ej. David de Hidalgo"
-                value="Viajero Estelar"
-              />
-            </div>
-
-            <div class="mp-field">
-              <label>TU AVATAR PIXEL ART</label>
-              <div class="avatar-picker-row" id="mp-avatar-picker">
-                <button
-                  type="button"
-                  class="avatar-pick-btn active"
-                  data-avatar-id="bottle"
-                  title="Frasco Citlalli"
-                >
-                  <img src="/assets/pixel-art/sprites/bottle_citlalli.png" alt="Frasco" width="28" height="28" />
-                </button>
-                <button
-                  type="button"
-                  class="avatar-pick-btn"
-                  data-avatar-id="jaguar"
-                  title="Jaguar Dorado"
-                >
-                  <img src="/assets/pixel-art/sprites/jaguar_gold.png" alt="Jaguar" width="28" height="28" />
-                </button>
-                <button
-                  type="button"
-                  class="avatar-pick-btn"
-                  data-avatar-id="star"
-                  title="Estrella Citlalli"
-                >
-                  <img src="/assets/pixel-art/sprites/star_citlalli.png" alt="Estrella" width="28" height="28" />
-                </button>
-                <button
-                  type="button"
-                  class="avatar-pick-btn"
-                  data-avatar-id="charm_qm"
-                  title="Medallón QM"
-                >
-                  <img src="/assets/pixel-art/sprites/charm_qm.png" alt="Dije QM" width="28" height="28" />
-                </button>
-              </div>
+          <!-- Conexión a Sala Multijugador -->
+          <div class="sidebar-card multiplayer-room-card">
+            <div class="sidebar-card-header">
+              <span>🌐 SALA EN TIEMPO REAL</span>
+              <span class="online-dot-badge">● SINCRONIZADO</span>
             </div>
 
             <!-- Código de Sala -->
@@ -531,6 +647,7 @@
                   id="mp-room-code-input"
                   value="CITLALLI-01"
                   maxlength="16"
+                  placeholder="CITLALLI-01"
                 />
               </div>
               <button type="button" id="btn-mp-join-room" class="btn-mp-join">
@@ -550,93 +667,147 @@
               <input type="checkbox" id="mp-bots-checkbox" checked />
               <span>Incluir rivales IA en vivo en la sala</span>
             </label>
-          </div>
 
-          <!-- Lista de Jugadores Conectados en Vivo -->
-          <div class="mp-players-list-wrap">
-            <div class="mp-list-header">
-              <span>JUGADORES EN SALA</span>
-              <small>Abre otra pestaña para duelo multicámara</small>
+            <!-- Lista de Jugadores Conectados en Vivo -->
+            <div class="mp-players-list-wrap">
+              <div class="mp-list-header">
+                <span>JUGADORES EN SALA</span>
+                <small>Duelo multicámara</small>
+              </div>
+              <div id="mp-connected-players" class="mp-connected-list"></div>
             </div>
-            <div id="mp-connected-players" class="mp-connected-list"></div>
-          </div>
 
-          <!-- Botonera de Emotes Pixel Art en Vivo -->
-          <div class="mp-emotes-bar">
-            <span class="mp-emotes-label">LANZAR EMOTE A LA SALA:</span>
-            <div class="mp-emotes-btns">
-              <button type="button" class="btn-emote" data-emote="aroma" title="¡Aroma de los Dioses!">
-                🧴 Aroma
-              </button>
-              <button type="button" class="btn-emote" data-emote="jaguar" title="¡Fuerza del Jaguar!">
-                🐆 Jaguar
-              </button>
-              <button type="button" class="btn-emote" data-emote="stars" title="¡El límite son las estrellas!">
-                ⭐ Estrellas
-              </button>
-              <button type="button" class="btn-emote" data-emote="streak" title="¡Racha Dorada!">
-                🔥 Racha
-              </button>
+            <!-- Botonera de Emotes Pixel Art en Vivo -->
+            <div class="mp-emotes-bar">
+              <span class="mp-emotes-label">LANZAR EMOTE A LA SALA:</span>
+              <div class="mp-emotes-btns">
+                <button type="button" class="btn-emote" data-emote="aroma" title="¡Aroma de los Dioses!">
+                  🧴 Aroma
+                </button>
+                <button type="button" class="btn-emote" data-emote="jaguar" title="¡Fuerza del Jaguar!">
+                  🐆 Jaguar
+                </button>
+                <button type="button" class="btn-emote" data-emote="stars" title="¡El límite son las estrellas!">
+                  ⭐ Estrellas
+                </button>
+                <button type="button" class="btn-emote" data-emote="streak" title="¡Racha Dorada!">
+                  🔥 Racha
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 3. Códice Olfativo & Lore Desbloqueado en Vivo -->
-        <div class="sidebar-card lore-codex-card">
-          <div class="sidebar-card-header">
-            <span>📜 CÓDICE OLFATIVO EN VIVO</span>
-            <span class="mini-gold-pill">ENCICLOPEDIA</span>
-          </div>
+        <!-- PANEL 2: CONSOLA DE AUDIO CHIPTUNE 8-BIT & MONITOR -->
+        <div id="sidebar-panel-audio" class="sidebar-tab-content" role="tabpanel" aria-labelledby="tab-btn-audio" style="display: none;">
+          <div class="sidebar-card audio-console-card">
+            <div class="sidebar-card-header">
+              <span>🎵 SINTETIZADOR CHIPTUNE 8-BIT</span>
+              <span id="audio-bpm-badge" class="mini-gold-pill">112 BPM</span>
+            </div>
 
-          <div class="lore-active-display" id="lore-active-display">
-            <img
-              id="lore-active-sprite"
-              src="/assets/pixel-art/sprites/bottle_citlalli.png"
-              alt="Reliquia Citlalli"
-              width="48"
-              height="48"
-            />
-            <div>
-              <span id="lore-active-category" class="lore-cat-tag">Reliquia Suprema</span>
-              <h4 id="lore-active-name">Frasco Facetado Citlalli</h4>
-              <p id="lore-active-desc">
-                Cristal facetado con tapa cilíndrica oro rosa y el sello de los dioses (50 ml Eau de
-                Parfum). Recolecta ingredientes en el Arcade para inspeccionar su historia.
-              </p>
+            <div class="track-now-playing">
+              <strong id="audio-track-title">Noche Estrellada en Hidalgo</strong>
+              <small id="audio-track-subtitle">El Sueño de David bajo el Árbol Ancestral</small>
+            </div>
+
+            <!-- Ecualizador de 16 Barras en Vivo -->
+            <div class="visualizer-header-wrap">
+              <span class="visualizer-header-pill">✦ EQUALIZADOR CHIPTUNE 16 BANDAS ✦</span>
+            </div>
+            <div class="eq-bars-container audio-visualizer-bars is-idle" id="arcade-eq-bars" aria-hidden="true">
+              {Array.from({ length: 16 }).map((_, i) => (
+                <div class="eq-bar audio-visualizer-bar" style={`--i: ${i};`}></div>
+              ))}
+            </div>
+
+            <div class="audio-controls-grid">
+              <button type="button" id="btn-audio-toggle" class="btn-audio-ctrl active">
+                ▶ Música 8-Bit
+              </button>
+              <button type="button" id="btn-audio-mute" class="btn-audio-ctrl">
+                🔊 Sonido Activo
+              </button>
+              <button type="button" id="btn-audio-sfx-test" class="btn-audio-ctrl">
+                ✨ Spray SFX
+              </button>
+              <button type="button" id="btn-crt-toggle" class="btn-audio-ctrl active">
+                📺 Filtro CRT
+              </button>
+              <button type="button" id="btn-fullscreen-toggle" class="btn-audio-ctrl" title="Pantalla Completa (Tecla F)">
+                ⛶ Pantalla Completa
+              </button>
+            </div>
+
+            <div class="audio-volume-row">
+              <label for="arcade-volume-slider">VOLUMEN:</label>
+              <input type="range" id="arcade-volume-slider" min="0" max="100" value="80" />
+              <span id="arcade-volume-label">80%</span>
             </div>
           </div>
+        </div>
 
-          <div class="lore-mini-sprites-bar" id="lore-mini-sprites-bar">
-            <button type="button" class="lore-sprite-btn" data-lore-id="bottle_citlalli" title="Frasco Citlalli">
-              <img src="/assets/pixel-art/sprites/bottle_citlalli.png" alt="Frasco" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="charm_qm" title="Medallón QM">
-              <img src="/assets/pixel-art/sprites/charm_qm.png" alt="QM" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="jaguar_gold" title="Jaguar Dorado">
-              <img src="/assets/pixel-art/sprites/jaguar_gold.png" alt="Jaguar" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="star_citlalli" title="Estrella Citlalli">
-              <img src="/assets/pixel-art/sprites/star_citlalli.png" alt="Estrella" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="mandarin" title="Mandarina Fresca">
-              <img src="/assets/pixel-art/sprites/mandarin.png" alt="Mandarina" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="rose_pink" title="Rosa Rosada">
-              <img src="/assets/pixel-art/sprites/rose_pink.png" alt="Rosa" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="jasmine_white" title="Jazmín Blanco">
-              <img src="/assets/pixel-art/sprites/jasmine_white.png" alt="Jazmín" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="vanilla_pod" title="Vaina de Vainilla">
-              <img src="/assets/pixel-art/sprites/vanilla_pod.png" alt="Vainilla" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="amber_crystal" title="Resina de Ámbar">
-              <img src="/assets/pixel-art/sprites/amber_crystal.png" alt="Ámbar" width="26" height="26" />
-            </button>
-            <button type="button" class="lore-sprite-btn" data-lore-id="clay_vessel" title="Vasija de Barro de David">
-              <img src="/assets/pixel-art/sprites/clay_vessel.png" alt="Vasija" width="26" height="26" />
-            </button>
+        <!-- PANEL 3: CÓDICE OLFATIVO & LORE DESBLOQUEADO -->
+        <div id="sidebar-panel-lore" class="sidebar-tab-content" role="tabpanel" aria-labelledby="tab-btn-lore" style="display: none;">
+          <div class="sidebar-card lore-codex-card">
+            <div class="sidebar-card-header">
+              <span>📜 CÓDICE OLFATIVO EN VIVO</span>
+              <span class="mini-gold-pill">ENCICLOPEDIA</span>
+            </div>
+
+            <div class="lore-active-display" id="lore-active-display">
+              <img
+                id="lore-active-sprite"
+                src="/assets/pixel-art/sprites/bottle_citlalli.png"
+                alt="Reliquia Citlalli"
+                width="48"
+                height="48"
+              />
+              <div>
+                <span id="lore-active-category" class="lore-cat-tag">Reliquia Suprema</span>
+                <h4 id="lore-active-name">Frasco Facetado Citlalli</h4>
+                <p id="lore-active-desc">
+                  Cristal facetado con tapa cilíndrica oro rosa y el sello de los dioses (50 ml Eau de
+                  Parfum). Recolecta ingredientes en el Arcade para inspeccionar su historia.
+                </p>
+              </div>
+            </div>
+
+            <div class="lore-mini-sprites-label">
+              <span>TOCA CUALQUIER NOTA O RELIQUIA PARA INSPECCIONAR:</span>
+            </div>
+            <div class="lore-mini-sprites-bar" id="lore-mini-sprites-bar">
+              <button type="button" class="lore-sprite-btn" data-lore-id="bottle_citlalli" title="Frasco Citlalli">
+                <img src="/assets/pixel-art/sprites/bottle_citlalli.png" alt="Frasco" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="charm_qm" title="Medallón QM">
+                <img src="/assets/pixel-art/sprites/charm_qm.png" alt="QM" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="jaguar_gold" title="Jaguar Dorado">
+                <img src="/assets/pixel-art/sprites/jaguar_gold.png" alt="Jaguar" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="star_citlalli" title="Estrella Citlalli">
+                <img src="/assets/pixel-art/sprites/star_citlalli.png" alt="Estrella" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="mandarin" title="Mandarina Fresca">
+                <img src="/assets/pixel-art/sprites/mandarin.png" alt="Mandarina" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="rose_pink" title="Rosa Rosada">
+                <img src="/assets/pixel-art/sprites/rose_pink.png" alt="Rosa" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="jasmine_white" title="Jazmín Blanco">
+                <img src="/assets/pixel-art/sprites/jasmine_white.png" alt="Jazmín" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="vanilla_pod" title="Vaina de Vainilla">
+                <img src="/assets/pixel-art/sprites/vanilla_pod.png" alt="Vainilla" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="amber_crystal" title="Resina de Ámbar">
+                <img src="/assets/pixel-art/sprites/amber_crystal.png" alt="Ámbar" width="26" height="26" />
+              </button>
+              <button type="button" class="lore-sprite-btn" data-lore-id="clay_vessel" title="Vasija de Barro de David">
+                <img src="/assets/pixel-art/sprites/clay_vessel.png" alt="Vasija" width="26" height="26" />
+              </button>
+            </div>
           </div>
         </div>
       </aside>
@@ -769,6 +940,256 @@
 
         <div id="achievements-grid" class="achievements-grid">
           <!-- Renderizado dinámicamente por arcade-controller.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- MODAL DE SELECCIÓN DE AVATAR PIXEL ART & NOMBRE DE ALQUIMISTA      -->
+    <!-- =================================================================== -->
+    <div
+      id="arcade-profile-modal"
+      class="arcade-modal-overlay hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profile-modal-title"
+    >
+      <div class="arcade-modal-card">
+        <div class="arcade-modal-header">
+          <div class="modal-title-wrap">
+            <span class="modal-kicker">✦ SALÓN DE ALQUIMISTAS CITLALLI ✦</span>
+            <h3 id="profile-modal-title">Perfil & Avatar Pixel Art Oficial</h3>
+          </div>
+          <button
+            type="button"
+            id="btn-close-profile-modal"
+            class="btn-modal-close"
+            aria-label="Cerrar modal de perfil"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="arcade-modal-body">
+          <!-- Vista Previa Interactiva en Vivo -->
+          <div class="profile-hero-preview">
+            <div class="preview-avatar-glow" id="modal-preview-glow">
+              <img
+                id="modal-preview-avatar-img"
+                src="/assets/pixel-art/sprites/bottle_citlalli.png"
+                alt="Avatar Seleccionado"
+                class="modal-preview-img"
+              />
+            </div>
+            <div class="preview-meta">
+              <span class="preview-rank-tag" id="modal-preview-rank">🌱 Aprendiz de Hidalgo</span>
+              <h4 id="modal-preview-name">Viajero Estelar</h4>
+              <p id="modal-preview-quote">"El frasco facetado de vidrio artesanal con el aroma de los dioses."</p>
+            </div>
+          </div>
+
+          <!-- Nombre del Alquimista -->
+          <div class="profile-form-group">
+            <label for="modal-input-player-name">NOMBRE DEL ALQUIMISTA / JUGADOR:</label>
+            <div class="input-with-symbol">
+              <span class="input-symbol">👤</span>
+              <input
+                type="text"
+                id="modal-input-player-name"
+                maxlength="22"
+                placeholder="Ej. David de Hidalgo, El Hombre Citlalli..."
+                autocomplete="off"
+              />
+            </div>
+            <small class="input-tip">Se sincronizará en tiempo real en la cabina, carreras multijugador y en tu tarjeta de trofeo PNG.</small>
+          </div>
+
+          <!-- Selección de los 12 Avatares Pixel Art -->
+          <div class="profile-avatars-catalog">
+            <div class="avatars-catalog-header">
+              <label>SELECCIONA TU AVATAR PIXEL ART (12 RELIQUIAS OFICIALES):</label>
+              <span id="modal-selected-avatar-title" class="mini-gold-pill">Frasco Citlalli</span>
+            </div>
+
+            <div class="avatars-12-grid" id="modal-avatars-grid">
+              <!-- 1. Frasco Citlalli -->
+              <button
+                type="button"
+                class="avatar-choice-card active"
+                data-avatar-choice="bottle"
+                data-avatar-color="#E0A98B"
+                data-avatar-name="Frasco Citlalli"
+                data-avatar-quote="El frasco facetado de vidrio artesanal con el aroma de los dioses."
+                title="Frasco Citlalli"
+              >
+                <img src="/assets/pixel-art/sprites/bottle_citlalli.png" alt="Frasco Citlalli" width="36" height="36" />
+                <span>Frasco</span>
+              </button>
+
+              <!-- 2. Medallón QM -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="charm_qm"
+                data-avatar-color="#F3C6A5"
+                data-avatar-name="Medallón Sagrado QM"
+                data-avatar-quote="Medallón en oro rosa con la marca sagrada de la fundadora."
+                title="Medallón QM"
+              >
+                <img src="/assets/pixel-art/sprites/charm_qm.png" alt="Medallón QM" width="36" height="36" />
+                <span>Medallón</span>
+              </button>
+
+              <!-- 3. Jaguar Dorado -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="jaguar"
+                data-avatar-color="#D4AF37"
+                data-avatar-name="Jaguar Dorado"
+                data-avatar-quote="Espíritu guerrero que custodia el ámbar y la noche en Hidalgo."
+                title="Jaguar Dorado"
+              >
+                <img src="/assets/pixel-art/sprites/jaguar_gold.png" alt="Jaguar Dorado" width="36" height="36" />
+                <span>Jaguar</span>
+              </button>
+
+              <!-- 4. Estrella Citlalli -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="star"
+                data-avatar-color="#FFE57F"
+                data-avatar-name="Estrella Citlalli"
+                data-avatar-quote="Guía astral en el firmamento nocturno de los valles hidalguenses."
+                title="Estrella Citlalli"
+              >
+                <img src="/assets/pixel-art/sprites/star_citlalli.png" alt="Estrella Citlalli" width="36" height="36" />
+                <span>Estrella</span>
+              </button>
+
+              <!-- 5. Mandarina Cítrica -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="mandarin"
+                data-avatar-color="#FFA726"
+                data-avatar-name="Mandarina Cítrica"
+                data-avatar-quote="Nota de salida chispeante y luminosa cosechada en el rocío matinal."
+                title="Mandarina Cítrica"
+              >
+                <img src="/assets/pixel-art/sprites/mandarin.png" alt="Mandarina" width="36" height="36" />
+                <span>Mandarina</span>
+              </button>
+
+              <!-- 6. Rosa Rosada -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="rose"
+                data-avatar-color="#F48FB1"
+                data-avatar-name="Rosa Rosada"
+                data-avatar-quote="Corazón floral aterciopelado que evoca el romance eterno."
+                title="Rosa Rosada"
+              >
+                <img src="/assets/pixel-art/sprites/rose_pink.png" alt="Rosa" width="36" height="36" />
+                <span>Rosa</span>
+              </button>
+
+              <!-- 7. Jazmín Blanco -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="jasmine"
+                data-avatar-color="#FFFFFF"
+                data-avatar-name="Jazmín Blanco"
+                data-avatar-quote="Flor nocturna de elegancia pura recogida bajo el manto de estrellas."
+                title="Jazmín Blanco"
+              >
+                <img src="/assets/pixel-art/sprites/jasmine_white.png" alt="Jazmín" width="36" height="36" />
+                <span>Jazmín</span>
+              </button>
+
+              <!-- 8. Vaina de Vainilla -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="vanilla"
+                data-avatar-color="#FFE082"
+                data-avatar-name="Vaina de Vainilla"
+                data-avatar-quote="Calidez dulce y reconfortante de la vainilla de Papantla ancestral."
+                title="Vaina de Vainilla"
+              >
+                <img src="/assets/pixel-art/sprites/vanilla_pod.png" alt="Vainilla" width="36" height="36" />
+                <span>Vainilla</span>
+              </button>
+
+              <!-- 9. Cristal de Ámbar -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="amber"
+                data-avatar-color="#FFB300"
+                data-avatar-name="Cristal de Ámbar"
+                data-avatar-quote="Resina mística fosilizada que sella la fijación divina en la piel."
+                title="Cristal de Ámbar"
+              >
+                <img src="/assets/pixel-art/sprites/amber_crystal.png" alt="Ámbar" width="36" height="36" />
+                <span>Ámbar</span>
+              </button>
+
+              <!-- 10. Vasija de David -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="vessel"
+                data-avatar-color="#BCAAA4"
+                data-avatar-name="Vasija de David"
+                data-avatar-quote="Artesanía de barro cocido donde reposa la maceración sagrada."
+                title="Vasija de David"
+              >
+                <img src="/assets/pixel-art/sprites/clay_vessel.png" alt="Vasija" width="36" height="36" />
+                <span>Vasija</span>
+              </button>
+
+              <!-- 11. Quetzal Dorado / Serpiente -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="snake"
+                data-avatar-color="#FFD54F"
+                data-avatar-name="Quetzal Dorado"
+                data-avatar-quote="La serpiente emplumada que teje la estela aromática de los dioses."
+                title="Quetzal Dorado"
+              >
+                <img src="/assets/pixel-art/sprites/snake_head_gold.png" alt="Serpiente" width="36" height="36" />
+                <span>Quetzal</span>
+              </button>
+
+              <!-- 12. Frasco Alado -->
+              <button
+                type="button"
+                class="avatar-choice-card"
+                data-avatar-choice="winged_bottle"
+                data-avatar-color="#80DEEA"
+                data-avatar-name="Frasco Alado"
+                data-avatar-quote="El frasco celestial que surca los cielos hacia el límite de las estrellas."
+                title="Frasco Alado"
+              >
+                <img src="/assets/pixel-art/sprites/bottle_winged.png" alt="Frasco Alado" width="36" height="36" />
+                <span>Alado</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="arcade-modal-footer">
+          <button type="button" id="btn-save-profile-modal" class="btn-modal-save">
+            💾 Guardar Perfil de Alquimista
+          </button>
+          <button type="button" id="btn-cancel-profile-modal" class="btn-modal-cancel">
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
@@ -975,69 +1396,351 @@
     cursor: pointer;
   }
 
-  /* Selector de los 4 Juegos + Torneo */
-  .games-selector-bar {
+  /* Galería Preview de los 4 Juegos en Cuadros */
+  .games-preview-gallery-container {
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1) 0%, rgba(6, 11, 24, 0.95) 80%);
+    border: 2px solid rgba(212, 175, 55, 0.35);
+    border-radius: 24px;
+    padding: 2rem 1.75rem;
+    margin-bottom: 2.25rem;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+  }
+
+  .preview-gallery-title {
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+
+  .preview-gallery-title h3 {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    color: var(--gold-bright);
+    margin: 0.6rem 0 0.4rem;
+  }
+
+  .preview-gallery-title p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* Galería Maestra de Selección CITLALLI Arcade (5 Tarjetas) */
+  .games-master-gallery-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0.85rem;
-    margin-bottom: 1.75rem;
+    gap: 1rem;
   }
 
-  .game-tab-card {
-    background: rgba(12, 20, 44, 0.88);
+  .game-quad-card {
+    background: rgba(12, 20, 44, 0.9);
     border: 1.5px solid rgba(212, 175, 55, 0.3);
-    border-radius: 16px;
-    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    position: relative;
+  }
+
+  .game-quad-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--gold-bright);
+    box-shadow: 0 16px 36px rgba(212, 175, 55, 0.28);
+  }
+
+  .game-quad-card.active {
+    border-color: var(--gold-bright);
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.16) 0%, rgba(12, 20, 44, 0.95) 100%);
+    box-shadow: 0 0 28px rgba(212, 175, 55, 0.45), inset 0 0 16px rgba(212, 175, 55, 0.15);
+  }
+
+  .master-tourney-card {
+    border-color: rgba(255, 229, 127, 0.55);
+    background: linear-gradient(160deg, rgba(24, 18, 54, 0.92) 0%, rgba(10, 16, 38, 0.96) 100%);
+  }
+
+  .master-tourney-card.active {
+    border-color: #FFE57F;
+    box-shadow: 0 0 32px rgba(255, 229, 127, 0.55), inset 0 0 18px rgba(212, 175, 55, 0.25);
+  }
+
+  .tourney-trophy-pulse {
+    animation: tourneyGlow 2.4s infinite alternate ease-in-out;
+  }
+
+  @keyframes tourneyGlow {
+    0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); }
+    100% { transform: scale(1.15); filter: drop-shadow(0 0 24px rgba(255, 229, 127, 0.95)); }
+  }
+
+  .quad-media-wrap {
+    position: relative;
+    height: 145px;
+    overflow: hidden;
+    background: #050914;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .quad-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    opacity: 0.42;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .game-quad-card:hover .quad-bg-img {
+    transform: scale(1.08);
+    opacity: 0.58;
+  }
+
+  .quad-sprite-showcase {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    text-align: left;
-    color: var(--cream-silk);
-    cursor: pointer;
-    transition: all 0.22s ease;
+    justify-content: center;
+    pointer-events: none;
   }
 
-  .game-tab-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--rose-gold);
+  .quad-hero-sprite {
+    width: 58px;
+    height: 58px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.8));
+    transition: transform 0.3s ease;
   }
 
-  .game-tab-card.active {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.26), rgba(224, 169, 139, 0.16));
-    border-color: var(--gold-bright);
-    box-shadow: 0 10px 26px rgba(212, 175, 55, 0.28);
+  .game-quad-card:hover .quad-hero-sprite {
+    transform: scale(1.16);
   }
 
-  .game-tab-card.tourney-card {
-    border-color: rgba(255, 229, 127, 0.55);
+  .quad-floating-note {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
   }
 
-  .game-tab-icon {
-    font-size: 1.85rem;
+  .note-1 {
+    top: 14px;
+    left: 14px;
+    animation: floatNote 3s ease-in-out infinite alternate;
+  }
+
+  .note-2 {
+    bottom: 34px;
+    right: 14px;
+    animation: floatNote 3s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes floatNote {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-7px) rotate(8deg); }
+  }
+
+  .star-pulse {
+    animation: starPulse 2.2s infinite alternate ease-in-out;
+  }
+
+  @keyframes starPulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+    100% { transform: scale(1.15); filter: drop-shadow(0 0 22px rgba(255, 215, 0, 0.9)); }
+  }
+
+  .flappy-float {
+    animation: flappyBob 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes flappyBob {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-9px); }
+  }
+
+  .quad-num-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(6, 11, 24, 0.88);
+    border: 1px solid var(--rose-gold);
+    color: var(--rose-bright);
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 0.18rem 0.5rem;
+    border-radius: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .tourney-badge {
+    border-color: #FFE57F;
+    color: #FFE57F;
+  }
+
+  /* Indicador de Estado Maestro en la tarjeta */
+  .master-status-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(6, 11, 24, 0.92);
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 0.32rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 0.66rem;
+    color: var(--gold-soft);
+    letter-spacing: 0.08em;
+    transition: all 0.25s ease;
+  }
+
+  .status-indicator-dot {
+    font-size: 0.55rem;
+    color: #81C784;
+    transition: transform 0.25s ease;
+  }
+
+  .game-quad-card.active .master-status-indicator {
+    background: linear-gradient(90deg, #D4AF37, #FFE57F);
+    color: #060B18;
+    border-top: 1px solid #FFE57F;
+    box-shadow: 0 -2px 10px rgba(255, 229, 127, 0.4);
+  }
+
+  .game-quad-card.active .status-indicator-dot {
+    color: #060B18;
+    animation: dotPulse 1.2s infinite alternate;
+  }
+
+  @keyframes dotPulse {
+    0% { transform: scale(0.9); }
+    100% { transform: scale(1.4); }
+  }
+
+  .quad-details {
+    padding: 0.95rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .quad-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .quad-emoji {
+    font-size: 1.2rem;
     flex-shrink: 0;
   }
 
-  .game-tab-num {
-    display: block;
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: var(--rose-gold);
-  }
-
-  .game-tab-info strong {
-    display: block;
+  .quad-details h4 {
     font-family: var(--font-display);
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     color: var(--gold-bright);
     line-height: 1.25;
   }
 
-  .game-tab-info small {
-    display: block;
-    font-size: 0.71rem;
+  .quad-details p {
+    font-size: 0.76rem;
     color: var(--text-muted);
-    margin-top: 0.15rem;
+    line-height: 1.4;
+    margin-bottom: 0.65rem;
+    flex-grow: 1;
+  }
+
+  .quad-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .quad-tags span {
+    font-size: 0.62rem;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--rose-gold);
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  /* Botones de acción directa en cada tarjeta */
+  .quad-actions-row {
+    display: flex;
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.18);
+  }
+
+  .btn-card-action {
+    flex: 1;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.45rem 0.35rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .btn-play-cabina {
+    background: rgba(212, 175, 55, 0.18);
+    border: 1px solid var(--gold-metallic);
+    color: var(--gold-bright);
+  }
+
+  .btn-play-cabina:hover {
+    background: var(--gold-metallic);
+    color: var(--navy-deep);
+  }
+
+  .btn-tourney-gold-cta {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(255, 229, 127, 0.25));
+    border-color: #FFE57F;
+    color: #FFE57F;
+  }
+
+  .btn-tourney-gold-cta:hover {
+    background: #FFE57F;
+    color: #060B18;
+  }
+
+  .btn-play-fullscreen {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--cream-silk);
+  }
+
+  .btn-play-fullscreen:hover {
+    border-color: var(--rose-gold);
+    color: var(--rose-gold);
+    background: rgba(224, 169, 139, 0.15);
+  }
+
+  @media (max-width: 1200px) {
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .games-master-gallery-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* Layout Principal del Gabinete + Sidebar */
@@ -1049,7 +1752,8 @@
     margin-bottom: 5rem;
   }
 
-  .arcade-cabinet-shell {
+  .arcade-cabinet-shell,
+  .arcade-cabinet-frame {
     background: linear-gradient(180deg, #0E1733 0%, #070C1C 100%);
     border: 2.5px solid var(--gold-metallic);
     border-radius: 26px;
@@ -1060,49 +1764,76 @@
       inset 0 0 24px rgba(212, 175, 55, 0.08);
   }
 
-  .cabinet-marquee {
+  /* Cabecera / Marquesina del Gabinete con padding superior >= 1.2rem y marco de grecas */
+  .cabinet-marquee,
+  .cabinet-header {
     position: relative;
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
-    border: 1.5px solid var(--gold-bright);
-    margin-bottom: 1rem;
-    min-height: 86px;
-    background: #050914;
+    border: 2px solid var(--gold-metallic);
+    margin-bottom: 1.15rem;
+    min-height: auto;
+    height: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    background: linear-gradient(135deg, rgba(10, 17, 36, 0.98) 0%, rgba(6, 11, 24, 0.96) 50%, rgba(16, 27, 56, 0.98) 100%);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 24px rgba(212, 175, 55, 0.3), inset 0 0 16px rgba(212, 175, 55, 0.12);
   }
 
   .marquee-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 92px;
+    height: 100%;
     object-fit: cover;
-    opacity: 0.42;
+    opacity: 0.32;
     display: block;
     image-rendering: pixelated;
+    pointer-events: none;
   }
 
   .marquee-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(5, 9, 20, 0.92), rgba(5, 9, 20, 0.65), rgba(5, 9, 20, 0.92));
-    padding: 0.85rem 1.25rem;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding: 0 1.35rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .marquee-title-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .marquee-kicker {
     display: block;
-    font-size: 0.64rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     color: var(--rose-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
   }
 
-  .marquee-title-wrap h3 {
+  .marquee-title-wrap h3,
+  #cabinet-active-game-title,
+  #cabinet-game-title,
+  .cabinet-game-title {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 700;
     color: var(--gold-bright);
+    line-height: 1.35;
+    margin: 0;
+    padding: 0.2rem 0;
+    overflow: visible;
+    text-shadow: 0 2px 14px rgba(255, 229, 127, 0.4);
   }
 
   .marquee-badges {
@@ -1114,50 +1845,91 @@
   .marquee-pill {
     font-size: 0.74rem;
     font-weight: 700;
-    padding: 0.3rem 0.75rem;
+    padding: 0.35rem 0.85rem;
     border-radius: 999px;
     background: rgba(16, 27, 56, 0.9);
     border: 1px solid var(--rose-gold);
     color: var(--cream-silk);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   }
 
   .marquee-pill.pill-gold {
     border-color: var(--gold-metallic);
     color: var(--gold-bright);
+    background: rgba(212, 175, 55, 0.16);
   }
 
-  /* Controles Superiores del Gabinete */
-  .cabinet-controls-strip {
-    display: grid;
-    grid-template-columns: 1.15fr 0.95fr auto;
-    gap: 0.85rem;
-    align-items: end;
-    background: rgba(6, 11, 24, 0.82);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 14px;
-    padding: 0.85rem 1rem;
-    margin-bottom: 0.9rem;
+  /* Controles Rápidos del Gabinete (Selectores estilo píldora de lujo sin textos truncados) */
+  .cabinet-controls-strip,
+  .cabinet-quick-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(10, 17, 36, 0.95), rgba(6, 11, 24, 0.9));
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .control-group {
+    flex: 1 1 200px;
+    min-width: 0;
   }
 
   .control-group label {
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.66rem;
     font-weight: 800;
     letter-spacing: 0.14em;
     color: var(--rose-gold);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
   }
 
+  #arcade-mode-select,
+  #arcade-difficulty-select,
   .arcade-select {
+    min-width: 190px;
     width: 100%;
-    background: #0D1630;
-    color: var(--cream-silk);
-    border: 1px solid rgba(212, 175, 55, 0.45);
-    padding: 0.52rem 0.75rem;
-    border-radius: 10px;
-    font-family: var(--font-sans);
+    padding: 0.65rem 1.1rem;
     font-size: 0.82rem;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    background: linear-gradient(135deg, rgba(13, 22, 48, 0.98), rgba(8, 14, 30, 0.98));
+    color: var(--cream-silk);
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.35);
+    transition: all 0.25s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23D4AF37' d='M1.41 0L6 4.58L10.59 0L12 1.41l-6 6l-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.1rem center;
+    background-size: 11px 7px;
+    padding-right: 2.4rem;
+  }
+
+  #arcade-mode-select:focus,
+  #arcade-difficulty-select:focus,
+  .arcade-select:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 16px rgba(255, 229, 127, 0.4), inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  #arcade-mode-select option,
+  #arcade-difficulty-select option,
+  .arcade-select option {
+    background-color: #0A1124;
+    color: #F6EFE6;
+    padding: 0.6rem 0.8rem;
   }
 
   .actions-inline {
@@ -1300,19 +2072,50 @@
   .arcade-screen-viewport {
     position: relative;
     width: 100%;
-    border-radius: 16px;
+    max-width: 100%;
+    border-radius: 18px;
     overflow: hidden;
     background: #040711;
     border: 3px solid var(--gold-metallic);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), inset 0 0 24px rgba(212, 175, 55, 0.2);
-    aspect-ratio: 800 / 534;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), inset 0 0 28px rgba(212, 175, 55, 0.22);
+    aspect-ratio: 16 / 9;
   }
 
   #citlalli-arcade-canvas {
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
     display: block;
     image-rendering: pixelated;
+  }
+
+  /* Soporte para Pantalla Completa Cinematográfica */
+  .arcade-screen-viewport:fullscreen,
+  .arcade-screen-viewport:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+  }
+
+  .arcade-screen-viewport:fullscreen #citlalli-arcade-canvas,
+  .arcade-screen-viewport:-webkit-full-screen #citlalli-arcade-canvas {
+    width: auto;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
   }
 
   .arcade-screen-viewport.crt-enabled .crt-scanlines {
@@ -1416,86 +2219,192 @@
     color: var(--navy-deep);
   }
 
-  /* Cruceta Táctil D-Pad */
+  /* Barra de Atajos Rápidos de Teclado */
+  .arcade-quick-shortcuts-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    background: rgba(6, 11, 24, 0.78);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 0.55rem 0.85rem;
+    margin-top: 0.75rem;
+  }
+
+  .shortcuts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .shortcut-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .shortcut-pill kbd {
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    color: var(--gold-bright);
+    padding: 0.1rem 0.35rem;
+    border-radius: 5px;
+    font-family: var(--font-pixel, monospace);
+    font-size: 0.65rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-toggle-touch {
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--gold-bright);
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-toggle-touch:hover {
+    background: var(--gold-metallic);
+    color: var(--navy-deep);
+  }
+
+  .btn-toggle-touch .toggle-chevron {
+    transition: transform 0.25s ease;
+    font-size: 0.7rem;
+  }
+
+  .btn-toggle-touch[aria-expanded="true"] .toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Cruceta Táctil D-Pad Compacta y Mandos Virtuales */
   .touch-dpad-deck {
-    margin-top: 0.95rem;
+    margin-top: 0.85rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
-    background: rgba(6, 11, 24, 0.78);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 16px;
-    padding: 0.85rem 1.35rem;
+    background: linear-gradient(135deg, rgba(8, 14, 30, 0.95), rgba(4, 7, 16, 0.92));
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), inset 0 0 16px rgba(212, 175, 55, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .touch-dpad-deck.dpad-collapsed,
+  .touch-dpad-deck.collapsed {
+    display: none !important;
   }
 
   .dpad-cross {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
   }
 
   .dpad-mid-row {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
   }
 
   .dpad-btn {
-    width: 44px;
-    height: 40px;
-    background: #132046;
-    border: 1.5px solid var(--gold-metallic);
+    min-width: 48px;
+    min-height: 48px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(145deg, #182856, #0e1733);
+    border: 2px solid var(--gold-metallic);
     color: var(--gold-bright);
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 12px;
+    font-size: 1.05rem;
     cursor: pointer;
     user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
   }
 
-  .dpad-btn:active {
+  .dpad-btn:active,
+  .dpad-btn.touch-pressed {
+    transform: scale(0.92);
     background: var(--gold-metallic);
     color: var(--navy-deep);
+    box-shadow: 0 0 20px rgba(255, 229, 127, 0.85), inset 0 0 8px rgba(0, 0, 0, 0.3);
   }
 
   .dpad-center-gem {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--rose-gold);
+    font-size: 0.95rem;
+    text-shadow: 0 0 8px rgba(224, 169, 139, 0.6);
   }
 
   .dpad-action-cluster {
     display: flex;
     gap: 0.85rem;
+    flex-wrap: wrap;
   }
 
   .action-arcade-btn {
-    min-width: 120px;
-    padding: 0.7rem 1rem;
-    border-radius: 14px;
+    min-width: 125px;
+    min-height: 48px;
+    padding: 0.75rem 1.15rem;
+    border-radius: 16px;
     border: 2px solid var(--gold-bright);
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(224, 169, 139, 0.22));
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(224, 169, 139, 0.2));
     color: var(--cream-silk);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.15rem;
+    justify-content: center;
+    gap: 0.2rem;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   }
 
   .action-arcade-btn span {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    line-height: 1;
   }
 
   .action-arcade-btn small {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--gold-bright);
+  }
+
+  .action-arcade-btn:active,
+  .action-arcade-btn.touch-pressed {
+    transform: scale(0.94);
+    box-shadow: 0 0 22px rgba(255, 229, 127, 0.75);
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    color: var(--navy-deep);
   }
 
   /* Selector de los 4 Escenarios Pixel Art */
@@ -1565,11 +2474,69 @@
     color: var(--text-muted);
   }
 
-  /* Sidebar Derecha */
+  /* Sidebar Derecha en 3 Pestañas Limpias */
   .arcade-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 1.15rem;
+    gap: 1rem;
+  }
+
+  .sidebar-tab-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+    background: rgba(6, 11, 24, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 14px;
+    padding: 0.35rem;
+  }
+
+  .sidebar-tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 0.55rem 0.35rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all 0.22s ease;
+  }
+
+  .sidebar-tab-btn .tab-btn-icon {
+    font-size: 1.1rem;
+  }
+
+  .sidebar-tab-btn:hover {
+    color: var(--gold-bright);
+    background: rgba(212, 175, 55, 0.08);
+  }
+
+  .sidebar-tab-btn.active {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(224, 169, 139, 0.16));
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
+  }
+
+  .sidebar-tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebar-tab-content.active {
+    display: flex;
+    animation: tabFadeIn 0.25s ease-out;
+  }
+
+  @keyframes tabFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .sidebar-card {
@@ -1605,79 +2572,95 @@
     font-size: 0.66rem;
   }
 
-  /* Consola Chiptune */
-  .track-now-playing {
-    background: rgba(6, 11, 24, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    padding: 0.65rem 0.85rem;
-    margin-bottom: 0.75rem;
+  /* Perfil Rápido en Sidebar */
+  .profile-summary-card {
+    background: linear-gradient(135deg, rgba(14, 23, 48, 0.95), rgba(7, 12, 28, 0.98));
+    border: 1.5px solid rgba(212, 175, 55, 0.45);
   }
 
-  .track-now-playing strong {
+  .profile-summary-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .profile-avatar-aura {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(6, 11, 24, 0.9);
+    border: 2px solid var(--gold-bright);
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .profile-avatar-aura img {
+    image-rendering: pixelated;
+  }
+
+  .profile-summary-meta {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .profile-mini-kicker {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--rose-gold);
+  }
+
+  .profile-summary-meta strong {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-size: 0.96rem;
     color: var(--gold-bright);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .track-now-playing small {
-    font-size: 0.74rem;
+  .profile-mini-rank {
+    display: block;
+    font-size: 0.68rem;
     color: var(--text-muted);
   }
 
-  .eq-bars-container {
-    height: 44px;
-    background: rgba(4, 7, 16, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 10px;
-    padding: 6px 8px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 3px;
-    margin-bottom: 0.75rem;
-  }
-
-  .eq-bar {
-    flex: 1;
-    background: linear-gradient(180deg, var(--gold-bright), var(--rose-gold), var(--gold-metallic));
-    border-radius: 3px 3px 0 0;
-    transition: height 0.08s ease;
-  }
-
-  .audio-controls-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.45rem;
-  }
-
-  .btn-audio-ctrl {
-    background: rgba(6, 11, 24, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    color: var(--cream-silk);
-    padding: 0.48rem 0.6rem;
-    border-radius: 9px;
-    font-size: 0.74rem;
+  .btn-profile-edit {
+    background: rgba(212, 175, 55, 0.16);
+    border: 1px solid var(--gold-metallic);
+    color: var(--gold-bright);
+    padding: 0.42rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
     font-weight: 700;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
   }
 
-  .btn-audio-ctrl.active {
-    background: rgba(212, 175, 55, 0.22);
-    border-color: var(--gold-bright);
-    color: var(--gold-bright);
+  .btn-profile-edit:hover {
+    background: var(--gold-metallic);
+    color: var(--navy-deep);
   }
 
   /* Sala Multijugador */
-  .mp-profile-form {
+  .mp-room-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    margin-bottom: 0.85rem;
+    align-items: flex-end;
+    gap: 0.4rem;
+    margin-bottom: 0.7rem;
   }
 
-  .mp-field label,
+  .mp-room-input-wrap {
+    flex: 1;
+  }
+
   .mp-room-input-wrap label {
     display: block;
     font-size: 0.62rem;
@@ -1687,7 +2670,6 @@
     margin-bottom: 0.25rem;
   }
 
-  .mp-field input,
   .mp-room-input-wrap input {
     width: 100%;
     background: #060B18;
@@ -1696,42 +2678,6 @@
     padding: 0.48rem 0.65rem;
     border-radius: 8px;
     font-size: 0.82rem;
-  }
-
-  .avatar-picker-row {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .avatar-pick-btn {
-    flex: 1;
-    background: #060B18;
-    border: 1.5px solid rgba(212, 175, 55, 0.3);
-    border-radius: 10px;
-    padding: 0.35rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .avatar-pick-btn img {
-    image-rendering: pixelated;
-  }
-
-  .avatar-pick-btn.active {
-    border-color: var(--gold-bright);
-    background: rgba(212, 175, 55, 0.22);
-  }
-
-  .mp-room-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.4rem;
-  }
-
-  .mp-room-input-wrap {
-    flex: 1;
   }
 
   .btn-mp-join {
@@ -1743,6 +2689,11 @@
     font-size: 0.76rem;
     font-weight: 800;
     cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-mp-join:hover {
+    filter: brightness(1.15);
   }
 
   .btn-mp-random {
@@ -1761,6 +2712,7 @@
     font-size: 0.74rem;
     color: var(--text-muted);
     cursor: pointer;
+    margin-bottom: 0.75rem;
   }
 
   .mp-players-list-wrap {
@@ -1842,6 +2794,152 @@
     color: var(--navy-deep);
   }
 
+  /* Consola Chiptune 8-Bit */
+  .track-now-playing {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 0.65rem 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .track-now-playing strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--gold-bright);
+  }
+
+  .track-now-playing small {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+  }
+
+  .visualizer-header-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .visualizer-header-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--gold-bright);
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+    text-transform: uppercase;
+  }
+
+  .eq-bars-container,
+  .audio-visualizer-bars {
+    height: 50px;
+    background: rgba(4, 7, 16, 0.95);
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 12px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: 0.85rem;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 16px rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .eq-bar,
+  .audio-visualizer-bar {
+    flex: 1;
+    min-width: 4px;
+    height: 20%;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--rose-gold) 60%, var(--gold-metallic) 100%);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.08s ease;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
+  }
+
+  /* Animación CSS de ondas suaves (idle dancing pulse) cuando el audio está pausado o en reposo */
+  .eq-bars-container.is-idle .eq-bar,
+  .audio-visualizer-bars.is-idle .audio-visualizer-bar,
+  .eq-bars-container:not(.is-playing) .eq-bar {
+    animation: eqIdlePulse 1.9s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * 0.11s);
+  }
+
+  @keyframes eqIdlePulse {
+    0% {
+      height: 16%;
+      opacity: 0.45;
+      background: linear-gradient(180deg, var(--gold-metallic) 0%, #8c6721 100%);
+    }
+    50% {
+      height: 58%;
+      opacity: 0.9;
+      background: linear-gradient(180deg, var(--gold-bright) 0%, var(--rose-gold) 70%, var(--gold-metallic) 100%);
+    }
+    100% {
+      height: 26%;
+      opacity: 0.6;
+      background: linear-gradient(180deg, var(--rose-bright) 0%, var(--rose-gold) 100%);
+    }
+  }
+
+  .audio-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-audio-ctrl {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--cream-silk);
+    padding: 0.48rem 0.6rem;
+    border-radius: 9px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-audio-ctrl.active {
+    background: rgba(212, 175, 55, 0.22);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+  }
+
+  .audio-volume-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  .audio-volume-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--gold-bright);
+    height: 6px;
+    cursor: pointer;
+  }
+
+  .audio-volume-row span {
+    font-family: var(--font-pixel, monospace);
+    color: var(--gold-bright);
+    min-width: 35px;
+    text-align: right;
+  }
+
   /* Códice de Lore */
   .lore-active-display {
     display: flex;
@@ -1896,6 +2994,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s ease;
   }
 
   .lore-sprite-btn:hover {
@@ -1905,6 +3004,285 @@
 
   .lore-sprite-btn img {
     image-rendering: pixelated;
+  }
+
+  /* Modal de Selección de Avatar Pixel Art y Nombre del Jugador */
+  .arcade-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 6, 16, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    animation: modalOverlayFade 0.25s ease-out;
+  }
+
+  @keyframes modalOverlayFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .arcade-modal-card {
+    background: linear-gradient(165deg, #0e1736 0%, #060b1c 100%);
+    border: 2px solid var(--gold-bright);
+    border-radius: 22px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.25);
+    display: flex;
+    flex-direction: column;
+    animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes modalScaleUp {
+    from { transform: scale(0.92) translateY(12px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  .arcade-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(6, 11, 24, 0.7);
+  }
+
+  .arcade-modal-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--gold-bright);
+    letter-spacing: 0.08em;
+  }
+
+  .arcade-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    transition: color 0.2s ease;
+  }
+
+  .arcade-modal-close:hover {
+    color: var(--gold-bright);
+  }
+
+  .arcade-modal-body {
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .profile-hero-preview {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: rgba(6, 11, 24, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+  }
+
+  .preview-avatar-glow {
+    width: 68px;
+    height: 68px;
+    border-radius: 16px;
+    background: rgba(14, 23, 48, 0.9);
+    border: 2px solid #D4AF37;
+    box-shadow: 0 0 24px rgba(212, 175, 55, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .preview-avatar-glow img {
+    image-rendering: pixelated;
+    transition: transform 0.25s ease;
+  }
+
+  .preview-avatar-glow:hover img {
+    transform: scale(1.15);
+  }
+
+  .preview-meta {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .preview-rank-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--rose-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .preview-meta h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .preview-quote {
+    font-size: 0.76rem;
+    color: var(--cream-silk);
+    font-style: italic;
+    line-height: 1.4;
+    opacity: 0.88;
+  }
+
+  .modal-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--rose-gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-input-group input {
+    width: 100%;
+    background: #060B18;
+    border: 1.5px solid rgba(212, 175, 55, 0.45);
+    color: var(--cream-silk);
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .modal-input-group input:focus {
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  }
+
+  .modal-input-hint {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+  }
+
+  .modal-avatars-section label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--rose-gold);
+    margin-bottom: 0.65rem;
+  }
+
+  .avatars-12-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+  }
+
+  .avatar-choice-card {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1.5px solid rgba(212, 175, 55, 0.28);
+    border-radius: 12px;
+    padding: 0.55rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    transition: all 0.22s ease;
+  }
+
+  .avatar-choice-card:hover {
+    border-color: var(--gold-bright);
+    transform: translateY(-2px);
+    background: rgba(212, 175, 55, 0.15);
+  }
+
+  .avatar-choice-card.active {
+    border-color: var(--gold-bright);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(224, 169, 139, 0.22));
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .avatar-choice-card img {
+    image-rendering: pixelated;
+  }
+
+  .avatar-choice-card span {
+    font-size: 0.68rem;
+    color: var(--cream-silk);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .avatar-choice-card.active span {
+    color: var(--gold-bright);
+    font-weight: 800;
+  }
+
+  .arcade-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.1rem 1.4rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(6, 11, 24, 0.7);
+  }
+
+  .btn-modal-cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--cream-silk);
+    padding: 0.55rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-modal-cancel:hover {
+    border-color: var(--rose-gold);
+    color: var(--rose-gold);
+  }
+
+  .btn-modal-save {
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    border: none;
+    color: var(--navy-deep);
+    padding: 0.55rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+    transition: all 0.2s ease;
+  }
+
+  .btn-modal-save:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
   }
 
   /* Leaderboard y Tarjeta de Trofeo PNG */
@@ -2178,27 +3556,498 @@
     line-height: 1.35;
   }
 
-  @media (max-width: 1180px) {
-    .games-selector-bar {
-      grid-template-columns: repeat(2, 1fr);
+  /* =========================================================================
+   * MODALES OFICIALES (PERFIL DE ALQUIMISTA Y AVATARES PIXEL ART)
+   * ========================================================================= */
+  .arcade-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(4, 7, 16, 0.88);
+    backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .arcade-modal-overlay.hidden {
+    display: none !important;
+  }
+
+  .arcade-modal-card {
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: linear-gradient(165deg, rgba(16, 27, 56, 0.98), rgba(6, 11, 24, 0.98));
+    border: 2px solid var(--gold-metallic);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.3);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .arcade-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    padding-bottom: 0.9rem;
+  }
+
+  .modal-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    color: var(--rose-gold);
+    font-weight: 800;
+  }
+
+  .arcade-modal-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--gold-bright);
+    margin-top: 0.2rem;
+  }
+
+  .btn-modal-close {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--cream-silk);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .btn-modal-close:hover {
+    border-color: var(--rose-gold);
+    color: var(--rose-gold);
+    transform: scale(1.05);
+  }
+
+  .profile-hero-preview {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    background: rgba(6, 11, 24, 0.8);
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+  }
+
+  .preview-avatar-glow {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    border: 2px solid var(--gold-metallic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+    flex-shrink: 0;
+  }
+
+  .modal-preview-img {
+    image-rendering: pixelated;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .preview-rank-tag {
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: var(--rose-gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .preview-meta h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--gold-bright);
+    margin: 0.15rem 0;
+  }
+
+  .preview-meta p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.35;
+  }
+
+  .profile-form-group label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--rose-gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .input-with-symbol {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-symbol {
+    position: absolute;
+    left: 1rem;
+    font-size: 1rem;
+    pointer-events: none;
+  }
+
+  .input-with-symbol input {
+    width: 100%;
+    background: #080D1D;
+    border: 1.5px solid rgba(212, 175, 55, 0.45);
+    border-radius: 12px;
+    padding: 0.75rem 1rem 0.75rem 2.8rem;
+    color: var(--cream-silk);
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+  }
+
+  .input-with-symbol input:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 16px rgba(255, 229, 127, 0.35);
+  }
+
+  .input-tip {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+  }
+
+  .avatars-catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.65rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .avatars-catalog-header label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--rose-gold);
+  }
+
+  .avatars-12-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.6rem;
+  }
+
+  .avatar-choice-card {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1.5px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 0.55rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .avatar-choice-card img {
+    image-rendering: pixelated;
+  }
+
+  .avatar-choice-card span {
+    font-size: 0.64rem;
+    color: var(--cream-silk);
+    font-weight: 600;
+  }
+
+  .avatar-choice-card:hover {
+    border-color: var(--gold-metallic);
+    transform: translateY(-2px);
+  }
+
+  .avatar-choice-card.active {
+    border-color: var(--gold-bright);
+    background: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+  }
+
+  .arcade-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+    padding-top: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-modal-save {
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    color: var(--navy-deep);
+    border: none;
+    padding: 0.7rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-modal-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+  }
+
+  .btn-modal-cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--cream-silk);
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+
+  .btn-modal-cancel:hover {
+    border-color: var(--rose-gold);
+    color: var(--rose-gold);
+  }
+
+  /* =========================================================================
+   * RESPONSIVIDAD INTEGRAL MULTI-DISPOSITIVO
+   * ========================================================================= */
+
+  /* Pantallas 4K y Grandes Pantallas Ultra-Wide (> 1440px) */
+  @media (min-width: 1440px) {
+    .arcade-workspace-grid {
+      grid-template-columns: 1fr 420px;
+      gap: 2rem;
     }
-    .arcade-workspace-grid,
+    .arcade-cabinet-shell,
+    .arcade-cabinet-frame {
+      border: 3px solid var(--gold-metallic);
+      box-shadow:
+        0 35px 85px rgba(0, 0, 0, 0.85),
+        0 0 50px rgba(212, 175, 55, 0.24),
+        inset 0 0 30px rgba(212, 175, 55, 0.12);
+    }
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* Desktop Estándar y Laptops (1025px - 1439px) */
+  @media (min-width: 1025px) and (max-width: 1439px) {
+    .arcade-workspace-grid {
+      grid-template-columns: 1fr 370px;
+      gap: 1.5rem;
+    }
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* Tablet (768px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .arcade-workspace-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .records-two-col {
       grid-template-columns: 1fr;
     }
     .achievements-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .avatars-12-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  @media (max-width: 720px) {
-    .games-selector-bar,
+  /* Móvil (< 768px y 640px - 768px) */
+  @media (max-width: 768px) {
+    .arcade-section {
+      padding: 3.5rem 0;
+    }
+    .arcade-workspace-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .arcade-cabinet-shell,
+    .arcade-cabinet-frame {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.75rem;
+      border-radius: 18px;
+      box-sizing: border-box;
+    }
+    .arcade-screen-viewport {
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    #citlalli-arcade-canvas {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .games-master-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
     .cabinet-controls-strip,
-    .cabinet-live-hud,
-    .scenarios-cards-row,
-    .tourney-stages-grid,
+    .cabinet-quick-controls {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      padding: 0.85rem;
+    }
+    .control-group {
+      width: 100%;
+      flex: 1 1 100%;
+    }
+    .control-group.actions-inline {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .control-group.actions-inline .btn-cab-action {
+      flex: 1 1 calc(50% - 0.5rem);
+      text-align: center;
+    }
+    .cabinet-live-hud {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+    .scenarios-cards-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tourney-stages-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .achievements-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .records-two-col {
+      grid-template-columns: 1fr;
+    }
+    .trophy-actions-grid {
+      grid-template-columns: 1fr;
+    }
+    .avatars-12-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .touch-dpad-deck {
+      flex-direction: column;
+      gap: 1.15rem;
+      padding: 1rem 0.85rem;
+    }
+    /* En móvil se muestran los mandos táctiles por defecto para que sea intuitivo */
+    .touch-dpad-deck.collapsed {
+      display: flex !important;
+    }
+    .dpad-action-cluster {
+      width: 100%;
+      justify-content: center;
+    }
+    .action-arcade-btn {
+      flex: 1;
+      min-width: 130px;
+    }
+    .arcade-modal-card {
+      max-width: 95vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 1.15rem;
+    }
+  }
+
+  /* Móviles Pequeños (< 640px y 320px - 480px) */
+  @media (max-width: 640px) {
+    .section-container {
+      padding: 0 0.75rem;
+    }
+    .arcade-cabinet-shell,
+    .arcade-cabinet-frame {
+      padding: 0.65rem;
+    }
+    .cabinet-marquee,
+    .cabinet-header {
+      padding-top: 1.2rem;
+      padding-bottom: 1rem;
+    }
+    .marquee-overlay {
+      padding: 0 0.65rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    .marquee-badges {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .games-master-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .cabinet-live-hud {
+      grid-template-columns: 1fr;
+    }
+    .scenarios-cards-row {
+      grid-template-columns: 1fr;
+    }
+    .tourney-stages-grid {
+      grid-template-columns: 1fr;
+    }
     .achievements-grid {
       grid-template-columns: 1fr;
+    }
+    .avatars-12-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .profile-hero-preview {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .cabinet-bottom-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+    .postgame-quick-btns {
+      width: 100%;
+      flex-direction: column;
+    }
+    .postgame-quick-btns button {
+      width: 100%;
+    }
+    .arcade-modal-card {
+      max-width: 95vw;
+      max-height: 90vh;
+      padding: 0.95rem;
+      border-radius: 18px;
     }
   }
 </style>

@@ -1,0 +1,449 @@
+---
+/**
+ * CITLALLI — Footer.astro
+ * Pie de página modular inspirado en la arquitectura de 'volantes_economicos':
+ * - Distribución en columnas nítidas (Marca oficial & Ficha académica institucional)
+ * - Identificación completa del equipo académico (profesor, alumnos, materia, grupo)
+ * - Botón de acción sensorial directa
+ * - Barra inferior con derechos reservados y créditos de marca
+ */
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="main-footer">
+  <div class="footer-glow-line"></div>
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Columna 1: Marca, Descripción y Acción Rápida -->
+      <div class="footer-col brand-col">
+        <div class="footer-brand-wrap">
+          <img
+            src="/assets/brand/logo.png"
+            alt="Logotipo Oficial Citlalli"
+            class="footer-brand-logo"
+            width="64"
+            height="64"
+            loading="lazy"
+          />
+          <div>
+            <h3 class="footer-brand-title">CITLALLI</h3>
+            <p class="footer-brand-tagline">“El límite son las estrellas — El aroma de los dioses”</p>
+          </div>
+        </div>
+
+        <p class="footer-desc">
+          Eau de Parfum de alta gama concebido bajo el cielo nocturno de <strong>Hidalgo</strong>.
+          Presentación de <strong>50 ML (1.7 FL. OZ.)</strong> en cristal facetado con tapón geométrico
+          en oro rosa y medallón <strong>QM</strong>. Notas de mandarina fresca, rosas rosadas,
+          jazmín blanco, vainilla pura y resina de ámbar dorado. Orgullosamente <strong>Hecho en México</strong>.
+        </p>
+
+        <div class="footer-badges-row">
+          <span class="footer-lux-badge">✦ 50 ML / 1.7 FL. OZ.</span>
+          <span class="footer-lux-badge">✦ Eau de Parfum</span>
+          <span class="footer-lux-badge">✦ Hecho en México</span>
+          <span class="footer-lux-badge">✦ 4 Minijuegos Pixel Art</span>
+        </div>
+
+        <div class="footer-cta-row">
+          <a href="/juegos" class="footer-btn-primary">
+            <span>🎮</span>
+            <span>Entrar al Salón Arcade (Minijuegos)</span>
+          </a>
+          <a href="/campana" class="footer-btn-secondary">
+            <span>🐆</span>
+            <span>Ver Campaña del Jaguar</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Ficha Académica & Créditos Oficiales (Estilo volantes_economicos) -->
+      <div class="footer-col academic-col">
+        <h4 class="footer-col-title">Ficha Académica & Créditos</h4>
+
+        <div class="academic-sheet-card">
+          <div class="academic-field-group">
+            <span class="academic-field-label">INTEGRANTES DEL EQUIPO</span>
+            <ul class="academic-names-list">
+              <li>
+                <span class="member-bullet">✦</span>
+                <strong>Reynosa Vidal Fernando José</strong>
+              </li>
+              <li>
+                <span class="member-bullet">✦</span>
+                <strong>Velázquez Gutiérrez David Alejandro</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div class="academic-field-divider"></div>
+
+          <div class="academic-field-group">
+            <span class="academic-field-label">PROFESOR TITULAR</span>
+            <p class="academic-field-value">
+              <span>👨‍🏫</span>
+              <strong>Juan Guillermo Imoff Soto</strong>
+            </p>
+          </div>
+
+          <div class="academic-field-divider"></div>
+
+          <div class="academic-dual-fields">
+            <div>
+              <span class="academic-field-label">MATERIA</span>
+              <p class="academic-field-value">Mercadotecnia Estratégica</p>
+            </div>
+            <div>
+              <span class="academic-field-label">GRUPO</span>
+              <span class="academic-group-pill">1ZMEADMLSA</span>
+            </div>
+          </div>
+
+          <div class="academic-field-divider"></div>
+
+          <div class="academic-field-group">
+            <span class="academic-field-label">ORIGEN & SEDE DEL PROYECTO</span>
+            <p class="academic-field-value sub-location">
+              <span>📍</span>
+              <strong>Hidalgo, México</strong> · Atelier Citlalli
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra Inferior de Derechos Reservados -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>
+          &copy; {currentYear} <strong>CITLALLI Eau de Parfum</strong>. Todos los derechos reservados.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="/">Inicio</a>
+          <span>·</span>
+          <a href="/historia">Historia</a>
+          <span>·</span>
+          <a href="/perfume">El Perfume</a>
+          <span>·</span>
+          <a href="/alquimia">Alquimia</a>
+          <span>·</span>
+          <a href="/campana">Campaña</a>
+          <span>·</span>
+          <a href="/juegos">Minijuegos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Footer Modular Estilo volantes_economicos con paleta de lujo Citlalli */
+  .site-footer {
+    background: #060B18;
+    color: var(--cream-silk, #F6EFE6);
+    position: relative;
+    border-top: 4px solid var(--gold-metallic, #D4AF37);
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+  }
+
+  .footer-glow-line {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--rose-gold, #E0A98B), var(--gold-bright, #FFE57F), transparent);
+  }
+
+  .footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 3.5rem;
+    margin-bottom: 2.8rem;
+  }
+
+  /* Columna 1: Marca */
+  .footer-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.1rem;
+  }
+
+  .footer-brand-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45));
+  }
+
+  .footer-brand-title {
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    font-weight: 800;
+    color: var(--gold-bright, #FFE57F);
+    letter-spacing: 0.15em;
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .footer-brand-tagline {
+    font-size: 0.85rem;
+    color: var(--rose-gold, #E0A98B);
+    margin: 3px 0 0 0;
+    font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+    font-style: italic;
+  }
+
+  .footer-desc {
+    font-size: 0.92rem;
+    color: rgba(246, 239, 230, 0.82);
+    font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+    line-height: 1.65;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .footer-desc strong {
+    color: var(--gold-bright, #FFE57F);
+  }
+
+  .footer-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.6rem;
+  }
+
+  .footer-lux-badge {
+    background: rgba(14, 23, 48, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--cream-silk, #F6EFE6);
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-btn-primary {
+    background: linear-gradient(135deg, var(--gold-metallic, #D4AF37), var(--rose-gold, #E0A98B));
+    color: var(--navy-deep, #0A1124);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.28);
+    transition: all 0.22s ease;
+  }
+
+  .footer-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+  }
+
+  .footer-btn-secondary {
+    background: rgba(14, 23, 48, 0.85);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    color: var(--gold-bright, #FFE57F);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.86rem;
+    padding: 9px 16px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.22s ease;
+  }
+
+  .footer-btn-secondary:hover {
+    background: rgba(212, 175, 55, 0.18);
+    transform: translateY(-2px);
+  }
+
+  /* Columna 2: Ficha Académica */
+  .footer-col-title {
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold-bright, #FFE57F);
+    letter-spacing: 0.08em;
+    margin: 0 0 1.25rem 0;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-col-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--rose-gold, #E0A98B);
+    border-radius: 2px;
+  }
+
+  .academic-sheet-card {
+    background: rgba(14, 23, 48, 0.75);
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .academic-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .academic-field-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--rose-gold, #E0A98B);
+    text-transform: uppercase;
+  }
+
+  .academic-names-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .academic-names-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: var(--cream-silk, #F6EFE6);
+  }
+
+  .member-bullet {
+    color: var(--gold-bright, #FFE57F);
+    font-size: 0.75rem;
+  }
+
+  .academic-field-value {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--cream-silk, #F6EFE6);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .academic-field-divider {
+    height: 1px;
+    background: rgba(212, 175, 55, 0.18);
+  }
+
+  .academic-dual-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .academic-group-pill {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(224, 169, 139, 0.2));
+    border: 1px solid var(--gold-metallic, #D4AF37);
+    color: var(--gold-bright, #FFE57F);
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .sub-location {
+    color: var(--gold-bright, #FFE57F);
+  }
+
+  /* Barra Inferior */
+  .footer-bottom {
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+    padding-top: 1.5rem;
+  }
+
+  .footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.84rem;
+    color: rgba(246, 239, 230, 0.72);
+  }
+
+  .footer-bottom-content p {
+    margin: 0;
+  }
+
+  .footer-bottom-content strong {
+    color: var(--gold-bright, #FFE57F);
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(246, 239, 230, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom-links a:hover {
+    color: var(--gold-bright, #FFE57F);
+    text-decoration: underline;
+  }
+
+  .footer-bottom-links span {
+    color: rgba(212, 175, 55, 0.4);
+  }
+
+  /* Responsive Mobile */
+  @media screen and (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .footer-bottom-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

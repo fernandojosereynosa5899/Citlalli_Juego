@@ -10,28 +10,96 @@ export const AVATARS_LIST = [
     name: 'Frasco Citlalli',
     emoji: '🧴',
     sprite: '/assets/pixel-art/sprites/bottle_citlalli.png',
-    color: '#E0A98B'
-  },
-  {
-    id: 'jaguar',
-    name: 'Jaguar Dorado',
-    emoji: '🐆',
-    sprite: '/assets/pixel-art/sprites/jaguar_gold.png',
-    color: '#D4AF37'
-  },
-  {
-    id: 'star',
-    name: 'Estrella Citlalli',
-    emoji: '⭐',
-    sprite: '/assets/pixel-art/sprites/star_citlalli.png',
-    color: '#FFE57F'
+    color: '#E0A98B',
+    description: 'El frasco facetado de vidrio artesanal con el aroma de los dioses.'
   },
   {
     id: 'charm_qm',
     name: 'Medallón QM',
     emoji: '🪙',
     sprite: '/assets/pixel-art/sprites/charm_qm.png',
-    color: '#F3C6A5'
+    color: '#F3C6A5',
+    description: 'Medallón en oro rosa con la marca sagrada de la casa.'
+  },
+  {
+    id: 'jaguar',
+    name: 'Jaguar Dorado',
+    emoji: '🐆',
+    sprite: '/assets/pixel-art/sprites/jaguar_gold.png',
+    color: '#D4AF37',
+    description: 'Espíritu guerrero que custodia el ámbar y la noche en Hidalgo.'
+  },
+  {
+    id: 'star',
+    name: 'Estrella Citlalli',
+    emoji: '⭐',
+    sprite: '/assets/pixel-art/sprites/star_citlalli.png',
+    color: '#FFE57F',
+    description: 'Guía astral en el firmamento nocturno de los valles hidalguenses.'
+  },
+  {
+    id: 'mandarin',
+    name: 'Mandarina Cítrica',
+    emoji: '🍊',
+    sprite: '/assets/pixel-art/sprites/mandarin.png',
+    color: '#FFA726',
+    description: 'Nota de salida chispeante y luminosa cosechada en el rocío matinal.'
+  },
+  {
+    id: 'rose',
+    name: 'Rosa Rosada',
+    emoji: '🌹',
+    sprite: '/assets/pixel-art/sprites/rose_pink.png',
+    color: '#F48FB1',
+    description: 'Corazón floral aterciopelado que evoca el romance eterno.'
+  },
+  {
+    id: 'jasmine',
+    name: 'Jazmín Blanco',
+    emoji: '🌸',
+    sprite: '/assets/pixel-art/sprites/jasmine_white.png',
+    color: '#FFFFFF',
+    description: 'Flor nocturna de elegancia pura recogida bajo el manto de estrellas.'
+  },
+  {
+    id: 'vanilla',
+    name: 'Vaina de Vainilla',
+    emoji: '🍦',
+    sprite: '/assets/pixel-art/sprites/vanilla_pod.png',
+    color: '#FFE082',
+    description: 'Calidez dulce y reconfortante de la vainilla de Papantla ancestral.'
+  },
+  {
+    id: 'amber',
+    name: 'Cristal de Ámbar',
+    emoji: '💎',
+    sprite: '/assets/pixel-art/sprites/amber_crystal.png',
+    color: '#FFB300',
+    description: 'Resina mística fosilizada que sella la fijación divina en la piel.'
+  },
+  {
+    id: 'vessel',
+    name: 'Vasija de David',
+    emoji: '🏺',
+    sprite: '/assets/pixel-art/sprites/clay_vessel.png',
+    color: '#BCAAA4',
+    description: 'Artesanía de barro cocido donde reposa la maceración sagrada.'
+  },
+  {
+    id: 'snake',
+    name: 'Quetzal Dorado',
+    emoji: '🐍',
+    sprite: '/assets/pixel-art/sprites/snake_head_gold.png',
+    color: '#FFD54F',
+    description: 'La serpiente emplumada que teje la estela aromática de los dioses.'
+  },
+  {
+    id: 'winged_bottle',
+    name: 'Frasco Alado',
+    emoji: '🪽',
+    sprite: '/assets/pixel-art/sprites/bottle_winged.png',
+    color: '#80DEEA',
+    description: 'El frasco celestial que surca los cielos hacia el límite de las estrellas.'
   }
 ];
 
@@ -671,7 +739,13 @@ export class CitlalliMultiplayer {
   }
 
   getAvatarObject(avatarId) {
-    return AVATARS_LIST.find((a) => a.id === avatarId) || AVATARS_LIST[0];
+    if (!avatarId) return AVATARS_LIST[0];
+    const direct = AVATARS_LIST.find((a) => a.id === avatarId);
+    if (direct) return direct;
+    const fuzzy = AVATARS_LIST.find(
+      (a) => avatarId.startsWith(a.id) || avatarId.includes(a.id) || a.sprite.includes(avatarId)
+    );
+    return fuzzy || AVATARS_LIST[0];
   }
 
   /* ==========================================================================
@@ -1032,6 +1106,85 @@ export class CitlalliMultiplayer {
     }
 
     this.leaderboard = Array.from(map.values()).sort((a, b) => b.score - a.score);
+
+    // Sincronización en segundo plano con la base de datos volátil en memoria RAM
+    this._syncWithServerLeaderboard();
+  }
+
+  /**
+   * Consulta el endpoint /api/leaderboard del servidor en RAM y fusiona los récords.
+   * Si el servidor no responde (ej. offline o fuera del entorno dev), mantiene localStorage
+   * de forma completamente transparente.
+   */
+  async _syncWithServerLeaderboard() {
+    if (typeof window === 'undefined' || typeof fetch === 'undefined') return;
+    try {
+      const res = await fetch('/api/leaderboard?game=all&limit=100');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ok && Array.isArray(data.records)) {
+          const map = new Map();
+          // Añadir datos actuales
+          for (const item of this.leaderboard) {
+            if (item && item.id) map.set(item.id, item);
+          }
+          // Fusionar datos del servidor RAM
+          for (const srvItem of data.records) {
+            if (srvItem && srvItem.id) map.set(srvItem.id, srvItem);
+          }
+          this.leaderboard = Array.from(map.values()).sort((a, b) => (b.score || 0) - (a.score || 0));
+          this._saveLeaderboard();
+          this._emit('leaderboardUpdate', this.leaderboard);
+        }
+      }
+    } catch (_) {
+      // Fallback transparente a datos en localStorage ya cargados
+    }
+  }
+
+  /**
+   * Envía un récord nuevo a la base de datos volátil en memoria RAM del servidor.
+   * Si la petición falla, el juego continúa sin interrupciones con persistencia local.
+   */
+  async _sendRecordToServer(entry) {
+    if (typeof window === 'undefined' || typeof fetch === 'undefined') return;
+    try {
+      const res = await fetch('/api/leaderboard', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          playerName: entry.playerName,
+          avatar: entry.avatar,
+          gameId: entry.gameId,
+          score: entry.score,
+          scenarioId: entry.scenarioId,
+          mode: entry.mode,
+          rank: entry.rank,
+          bestMs: entry.bestMs ?? entry.stats?.bestMs ?? null,
+          stats: entry.stats
+        })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ok && Array.isArray(data.records)) {
+          const map = new Map();
+          for (const item of this.leaderboard) {
+            if (item && item.id) map.set(item.id, item);
+          }
+          for (const srvItem of data.records) {
+            if (srvItem && srvItem.id) map.set(srvItem.id, srvItem);
+          }
+          this.leaderboard = Array.from(map.values()).sort((a, b) => (b.score || 0) - (a.score || 0));
+          this._saveLeaderboard();
+          this._emit('leaderboardUpdate', this.leaderboard);
+        }
+      }
+    } catch (_) {
+      // Fallback transparente
+    }
   }
 
   _saveLeaderboard() {
@@ -1063,6 +1216,13 @@ export class CitlalliMultiplayer {
     return filtered.slice(0, limit);
   }
 
+  /**
+   * Alias de conveniencia para registrar puntuación en la tabla de récords y servidor.
+   */
+  addScore(options = {}) {
+    return this.submitScore(options);
+  }
+
   submitScore({
     gameId = 'snake',
     score = 0,
@@ -1070,7 +1230,8 @@ export class CitlalliMultiplayer {
     avatar = null,
     scenarioId = 'hidalgo',
     mode = '1p',
-    stats = {}
+    stats = {},
+    bestMs = null
   } = {}) {
     const finalScore = Math.max(0, Math.round(Number(score) || 0));
     const name = (playerName || this.profile.name || 'Viajero Estelar').trim();
@@ -1088,6 +1249,7 @@ export class CitlalliMultiplayer {
       rank: rankInfo.title,
       rankId: rankInfo.id,
       badge: rankInfo.badge,
+      bestMs: bestMs ?? stats?.bestMs ?? null,
       date: new Date().toISOString().slice(0, 10),
       isUser: true,
       stats
@@ -1102,6 +1264,9 @@ export class CitlalliMultiplayer {
         entry
       });
       this._emit('leaderboardUpdate', this.leaderboard);
+
+      // Sincronización asíncrona con el servidor en memoria RAM
+      this._sendRecordToServer(entry);
     }
 
     // Unlock achievements based on game & score
@@ -1739,3 +1904,51 @@ export const citlalliMultiplayer = new CitlalliMultiplayer();
 if (typeof window !== 'undefined') {
   window.CitlalliMultiplayer = citlalliMultiplayer;
 }
+
+/**
+ * Consulta el catálogo de 12 avatares Pixel Art oficiales desde el endpoint /api/avatars
+ * de la base de datos en memoria RAM, con fallback transparente a AVATARS_LIST local.
+ * @returns {Promise<Array<object>>}
+ */
+export async function fetchServerAvatars() {
+  if (typeof window !== 'undefined' && typeof fetch !== 'undefined') {
+    try {
+      const res = await fetch('/api/avatars');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ok && Array.isArray(data.avatars)) {
+          return data.avatars;
+        }
+      }
+    } catch (_) {
+      // Fallback transparente
+    }
+  }
+  return [...AVATARS_LIST];
+}
+
+/**
+ * Consulta la tabla de récords desde el endpoint /api/leaderboard en memoria RAM,
+ * con fallback transparente a la tabla del motor local / localStorage.
+ * @param {string} [gameId='all'] Identificador de juego ('snake', 'memory', 'reflex', 'flappy', 'tournament', 'all')
+ * @param {number} [limit=20] Número máximo de récords a obtener
+ * @returns {Promise<Array<object>>}
+ */
+export async function fetchServerLeaderboard(gameId = 'all', limit = 20) {
+  if (typeof window !== 'undefined' && typeof fetch !== 'undefined') {
+    try {
+      const params = new URLSearchParams({ game: gameId, limit: String(limit) });
+      const res = await fetch(`/api/leaderboard?${params.toString()}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ok && Array.isArray(data.records)) {
+          return data.records;
+        }
+      }
+    } catch (_) {
+      // Fallback transparente
+    }
+  }
+  return citlalliMultiplayer.getLeaderboard({ gameId, limit });
+}
+

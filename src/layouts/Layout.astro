@@ -1,4 +1,7 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -35,139 +38,16 @@ const {
     <!-- Contenedor de notificaciones flotantes (Logros, Notas Olfativas y Emotes) -->
     <div id="citlalli-toast-stack" class="toast-stack" aria-live="polite"></div>
 
-    <!-- Barra de Navegación de Alta Perfumería -->
-    <header class="luxury-navbar" id="top-navbar">
-      <div class="nav-container">
-        <a href="#hero" class="brand-identity" aria-label="CITLALLI Inicio">
-          <img
-            src="/assets/brand/emblem_cosmic.png"
-            alt="Emblema Cósmico Citlalli"
-            class="brand-emblem-img"
-            width="42"
-            height="42"
-          />
-          <div class="brand-text">
-            <span class="brand-name">CITLALLI</span>
-            <span class="brand-sub">EL AROMA DE LOS DIOSES</span>
-          </div>
-        </a>
-
-        <nav class="nav-links" aria-label="Navegación Principal">
-          <a href="#hero" class="nav-link">Inicio</a>
-          <a href="#storytelling" class="nav-link">Historia</a>
-          <a href="#producto" class="nav-link">El Perfume</a>
-          <a href="#alquimia" class="nav-link">Alquimia</a>
-          <a href="#campana" class="nav-link">Campaña</a>
-          <a href="#arcade-salon" class="nav-link nav-link-arcade">
-            <span>🎮</span> Salón Arcade
-          </a>
-          <a href="#leaderboard-section" class="nav-link">
-            <span>🏆</span> Récords
-          </a>
-        </nav>
-
-        <div class="nav-actions">
-          <button
-            type="button"
-            id="nav-spray-btn"
-            class="btn-nav-spray"
-            title="Rocía la esencia sensorial de Citlalli en pantalla"
-          >
-            <span>✨</span>
-            <span class="hide-sm">Atomizar</span>
-          </button>
-          <a href="#arcade-salon" class="btn-nav-arcade">
-            <span>🕹️</span>
-            <span>Jugar Ahora</span>
-          </a>
-        </div>
-      </div>
-    </header>
+    <!-- Cabecera Modular Estilo volantes_economicos -->
+    <Header currentPath={Astro.url.pathname} />
 
     <!-- Contenido Principal -->
-    <main>
+    <main id="contenido-principal">
       <slot />
     </main>
 
-    <!-- Pie de Página Oficial con Créditos Académicos y de Marca -->
-    <footer class="luxury-footer">
-      <div class="footer-glow-line"></div>
-      <div class="section-container footer-grid">
-        <div class="footer-brand-col">
-          <div class="footer-crest">
-            <img
-              src="/assets/brand/logo.png"
-              alt="Logotipo Oficial Citlalli"
-              class="footer-logo"
-              loading="lazy"
-            />
-            <div>
-              <h3 class="footer-title">CITLALLI</h3>
-              <p class="footer-tagline">“El límite son las estrellas — El aroma de los dioses”</p>
-            </div>
-          </div>
-          <p class="footer-desc">
-            Eau de Parfum de alta gama inspirado en el cielo nocturno de Hidalgo y el misticismo del
-            Jaguar Dorado. Presentación de <strong>50 ML (1.7 FL. OZ.)</strong> en frasco de cristal
-            facetado con tapón geométrico en oro rosa y medallón <strong>QM</strong>. Orgullosamente
-            <strong>Hecho en México</strong>.
-          </p>
-          <div class="footer-badges">
-            <span class="lux-badge">✦ 50 ML / 1.7 FL. OZ.</span>
-            <span class="lux-badge">✦ Eau de Parfum</span>
-            <span class="lux-badge">✦ Hecho en México</span>
-            <span class="lux-badge">✦ Arcade 8-Bit Integrado</span>
-          </div>
-        </div>
-
-        <div class="footer-links-col">
-          <h4 class="footer-heading">Exploración Estelar</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#hero">✨ Presentación & Atomizador Sensorial</a></li>
-            <li><a href="#storytelling">🌌 El Sueño de David en Hidalgo</a></li>
-            <li><a href="#producto">🧴 Frasco Facetado, Caja Terciopelo & Etiqueta</a></li>
-            <li><a href="#alquimia">🏺 Pirámide Olfativa & Laboratorio Alquímico</a></li>
-            <li><a href="#campana">🐆 El Hombre Citlalli & Comerciales Oficiales</a></li>
-            <li><a href="#arcade-salon">🎮 Gabinete Arcade Pixel Art (4 Juegos)</a></li>
-            <li><a href="#leaderboard-section">🏆 Tabla de Récords & Copa Citlalli</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-credits-col">
-          <h4 class="footer-heading">Créditos Oficiales del Proyecto</h4>
-          <div class="academic-card">
-            <div class="academic-row">
-              <span class="academic-label">INTEGRANTES DEL EQUIPO</span>
-              <strong class="academic-value">Reynosa Vidal Fernando José</strong>
-              <strong class="academic-value">Velázquez Gutiérrez David Alejandro</strong>
-            </div>
-            <div class="academic-divider"></div>
-            <div class="academic-row">
-              <span class="academic-label">PROFESOR TITULAR</span>
-              <strong class="academic-value">Juan Guillermo Imoff Soto</strong>
-            </div>
-            <div class="academic-divider"></div>
-            <div class="academic-row-inline">
-              <div>
-                <span class="academic-label">MATERIA</span>
-                <strong class="academic-value">Mercadotecnia Estratégica</strong>
-              </div>
-              <div>
-                <span class="academic-label">GRUPO</span>
-                <strong class="academic-badge">1ZMEADMLSA</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} <strong>CITLALLI Parfums México</strong> • Grupo 1ZMEADMLSA •
-          Todos los derechos reservados.
-        </p>
-      </div>
-    </footer>
+    <!-- Pie de Página Modular Estilo volantes_economicos -->
+    <Footer />
 
     <!-- Script Global de Cosmos, Atomizador de Perfume y Notificaciones -->
     <script is:inline>
@@ -307,13 +187,35 @@ const {
           }
         };
 
-        // Botón del navbar para atomizar
+        // Botón del navbar para atomizar y menú móvil
         document.addEventListener('DOMContentLoaded', () => {
           const navSprayBtn = document.getElementById('nav-spray-btn');
           if (navSprayBtn) {
             navSprayBtn.addEventListener('click', (e) => {
               const rect = navSprayBtn.getBoundingClientRect();
               window.triggerCitlalliAtomizer(rect.left + rect.width / 2, rect.bottom + 10, true);
+            });
+          }
+
+          // Alternar menú desplegable móvil
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+          const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+          if (mobileMenuBtn && mobileNavDrawer) {
+            mobileMenuBtn.addEventListener('click', () => {
+              const isOpen = mobileNavDrawer.classList.toggle('open');
+              mobileMenuBtn.classList.toggle('active', isOpen);
+              mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+              mobileNavDrawer.setAttribute('aria-hidden', !isOpen);
+            });
+
+            // Cerrar menú al hacer clic en cualquier enlace
+            mobileNavDrawer.querySelectorAll('.mobile-nav-link').forEach((link) => {
+              link.addEventListener('click', () => {
+                mobileNavDrawer.classList.remove('open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileNavDrawer.setAttribute('aria-hidden', 'true');
+              });
             });
           }
         });
@@ -856,12 +758,142 @@ const {
     color: var(--text-muted);
   }
 
+  /* Botón Hamburguesa Móvil */
+  .btn-mobile-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 38px;
+    height: 38px;
+    background: rgba(16, 27, 56, 0.7);
+    border: 1.5px solid var(--gold-metallic);
+    border-radius: 9px;
+    padding: 8px 7px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .btn-mobile-menu:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--gold-bright);
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold-bright);
+    border-radius: 999px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-mobile-menu.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .btn-mobile-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .btn-mobile-menu.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Drawer Desplegable Móvil (6 Páginas) */
+  .mobile-nav-drawer {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(6, 11, 24, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--gold-metallic);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-nav-drawer.open {
+    max-height: 520px;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .mobile-nav-link {
+    color: var(--cream-silk);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.7rem 0.95rem;
+    border-radius: 12px;
+    background: rgba(14, 23, 48, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:active {
+    background: rgba(212, 175, 55, 0.18);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    transform: translateX(4px);
+  }
+
+  .mobile-nav-arcade {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(16, 27, 56, 0.8));
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    font-weight: 700;
+  }
+
   @media (max-width: 980px) {
     .nav-links {
       display: none;
     }
+    .btn-mobile-menu {
+      display: flex;
+    }
+    .mobile-nav-drawer {
+      display: block;
+    }
+    .hide-sm {
+      display: none;
+    }
     .footer-grid {
       grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0.65rem 0.85rem;
+    }
+    .brand-name {
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+    }
+    .brand-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+    }
+    .btn-nav-arcade span:last-child {
+      display: none;
+    }
+    .btn-nav-arcade {
+      padding: 0.5rem 0.75rem;
+    }
+    .toast-stack {
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: 100%;
     }
   }
 </style>

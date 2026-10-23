@@ -1,31 +1,231 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import StorytellingSection from '../components/StorytellingSection.astro';
-import ProductAndOlfactory from '../components/ProductAndOlfactory.astro';
-import CampaignSection from '../components/CampaignSection.astro';
-import ArcadeSection from '../components/ArcadeSection.astro';
 ---
 
 <Layout
-  title="CITLALLI — El Aroma de los Dioses | Eau de Parfum 50 ml & Salón Arcade Pixel Art"
-  description="Sitio Web Oficial e Interactivo de CITLALLI ('El Aroma de los Dioses' — 'El límite son las estrellas'). Descubre el storytelling de David en Hidalgo, las notas olfativas, la campaña del Jaguar Dorado y compite en el Salón Arcade Pixel Art de 4 Juegos con Multijugador Simultáneo y Certificados PNG."
+  title="CITLALLI — El Aroma de los Dioses | Inicio & Universo Oficial"
+  description="Explora el universo de CITLALLI Eau de Parfum: historia de David en Hidalgo, ingeniería de lujo del frasco, pirámide olfativa, campaña publicitaria y el Salón Arcade Pixel Art."
 >
-  <!-- 1. Hero Imperial con Frasco Facetado y Atomizador Sensorial Interactivo -->
+  <!-- Hero Section Oficial -->
   <HeroSection />
 
-  <!-- 2. Storytelling Oficial: David en Hidalgo y la Estrella llamada Citlalli -->
-  <StorytellingSection />
+  <!-- Vista Previa de Secciones Principales -->
+  <section class="portal-sections-overview">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">✦ RUTAS DEL PORTAL CITLALLI ✦</span>
+        <h2 class="section-title">Explora Nuestras <span class="gold-accent">Secciones Dedicadas</span></h2>
+        <p class="section-subtitle">
+          Cada faceta de nuestra fragancia e identidad cuenta con su propia experiencia y espacio interactivo.
+        </p>
+      </div>
 
-  <!-- 3. Showcase del Producto (Envase, Terciopelo, Etiqueta, Pulso) + Pirámide Olfativa y Alquimia -->
-  <ProductAndOlfactory />
+      <div class="portal-cards-grid">
+        <!-- Tarjeta Historia -->
+        <a href="/historia" class="portal-nav-card">
+          <div class="portal-card-thumb">
+            <img src="/assets/brand/storytelling_david.jpeg" alt="Historia de David y Citlalli" loading="lazy" />
+            <div class="portal-card-badge">CAPÍTULO I</div>
+          </div>
+          <div class="portal-card-content">
+            <div class="portal-card-icon">🌌</div>
+            <h3>Storytelling Oficial</h3>
+            <p>El sueño de David en Hidalgo y la estrella eterna Citlalli: “El límite son las estrellas”.</p>
+            <span class="portal-card-link">Leer Historia Completa ➔</span>
+          </div>
+        </a>
 
-  <!-- 4. Campaña Publicitaria: El Hombre Citlalli, Jaguar Dorado, GIF y Comerciales en Video -->
-  <CampaignSection />
+        <!-- Tarjeta El Perfume -->
+        <a href="/perfume" class="portal-nav-card">
+          <div class="portal-card-thumb">
+            <img src="/assets/brand/bottle.png" alt="Frasco de Perfume Citlalli" loading="lazy" />
+            <div class="portal-card-badge">CAPÍTULO II</div>
+          </div>
+          <div class="portal-card-content">
+            <div class="portal-card-icon">💎</div>
+            <h3>El Perfume & Diseño</h3>
+            <p>Anatomía de lujo: frasco facetado con tapón en oro rosa, dije QM y caja en terciopelo azul marino.</p>
+            <span class="portal-card-link">Ver Envase y Empaque ➔</span>
+          </div>
+        </a>
 
-  <!-- 5. Salón Arcade Pixel Art (4 Juegos Modulares + Copa Citlalli + Multijugador + Récords PNG) -->
-  <ArcadeSection />
+        <!-- Tarjeta Alquimia y Notas -->
+        <a href="/alquimia" class="portal-nav-card">
+          <div class="portal-card-thumb">
+            <img src="/assets/brand/notes_velvet_1.png" alt="Notas Olfativas y Alquimia" loading="lazy" />
+            <div class="portal-card-badge">CAPÍTULO III</div>
+          </div>
+          <div class="portal-card-content">
+            <div class="portal-card-icon">🏺</div>
+            <h3>Pirámide Olfativa</h3>
+            <p>Mandarina fresca, rosas rosadas, jazmín blanco, vainilla pura y ámbar dorado en el laboratorio interactivo.</p>
+            <span class="portal-card-link">Destilar Esencia ➔</span>
+          </div>
+        </a>
 
-  <!-- Coordinador Cliente del Gabinete Arcade, Audio Chiptune y Sistema Multijugador -->
-  <script src="../scripts/arcade-controller.js"></script>
+        <!-- Tarjeta Campaña Publicitaria -->
+        <a href="/campana" class="portal-nav-card">
+          <div class="portal-card-thumb">
+            <img src="/assets/brand/ad_poster_jaguar.png" alt="Campaña Jaguar Dorado" loading="lazy" />
+            <div class="portal-card-badge">CAPÍTULO IV</div>
+          </div>
+          <div class="portal-card-content">
+            <div class="portal-card-icon">🐆</div>
+            <h3>Campaña Publicitaria</h3>
+            <p>El Hombre Citlalli (20-30 años), la fuerza mística del Jaguar Dorado, pósters, GIF y comerciales en video.</p>
+            <span class="portal-card-link">Ver Campaña Multimedia ➔</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta Salón Arcade -->
+        <a href="/juegos" class="portal-nav-card featured-arcade-card">
+          <div class="portal-card-thumb">
+            <img src="/assets/pixel-art/citlalli_arcade_marquee.png" alt="Salón Arcade Citlalli" loading="lazy" />
+            <div class="portal-card-badge gold-badge">ARCADE 8-BIT</div>
+          </div>
+          <div class="portal-card-content">
+            <div class="portal-card-icon">🎮</div>
+            <h3>Salón Arcade Pixel Art</h3>
+            <p>Cuatro videojuegos completos estilo pixel art con modo pantalla completa, 4 escenarios y multijugador en vivo.</p>
+            <span class="portal-card-link gold-link">Entrar a la Sala de Juegos ➔</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .portal-sections-overview {
+    padding: 5rem 0 3rem;
+    position: relative;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  }
+
+  .portal-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2rem;
+  }
+
+  .portal-nav-card {
+    background: rgba(12, 20, 44, 0.75);
+    border: 1.5px solid rgba(212, 175, 55, 0.28);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--cream-silk);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  }
+
+  .portal-nav-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-bright);
+    box-shadow: 0 20px 45px rgba(212, 175, 55, 0.25);
+  }
+
+  .featured-arcade-card {
+    border-color: rgba(212, 175, 55, 0.6);
+    background: linear-gradient(160deg, rgba(16, 27, 56, 0.9), rgba(6, 11, 24, 0.95));
+  }
+
+  .portal-card-thumb {
+    position: relative;
+    height: 175px;
+    overflow: hidden;
+    background: #050914;
+  }
+
+  .portal-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .portal-nav-card:hover .portal-card-thumb img {
+    transform: scale(1.08);
+  }
+
+  .portal-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(6, 11, 24, 0.85);
+    border: 1px solid var(--rose-gold);
+    color: var(--rose-bright);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+
+  .gold-badge {
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+  }
+
+  .portal-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .portal-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .portal-card-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.5rem;
+  }
+
+  .portal-card-content p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .portal-card-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--rose-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .portal-nav-card:hover .portal-card-link {
+    gap: 0.7rem;
+    color: var(--gold-bright);
+  }
+
+  .gold-link {
+    color: var(--gold-bright);
+  }
+
+  @media (max-width: 640px) {
+    .portal-sections-overview {
+      padding: 3.5rem 0 2rem;
+    }
+    .portal-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>

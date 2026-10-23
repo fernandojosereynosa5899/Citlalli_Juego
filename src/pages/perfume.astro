@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductAndOlfactory from '../components/ProductAndOlfactory.astro';
+---
+
+<Layout
+  title="CITLALLI — El Perfume & Boceto de Producto | Frasco Facetado y Terciopelo"
+  description="Detalles de diseño del frasco facetado con tapón en oro rosa y dije QM, la imponente caja de terciopelo azul marino, etiqueta trasera e instructivo de aplicación en puntos de pulso."
+>
+  <div class="page-intro-header">
+    <div class="section-container">
+      <nav class="breadcrumb-nav">
+        <a href="/">Inicio</a> <span>/</span> <strong>El Perfume</strong>
+      </nav>
+      <span class="section-kicker">✦ CAPÍTULO II • BOCETO Y EMPAQUE ✦</span>
+      <h1 class="page-main-title">Ingeniería del <span class="gold-accent">Lujo Sensorial</span></h1>
+      <p class="page-main-subtitle">
+        El encuentro entre el cristal facetado, el dije QM y la caja texturizada en terciopelo azul marino con grabados dorados.
+      </p>
+    </div>
+  </div>
+
+  <ProductAndOlfactory showProductOnly={true} />
+
+  <!-- Navegación entre Rutas -->
+  <section class="section-nav-footer">
+    <div class="section-container">
+      <div class="route-nav-boxes">
+        <a href="/historia" class="btn-prev-route">
+          <span>←</span> Anterior: Historia Oficial
+        </a>
+        <a href="/alquimia" class="btn-next-route">
+          Siguiente: Pirámide Olfativa & Alquimia <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-intro-header {
+    padding: 3.5rem 0 1.5rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 75%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+  }
+
+  .breadcrumb-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    background: rgba(12, 20, 44, 0.6);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  .breadcrumb-nav a {
+    color: var(--gold-bright);
+    text-decoration: none;
+  }
+
+  .page-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--cream-silk);
+    margin-bottom: 0.8rem;
+  }
+
+  .page-main-subtitle {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .section-nav-footer {
+    padding: 3rem 0 5rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  .route-nav-boxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-prev-route,
+  .btn-next-route {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-prev-route {
+    background: rgba(12, 20, 44, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--cream-silk);
+  }
+
+  .btn-prev-route:hover {
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    transform: translateX(-4px);
+  }
+
+  .btn-next-route {
+    background: linear-gradient(135deg, var(--gold-metallic), var(--rose-gold));
+    color: var(--navy-deep);
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  }
+
+  .btn-next-route:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55);
+  }
+
+  @media (max-width: 640px) {
+    .page-intro-header {
+      padding: 2.5rem 0 1.2rem;
+    }
+    .route-nav-boxes {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.85rem;
+    }
+    .btn-prev-route,
+    .btn-next-route {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>

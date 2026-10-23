@@ -1,0 +1,646 @@
+---
+/**
+ * CITLALLI — Header.astro
+ * Cabecera modular inspirada en la arquitectura de 'volantes_economicos':
+ * - Detección y resaltado automático de la ruta activa (`currentPath`)
+ * - Fila superior con marca oficial, subtítulo de origen en Hidalgo y píldora de acción rápida
+ * - Barra de navegación con pestañas de lujo
+ * - Menú responsive tipo Drawer con botón hamburguesa accesible
+ */
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'Inicio', icon: '✦' },
+  { href: '/historia', label: 'Historia', icon: '🌌' },
+  { href: '/perfume', label: 'El Perfume', icon: '🧴' },
+  { href: '/alquimia', label: 'Alquimia', icon: '🏺' },
+  { href: '/campana', label: 'Campaña', icon: '🐆' },
+  { href: '/juegos', label: 'Minijuegos', icon: '🎮' }
+];
+---
+
+<!-- Skip to content para accesibilidad -->
+<a href="#contenido-principal" class="sr-only">Ir al contenido principal</a>
+
+<header class="pagina-header" id="main-header">
+  <div class="pagina-header-container">
+    <!-- Fila Superior: Marca, Subtítulo y Acción Rápida -->
+    <div class="pagina-header-top">
+      <div class="pagina-logo-wrap">
+        <a href="/" class="pagina-brand-link" aria-label="Ir a Inicio de CITLALLI">
+          <img
+            src="/assets/brand/emblem_cosmic.png"
+            alt="Emblema Cósmico Citlalli"
+            class="header-brand-emblem"
+            width="44"
+            height="44"
+          />
+          <div class="brand-titles-col">
+            <span class="pagina-brand-title">CITLALLI</span>
+            <span class="pagina-brand-badge">EAU DE PARFUM · 50 ML</span>
+          </div>
+        </a>
+        <p class="pagina-brand-sub">
+          <span class="sub-origin">Hidalgo, México</span>
+          <span class="sub-separator">•</span>
+          <span class="sub-slogan">“El Aroma de los Dioses”</span>
+          <span class="sub-separator">•</span>
+          <span class="sub-qm">Dije QM Oro Rosa</span>
+        </p>
+      </div>
+
+      <!-- Píldora de Acción Rápida y Botón Hamburguesa -->
+      <div class="header-action-group">
+        <button
+          type="button"
+          id="btn-header-spray"
+          class="header-pill-btn"
+          title="Rociar bruma sensorial de perfume en pantalla"
+        >
+          <span class="pill-sparkle">✨</span>
+          <span class="pill-text">Atomizar Citlalli</span>
+        </button>
+
+        <a href="/juegos" class="header-pill-arcade" title="Entrar a los Minijuegos Pixel Art">
+          <span>🕹️</span>
+          <span class="pill-text">Jugar Arcade</span>
+        </a>
+
+        <!-- Botón de Menú Hamburguesa para Móvil y Tablet -->
+        <button
+          type="button"
+          class="pagina-menu-toggle"
+          id="paginaMenuToggle"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="paginaNavDrawer"
+        >
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de Navegación Horizontal con Pestañas Limpias -->
+    <nav class="pagina-nav-menu" id="paginaNavMenu" aria-label="Navegación principal">
+      <ul class="pagina-nav-list">
+        {navItems.map(item => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <li>
+              <a
+                href={item.href}
+                class:list={['pagina-nav-link', { active: isActive }]}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                <span class="nav-link-icon">{item.icon}</span>
+                <span class="nav-link-label">{item.label}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Menú Móvil Desplegable (Drawer) -->
+  <div class="pagina-nav-drawer" id="paginaNavDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="/assets/brand/emblem_cosmic.png" alt="Citlalli" width="34" height="34" />
+        <strong>CITLALLI</strong>
+      </div>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Cerrar menú">
+        ✕
+      </button>
+    </div>
+    <ul class="drawer-nav-list">
+      {navItems.map(item => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <li>
+            <a
+              href={item.href}
+              class:list={['drawer-nav-link', { active: isActive }]}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              <span class="drawer-link-icon">{item.icon}</span>
+              <span class="drawer-link-label">{item.label}</span>
+              {isActive && <span class="drawer-active-dot">●</span>}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+    <div class="drawer-footer-actions">
+      <button type="button" id="btn-drawer-spray" class="btn-drawer-action">
+        ✨ Atomizar Esencia Citlalli
+      </button>
+      <a href="/juegos" class="btn-drawer-arcade">
+        🕹️ Salón de Minijuegos
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('paginaMenuToggle');
+    const drawer = document.getElementById('paginaNavDrawer');
+    const closeBtn = document.getElementById('drawerCloseBtn');
+    const sprayBtn = document.getElementById('btn-header-spray');
+    const drawerSprayBtn = document.getElementById('btn-drawer-spray');
+
+    function toggleMenu(open) {
+      const willOpen = typeof open === 'boolean' ? open : !drawer.classList.contains('open');
+      drawer.classList.toggle('open', willOpen);
+      toggleBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => toggleMenu());
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => toggleMenu(false));
+    }
+
+    // Cerrar el drawer al hacer clic en cualquier enlace
+    const drawerLinks = document.querySelectorAll('.drawer-nav-link');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Acción rápida de atomizador
+    function triggerSpray(e) {
+      if (typeof window.triggerCitlalliAtomizer === 'function') {
+        const x = e ? e.clientX : window.innerWidth / 2;
+        const y = e ? e.clientY : 80;
+        window.triggerCitlalliAtomizer(x, y, true);
+      }
+      if (typeof window.showCitlalliToast === 'function') {
+        window.showCitlalliToast({
+          title: '✨ BRUMA CITLALLI LIBERADA',
+          message: 'Notas de mandarina fresca, rosas rosadas, vainilla pura y ámbar dorado.',
+          icon: '🧴',
+          type: 'gold',
+          duration: 3200
+        });
+      }
+    }
+
+    if (sprayBtn) sprayBtn.addEventListener('click', triggerSpray);
+    if (drawerSprayBtn) {
+      drawerSprayBtn.addEventListener('click', (e) => {
+        triggerSpray(e);
+        toggleMenu(false);
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Header Principal Estilo volantes_economicos adaptado al lujo Citlalli */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .pagina-header {
+    background: linear-gradient(180deg, rgba(10, 17, 36, 0.98) 0%, rgba(6, 11, 24, 0.96) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--cream-silk, #F6EFE6);
+    padding: 12px 0 6px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55), 0 0 25px rgba(212, 175, 55, 0.12);
+    border-bottom: 3px solid var(--gold-metallic, #D4AF37);
+    width: 100%;
+  }
+
+  .pagina-header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Fila Superior: Marca, Subtítulo y Acción Rápida */
+  .pagina-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .pagina-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .pagina-brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .header-brand-emblem {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    transition: transform 0.35s ease;
+  }
+
+  .pagina-brand-link:hover .header-brand-emblem {
+    transform: rotate(22deg) scale(1.05);
+  }
+
+  .brand-titles-col {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pagina-brand-title {
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: clamp(1.4rem, 2.8vw, 1.95rem);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--gold-bright, #FFE57F);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 1.1;
+  }
+
+  .pagina-brand-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--rose-gold, #E0A98B);
+    background: rgba(224, 169, 139, 0.12);
+    border: 1px solid rgba(224, 169, 139, 0.35);
+    padding: 2px 7px;
+    border-radius: 999px;
+  }
+
+  .pagina-brand-sub {
+    font-size: clamp(0.74rem, 1.4vw, 0.84rem);
+    color: rgba(246, 239, 230, 0.85);
+    margin: 3px 0 0 0;
+    font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sub-origin {
+    color: var(--gold-bright, #FFE57F);
+    font-weight: 600;
+  }
+
+  .sub-slogan {
+    font-style: italic;
+    color: var(--cream-silk, #F6EFE6);
+  }
+
+  .sub-qm {
+    color: var(--rose-gold, #E0A98B);
+    font-weight: 600;
+  }
+
+  .sub-separator {
+    color: rgba(212, 175, 55, 0.5);
+    font-size: 0.75rem;
+  }
+
+  /* Grupo de Acciones en la Cabecera */
+  .header-action-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-pill-btn {
+    background: linear-gradient(135deg, rgba(224, 169, 139, 0.22), rgba(212, 175, 55, 0.18));
+    border: 1.5px solid var(--gold-metallic, #D4AF37);
+    color: var(--gold-bright, #FFE57F);
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: all 0.22s ease;
+  }
+
+  .header-pill-btn:hover {
+    background: var(--gold-metallic, #D4AF37);
+    color: var(--navy-deep, #0A1124);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+  }
+
+  .header-pill-arcade {
+    background: rgba(14, 23, 48, 0.88);
+    border: 1.5px solid rgba(224, 169, 139, 0.45);
+    color: var(--rose-gold, #E0A98B);
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.22s ease;
+  }
+
+  .header-pill-arcade:hover {
+    background: rgba(224, 169, 139, 0.25);
+    border-color: var(--rose-gold, #E0A98B);
+    transform: translateY(-2px);
+  }
+
+  /* Botón Hamburguesa */
+  .pagina-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: rgba(14, 23, 48, 0.9);
+    border: 1.5px solid var(--gold-metallic, #D4AF37);
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .pagina-menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background: var(--gold-bright, #FFE57F);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .pagina-menu-toggle:hover {
+    background: var(--gold-metallic, #D4AF37);
+  }
+
+  .pagina-menu-toggle:hover .bar {
+    background: var(--navy-deep, #0A1124);
+  }
+
+  /* Barra de Navegación con Pestañas Limpias (Estilo volantes_economicos) */
+  .pagina-nav-menu {
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+    padding-top: 8px;
+    width: 100%;
+  }
+
+  .pagina-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 6px 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pagina-nav-link {
+    color: var(--cream-silk, #F6EFE6);
+    text-decoration: none;
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.22s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+  }
+
+  .nav-link-icon {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .pagina-nav-link:hover {
+    background: rgba(212, 175, 55, 0.16);
+    color: var(--gold-bright, #FFE57F);
+    transform: translateY(-1px);
+  }
+
+  .pagina-nav-link.active {
+    background: linear-gradient(135deg, var(--gold-metallic, #D4AF37), var(--rose-gold, #E0A98B));
+    color: var(--navy-deep, #0A1124);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+    font-weight: 800;
+  }
+
+  /* Menú Drawer Móvil */
+  .pagina-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(8, 14, 30, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 2px solid var(--gold-metallic, #D4AF37);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.75);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: right 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+  }
+
+  .pagina-nav-drawer.open {
+    right: 0;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    margin-bottom: 16px;
+  }
+
+  .drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: 1.15rem;
+    color: var(--gold-bright, #FFE57F);
+    letter-spacing: 0.12em;
+  }
+
+  .drawer-close-btn {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--gold-bright, #FFE57F);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-close-btn:hover {
+    background: var(--gold-metallic, #D4AF37);
+    color: var(--navy-deep, #0A1124);
+  }
+
+  .drawer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .drawer-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--cream-silk, #F6EFE6);
+    text-decoration: none;
+    font-family: var(--font-display, 'Cinzel', serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-nav-link:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-bright, #FFE57F);
+  }
+
+  .drawer-nav-link.active {
+    background: linear-gradient(135deg, var(--gold-metallic, #D4AF37), var(--rose-gold, #E0A98B));
+    color: var(--navy-deep, #0A1124);
+  }
+
+  .drawer-active-dot {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--navy-deep, #0A1124);
+  }
+
+  .drawer-footer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  .btn-drawer-action,
+  .btn-drawer-arcade {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .btn-drawer-action {
+    background: linear-gradient(135deg, var(--rose-gold, #E0A98B), var(--gold-metallic, #D4AF37));
+    color: var(--navy-deep, #0A1124);
+    border: none;
+  }
+
+  .btn-drawer-arcade {
+    background: rgba(14, 23, 48, 0.9);
+    border: 1.5px solid var(--gold-metallic, #D4AF37);
+    color: var(--gold-bright, #FFE57F);
+  }
+
+  /* Responsive Mobile / Tablet */
+  @media screen and (max-width: 900px) {
+    .pagina-header {
+      padding: 10px 0 8px;
+    }
+
+    .pagina-header-container {
+      padding: 0 16px;
+      gap: 8px;
+    }
+
+    .pagina-brand-sub {
+      display: none; /* Oculta en pantallas pequeñas para dar aire */
+    }
+
+    .pagina-nav-menu {
+      display: none; /* Se delega al drawer móvil */
+    }
+
+    .pagina-menu-toggle {
+      display: flex;
+    }
+
+    .header-pill-text,
+    .header-pill-arcade .pill-text {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .pagina-brand-badge {
+      display: none;
+    }
+  }
+</style>
