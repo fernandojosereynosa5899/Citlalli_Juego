@@ -4,10 +4,10 @@
  *
  * Middleware para Vite / Astro Dev Server que captura y procesa las peticiones REST
  * a los endpoints:
- *   - GET  /api/leaderboard  -> Consulta récords en RAM (query ?game=...&limit=...)
- *   - POST /api/leaderboard  -> Registra nuevo récord en RAM
- *   - GET  /api/avatars      -> Catálogo oficial de 12 avatares Pixel Art
- *   - POST /api/reset        -> Reinicia la memoria a los datos semilla de gala
+ *   - GET  /api/leaderboard & /api/records  -> Consulta récords en RAM (query ?game=...&limit=...)
+ *   - POST /api/leaderboard & /api/records  -> Registra nuevo récord en RAM
+ *   - GET  /api/avatars                     -> Catálogo oficial de 12 avatares Pixel Art
+ *   - POST /api/reset                       -> Reinicia la memoria a los datos semilla de gala
  */
 
 import {
@@ -50,6 +50,30 @@ function readJsonBody(req) {
   });
 }
 
+function getGroupedRecords() {
+  const all = getLeaderboard('all', 100);
+  const toItem = (r) => ({
+    username: r.playerName || 'Jugador Citlalli',
+    valor: r.score,
+    avatar: r.avatar || 'bottle',
+    scenarioId: r.scenarioId || 'selva',
+    fecha: r.date || new Date().toISOString().split('T')[0]
+  });
+
+  return {
+    snake: all.filter((r) => r.gameId === 'snake').slice(0, 15).map(toItem),
+    flappy: all.filter((r) => r.gameId === 'flappy').slice(0, 15).map(toItem),
+    memorama: all
+      .filter((r) => r.gameId === 'memory' || r.gameId === 'memorama')
+      .slice(0, 15)
+      .map(toItem),
+    reflejos: all
+      .filter((r) => r.gameId === 'reflex' || r.gameId === 'reflejos')
+      .slice(0, 15)
+      .map(toItem)
+  };
+}
+
 /**
  * Vite Plugin que inyecta los endpoints de la API en memoria RAM durante el desarrollo.
  * @returns {import('vite').Plugin}
@@ -86,12 +110,30 @@ export function inMemoryDbPlugin() {
 
         try {
           // ==================================================================
-          // GET /api/leaderboard
+          // GET /api/leaderboard | GET /api/records
           // ==================================================================
-          if (pathname === '/api/leaderboard' && req.method === 'GET') {
-            const game = parsedUrl.searchParams.get('game') || 'all';
+          if ((pathname === '/api/leaderboard' || pathname === '/api/records') && req.method === 'GET') {
+            const rawGame = parsedUrl.searchParams.get('game') || parsedUrl.searchParams.get('juego') || 'all';
+            const aliasMap = { memorama: 'memory', reflejos: 'reflex' };
+            const game = aliasMap[rawGame] || rawGame;
+
             const limitParam = parsedUrl.searchParams.get('limit') || '20';
             const limit = Math.max(1, parseInt(limitParam, 10) || 20);
+
+            const grouped = getGroupedRecords();
+
+            if (pathname === '/api/records' || parsedUrl.searchParams.get('format') === 'grouped') {
+              res.statusCode = 200;
+              res.end(
+                JSON.stringify({
+                  ok: true,
+                  ip_servidor: 'localhost',
+                  puerto: 4321,
+                  records: grouped
+                })
+              );
+              return;
+            }
 
             const records = getLeaderboard(game, limit);
 
@@ -102,38 +144,42 @@ export function inMemoryDbPlugin() {
                 game,
                 limit,
                 total: records.length,
-                records
+                records,
+                grouped
               })
             );
             return;
           }
 
           // ==================================================================
-          // POST /api/leaderboard
+          // POST /api/leaderboard | POST /api/records
           // ==================================================================
-          if (pathname === '/api/leaderboard' && req.method === 'POST') {
+          if ((pathname === '/api/leaderboard' || pathname === '/api/records') && req.method === 'POST') {
             const payload = await readJsonBody(req);
+            const rawGame = payload.gameId || payload.juego || 'snake';
+            const aliasMap = { memorama: 'memory', reflejos: 'reflex' };
+            const canonGame = aliasMap[rawGame] || rawGame;
 
             const entry = addRecord({
-              playerName: payload.playerName,
-              avatar: payload.avatar,
-              gameId: payload.gameId,
-              score: payload.score,
-              scenarioId: payload.scenarioId,
-              mode: payload.mode,
+              playerName: payload.playerName || payload.username || 'Invitado Citlalli',
+              avatar: payload.avatar || 'bottle',
+              gameId: canonGame,
+              score: payload.score !== undefined ? payload.score : (payload.valor || 0),
+              scenarioId: payload.scenarioId || payload.mapa || 'selva',
+              mode: payload.mode || '1p',
               rank: payload.rank,
               bestMs: payload.bestMs,
               stats: payload.stats
             });
 
-            const records = getLeaderboard(entry.gameId, 20);
+            const grouped = getGroupedRecords();
 
             res.statusCode = 201;
             res.end(
               JSON.stringify({
                 ok: true,
                 entry,
-                records
+                records: grouped
               })
             );
             return;
