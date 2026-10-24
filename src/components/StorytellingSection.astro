@@ -49,16 +49,15 @@
               loading="lazy"
             />
             <div class="bridge-info">
-              <span class="bridge-kicker">CONEXIÓN CON EL SALÓN ARCADE</span>
-              <strong>Escenario 1: Noche Estrellada en Hidalgo</strong>
-              <p>Vive el origen de David en 8-bit con música chiptune original.</p>
+              <span class="bridge-kicker">INSPIRACIÓN ANCESTRAL</span>
+              <strong>Noche Estrellada en Hidalgo</strong>
+              <p>El firmamento donde David soñó por primera vez con el aroma divino.</p>
             </div>
             <a
-              href="#arcade-salon"
+              href="/perfume"
               class="btn-play-hidalgo"
-              data-select-scenario="hidalgo"
             >
-              🕹️ Jugar en Hidalgo
+              💎 Ver Frasco Citlalli
             </a>
           </div>
         </div>
@@ -265,16 +264,6 @@
         });
       });
     });
-
-    // Botón para saltar al Arcade directamente en el escenario Hidalgo
-    const playHidalgoBtn = document.querySelector('.btn-play-hidalgo');
-    if (playHidalgoBtn) {
-      playHidalgoBtn.addEventListener('click', () => {
-        window.dispatchEvent(
-          new CustomEvent('citlalli:select-scenario', { detail: { scenarioId: 'hidalgo' } })
-        );
-      });
-    }
   });
 </script>
 

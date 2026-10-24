@@ -59,9 +59,14 @@
           <span>Atomizar Citlalli (Probar Esencia)</span>
         </button>
 
-        <a href="/juegos" class="btn-luxury-arcade">
-          <span>🎮</span>
-          <span>Entrar al Salón Arcade Pixel Art (4 Juegos + Multijugador)</span>
+        <a href="/perfume" class="btn-luxury-secondary">
+          <span>💎</span>
+          <span>Descubrir Frasco & Empaque</span>
+        </a>
+
+        <a href="/campana" class="btn-luxury-tertiary">
+          <span>🐆</span>
+          <span>Campaña del Jaguar</span>
         </a>
       </div>
 
@@ -89,10 +94,10 @@
           </div>
         </div>
         <div class="pillar-item">
-          <span class="pillar-icon">🏆</span>
+          <span class="pillar-icon">💎</span>
           <div>
-            <strong>Copa Citlalli</strong>
-            <small>4 Juegos Encadenados</small>
+            <strong>Alta Gama</strong>
+            <small>Cristal & Dije QM</small>
           </div>
         </div>
       </div>
@@ -465,10 +470,10 @@
     box-shadow: 0 14px 34px rgba(255, 229, 127, 0.55);
   }
 
-  .btn-luxury-arcade {
+  .btn-luxury-secondary {
     background: rgba(16, 27, 56, 0.9);
-    color: var(--gold-bright);
-    border: 1.5px solid var(--gold-metallic);
+    color: var(--gold-bright, #FFE57F);
+    border: 1.5px solid var(--gold-metallic, #D4AF37);
     text-decoration: none;
     padding: 0.95rem 1.4rem;
     border-radius: 14px;
@@ -480,10 +485,31 @@
     transition: all 0.22s ease;
   }
 
-  .btn-luxury-arcade:hover {
-    background: rgba(212, 175, 55, 0.18);
+  .btn-luxury-secondary:hover {
+    background: rgba(212, 175, 55, 0.2);
     transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.3);
+  }
+
+  .btn-luxury-tertiary {
+    background: rgba(14, 21, 42, 0.7);
+    color: var(--cream-silk, #F6EFE6);
+    border: 1.5px solid rgba(224, 169, 139, 0.4);
+    text-decoration: none;
+    padding: 0.95rem 1.3rem;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.22s ease;
+  }
+
+  .btn-luxury-tertiary:hover {
+    border-color: var(--rose-gold, #E0A98B);
+    color: var(--gold-bright, #FFE57F);
+    transform: translateY(-3px);
   }
 
   .hero-pillars {

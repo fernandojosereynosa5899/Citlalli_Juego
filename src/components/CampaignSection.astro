@@ -73,13 +73,7 @@
         <div class="poster-body">
           <div class="poster-title-row">
             <h4>El Poder del Jaguar Dorado</h4>
-            <a
-              href="#arcade-salon"
-              class="poster-arcade-link"
-              data-select-scenario="jaguar"
-            >
-              🕹️ Escenario Jaguar
-            </a>
+            <span class="poster-tag">✦ Campaña Visual</span>
           </div>
           <p>
             El protagonista de traje negro sostiene el frasco de CITLALLI respaldado por el
@@ -102,13 +96,7 @@
         <div class="poster-body">
           <div class="poster-title-row">
             <h4>Elegancia Nocturna & Cosmos</h4>
-            <a
-              href="#arcade-salon"
-              class="poster-arcade-link"
-              data-select-scenario="penthouse"
-            >
-              🕹️ Escenario Penthouse
-            </a>
+            <span class="poster-tag">✦ Editorial de Lujo</span>
           </div>
           <p>
             Composición editorial de alta perfumería donde el cristal facetado y el dije
@@ -240,21 +228,6 @@
     </div>
   </div>
 </section>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.poster-arcade-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        const sc = link.getAttribute('data-select-scenario');
-        if (sc) {
-          window.dispatchEvent(
-            new CustomEvent('citlalli:select-scenario', { detail: { scenarioId: sc } })
-          );
-        }
-      });
-    });
-  });
-</script>
 
 <style>
   .campaign-section {
@@ -408,12 +381,12 @@
     color: var(--gold-bright);
   }
 
-  .poster-arcade-link {
+  .poster-tag {
     font-size: 0.72rem;
     font-weight: 700;
-    color: var(--navy-deep);
-    background: var(--gold-metallic);
-    text-decoration: none;
+    color: var(--gold-bright, #FFE57F);
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     padding: 0.25rem 0.6rem;
     border-radius: 8px;
     white-space: nowrap;
